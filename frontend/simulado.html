@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerotec MMA - Simulado ANAC 20 Questões</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== VARIÁVEIS CSS (Light Mode) ========== */
+        :root {
+            --primary-color: #1a56db;
+            --primary-light: #3b82f6;
+            --secondary-color: #10b981;
+            --danger-color: #dc2626;
+            --warning-color: #f59e0b;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border-color: #e2e8f0;
+            --shadow-color: rgba(0, 0, 0, 0.06);
+            --card-bg: #ffffff;
+            --modal-overlay: rgba(0, 0, 0, 0.5);
+            --success-bg: linear-gradient(135deg, #10b981, #34d399);
+            --warning-bg: linear-gradient(135deg, #f59e0b, #fbbf24);
+            --danger-bg: linear-gradient(135deg, #dc2626, #ef4444);
+            --primary-bg: linear-gradient(135deg, #1a56db, #3b82f6);
+            --transition-speed: 0.3s;
+        }
+
+        /* ========== DARK MODE VARIABLES ========== */
+        .dark-mode {
+            --primary-color: #3b82f6;
+            --primary-light: #60a5fa;
+            --secondary-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --border-color: #475569;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --card-bg: #1e293b;
+            --modal-overlay: rgba(0, 0, 0, 0.7);
+            --success-bg: linear-gradient(135deg, #059669, #10b981);
+            --warning-bg: linear-gradient(135deg, #d97706, #f59e0b);
+            --danger-bg: linear-gradient(135deg, #dc2626, #ef4444);
+            --primary-bg: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        }
+
+        /* ========== RESET E ESTILOS GERAIS ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color var(--transition-speed) ease,
+                        color var(--transition-speed) ease,
+                        border-color var(--transition-speed) ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ========== CABEÇALHO ========== */
+        .header {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--primary-bg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtext {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* ========== CONTROLES DO CABEÇALHO ========== */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
+        }
+
+        .control-btn.active {
+            background: var(--primary-bg);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .control-btn.active.warning {
+            background: var(--warning-bg);
+            border-color: #f59e0b;
+        }
+
+        /* ========== INFORMAÇÕES DO SIMULADO ========== */
+        .simulado-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .timer {
+            background: var(--primary-bg);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(26, 86, 219, 0.2);
+            font-size: 0.95rem;
+        }
+
+        .progress-display {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            background: var(--bg-secondary);
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* ========== CARTÃO DA QUESTÃO ========== */
+        .question-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bg-tertiary);
+        }
+
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .question-topic {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* ========== OPÇÕES DE RESPOSTA ========== */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--text-tertiary);
+            transform: translateX(5px);
+        }
+
+        .option input[type="radio"] {
+            display: none;
+        }
+
+        .option input[type="radio"]:checked + .custom-radio + .option-letter + .option-text {
+            background: var(--success-bg);
+            color: white;
+            border-color: #10b981;
+        }
+
+        .option input[type="radio"]:checked + .custom-radio {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .option input[type="radio"]:checked + .custom-radio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .custom-radio {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            margin-right: 15px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .option-letter {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 12px;
+            min-width: 24px;
+        }
+
+        .option-text {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            flex-grow: 1;
+        }
+
+        /* ========== AÇÕES DA QUESTÃO ========== */
+        .question-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-bg);
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(26, 86, 219, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(59, 130, 246, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* ========== NAVEGAÇÃO INFERIOR ========== */
+        .nav-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ========== NAVEGAÇÃO DO SIMULADO (UMA LINHA SÓ) ========== */
+        .question-nav {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 25px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .progress-numbers {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 8px;
+            padding: 10px 5px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--bg-tertiary);
+        }
+
+        .progress-numbers::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .progress-numbers::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+        }
+
+        .progress-numbers::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .nav-dot {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .nav-dot:hover {
+            background: var(--border-color);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-dot.active {
+            background: var(--primary-bg);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(26, 86, 219, 0.3);
+        }
+
+        .nav-dot.answered {
+            background: var(--success-bg);
+            color: white;
+            border-color: #10b981;
+        }
+
+        .nav-dot.marked {
+            background: var(--warning-bg);
+            color: white;
+            border-color: #f59e0b;
+        }
+
+        .nav-dot.answered.marked {
+            background: linear-gradient(135deg, #10b981, #f59e0b);
+        }
+
+        .status-indicator {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .nav-dot.answered .status-indicator {
+            background: #10b981;
+        }
+
+        .nav-dot.marked .status-indicator {
+            background: #f59e0b;
+        }
+
+        /* ========== BOTÃO FINALIZAR ========== */
+        .btn-finalizar {
+            background: var(--danger-bg);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+        }
+
+        .btn-finalizar:hover {
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        /* ========== MODAL ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--modal-overlay);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-text {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .modal-stats {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .modal-btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .modal-btn-cancel {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+
+        .modal-btn-cancel:hover {
+            background: var(--border-color);
+        }
+
+        .modal-btn-confirm {
+            background: var(--danger-bg);
+            color: white;
+        }
+
+        .modal-btn-confirm:hover {
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+        }
+
+        /* ========== NOTIFICAÇÕES ========== */
+        .notificacao {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s ease-out;
+            max-width: 350px;
+        }
+
+        .notificacao-sucesso { background: var(--success-bg); }
+        .notificacao-erro { background: var(--danger-bg); }
+        .notificacao-aviso { background: var(--warning-bg); }
+        .notificacao-info { background: var(--primary-bg); }
+
+        .fade-out {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 992px) {
+            .header {
+                padding: 15px;
+            }
+            
+            .question-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .logo {
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            .header-controls {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .simulado-info {
+                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-bottom .btn {
+                width: 100%;
+            }
+            
+            .question-actions {
+                flex-direction: column;
+            }
+            
+            .question-actions .btn {
+                width: 100%;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
+            }
+            
+            .modal-btn {
+                width: 100%;
+            }
+            
+            .nav-dot {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .question-card {
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .option {
+                padding: 12px;
+            }
+            
+            .nav-dot {
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- CABEÇALHO -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div>
+                    <div class="logo-text">Aerotec MMA</div>
+                    <div class="logo-subtext">Simulado ANAC - 20 Questões</div>
+                </div>
+            </div>
+            
+            <!-- CONTROLES DO CABEÇALHO -->
+            <div class="header-controls">
+                <button class="control-btn" id="btn-dark-mode" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                    Modo Escuro
+                </button>
+                <button class="control-btn" id="btn-auto-avancar" onclick="toggleAutoAvancar()">
+                    <i class="fas fa-forward"></i>
+                    Auto-Avançar
+                </button>
+            </div>
+            
+            <div class="simulado-info">
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">00:00:00</span>
+                </div>
+                <div class="progress-display">
+                    <i class="fas fa-list-ol"></i>
+                    <span>Questão <span id="current-question">1</span> de 20</span>
+                </div>
+                <button class="btn-finalizar" onclick="abrirModalFinalizar()">
+                    <i class="fas fa-flag-checkered"></i>
+                    Finalizar Prova
+                </button>
+            </div>
+        </header>
+
+        <!-- CARTÃO DA QUESTÃO -->
+        <main class="question-card">
+            <div class="question-header">
+                <span class="question-number" id="question-number">Questão 1</span>
+                <span class="question-topic">ELÉTRICA</span>
+            </div>
+            
+            <p class="question-text" id="question-text">
+                Carregando pergunta...
+            </p>
+            
+            <div class="options" id="options-container">
+                <!-- Opções serão carregadas aqui -->
+            </div>
+            
+            <!-- AÇÕES DA QUESTÃO COM AUTO-AVANÇAR -->
+            <div class="question-actions">
+                <button class="btn btn-secondary" id="btn-marcar" onclick="marcarParaRevisao()">
+                    <i class="fas fa-bookmark"></i>
+                    Marcar para Revisão
+                </button>
+                <button class="btn btn-secondary" onclick="limparResposta()">
+                    <i class="fas fa-eraser"></i>
+                    Limpar Resposta
+                </button>
+                <button class="btn btn-secondary" id="btn-auto-toggle" onclick="toggleAutoAvancar()">
+                    <i class="fas fa-forward"></i>
+                    <span id="auto-avancar-text">Auto-Avançar: OFF</span>
+                </button>
+            </div>
+            
+            <!-- NAVEGAÇÃO INFERIOR -->
+            <div class="nav-bottom">
+                <button class="btn btn-outline" id="btn-anterior" onclick="questaoAnterior()" disabled>
+                    <i class="fas fa-arrow-left"></i>
+                    Anterior
+                </button>
+                <button class="btn btn-primary" id="btn-proxima" onclick="proximaQuestao()">
+                    Próxima
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </main>
+
+        <!-- NAVEGAÇÃO DO SIMULADO (UMA LINHA SÓ) -->
+        <footer class="question-nav">
+            <div class="nav-title">Navegação do Simulado</div>
+            <div class="progress-numbers" id="progress-numbers">
+                <!-- Números 1-20 serão gerados aqui em UMA LINHA -->
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div class="modal" id="modal-finalizar">
+        <div class="modal-content">
+            <h2 class="modal-title">
+                <i class="fas fa-flag-checkered"></i>
+                Finalizar Prova
+            </h2>
+            <p class="modal-text">Tem certeza que deseja finalizar o simulado? Após confirmar, você será redirecionado para a página de resultados.</p>
+            
+            <div class="modal-stats">
+                <div class="stat-item">
+                    <span>Questões respondidas:</span>
+                    <strong><span id="modal-respondidas">0</span>/20</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Tempo decorrido:</span>
+                    <strong><span id="modal-tempo">00:00:00</span></strong>
+                </div>
+                <div class="stat-item">
+                    <span>Questões marcadas:</span>
+                    <strong><span id="modal-marcadas">0</span></strong>
+                </div>
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-cancel" onclick="fecharModal()">
+                    Cancelar
+                </button>
+                <button class="modal-btn modal-btn-confirm" onclick="finalizarSimulado()">
+                    Sim, Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== CONFIGURAÇÃO ==========
+        const CONFIG = {
+            API_BASE_URL: 'http://localhost:3001',
+            TOTAL_QUESTOES: 20,
+            TEMPO_LIMITE: 60 * 60,
+            LOCAL_STORAGE_KEY: 'simulado_anac_estado'
+        };
+
+        // ========== ESTADO GLOBAL ==========
+        let estadoSimulado = {
+            simulado_id: null,
+            perguntas: [],
+            respostas: {},
+            marcadas: new Set(),
+            questaoAtual: 0,
+            tempoInicio: null,
+            tempoDecorrido: 0,
+            tempoInterval: null,
+            materia: null,
+            estadoSalvo: false
+        };
+
+        // ========== ELEMENTOS DOM ==========
+        const elementos = {
+            timer: document.getElementById('timer'),
+            currentQuestion: document.getElementById('current-question'),
+            questionNumber: document.getElementById('question-number'),
+            questionText: document.getElementById('question-text'),
+            optionsContainer: document.getElementById('options-container'),
+            progressNumbers: document.getElementById('progress-numbers'),
+            btnAnterior: document.getElementById('btn-anterior'),
+            btnProxima: document.getElementById('btn-proxima'),
+            btnMarcar: document.getElementById('btn-marcar'),
+            btnDarkMode: document.getElementById('btn-dark-mode'),
+            btnAutoAvancar: document.getElementById('btn-auto-avancar'),
+            btnAutoToggle: document.getElementById('btn-auto-toggle'),
+            autoAvancarText: document.getElementById('auto-avancar-text'),
+            modalFinalizar: document.getElementById('modal-finalizar'),
+            modalRespondidas: document.getElementById('modal-respondidas'),
+            modalTempo: document.getElementById('modal-tempo'),
+            modalMarcadas: document.getElementById('modal-marcadas'),
+            questionTopic: document.querySelector('.question-topic')
+        };
+
+        // ========== FUNÇÕES UTILITÁRIAS ==========
+        class Utils {
+            static formatarTempo(segundos) {
+                const horas = Math.floor(segundos / 3600);
+                const minutos = Math.floor((segundos % 3600) / 60);
+                const segs = segundos % 60;
+                return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segs.toString().padStart(2, '0')}`;
+            }
+
+            static criarElemento(tag, classes = [], atributos = {}) {
+                const elemento = document.createElement(tag);
+                classes.forEach(classe => elemento.classList.add(classe));
+                Object.entries(atributos).forEach(([attr, valor]) => elemento.setAttribute(attr, valor));
+                return elemento;
+            }
+
+            static salvarEstadoLocal() {
+                try {
+                    const estadoParaSalvar = {
+                        ...estadoSimulado,
+                        marcadas: Array.from(estadoSimulado.marcadas),
+                        tempoInicio: Date.now() - (estadoSimulado.tempoDecorrido * 1000)
+                    };
+                    localStorage.setItem(CONFIG.LOCAL_STORAGE_KEY, JSON.stringify(estadoParaSalvar));
+                    estadoSimulado.estadoSalvo = true;
+                } catch (error) {
+                    console.error('Erro ao salvar estado:', error);
+                }
+            }
+
+            static carregarEstadoLocal() {
+                try {
+                    const estadoSalvo = localStorage.getItem(CONFIG.LOCAL_STORAGE_KEY);
+                    if (estadoSalvo) {
+                        const parsed = JSON.parse(estadoSalvo);
+                        parsed.marcadas = new Set(parsed.marcadas);
+                        return parsed;
+                    }
+                } catch (error) {
+                    console.error('Erro ao carregar estado:', error);
+                }
+                return null;
+            }
+
+            static limparEstadoLocal() {
+                localStorage.removeItem(CONFIG.LOCAL_STORAGE_KEY);
+            }
+
+            static exibirNotificacao(mensagem, tipo = 'info', duracao = 3000) {
+                const notificacao = this.criarElemento('div', ['notificacao', `notificacao-${tipo}`]);
+                notificacao.textContent = mensagem;
+                document.body.appendChild(notificacao);
+
+                setTimeout(() => {
+                    notificacao.classList.add('fade-out');
+                    setTimeout(() => notificacao.remove(), 500);
+                }, duracao);
+            }
+
+            static validarResposta(resposta) {
+                return ['A', 'B'].includes(resposta);
+            }
+
+            static calcularPorcentagemCompleta() {
+                const respondidas = Object.keys(estadoSimulado.respostas).length;
+                return Math.round((respondidas / CONFIG.TOTAL_QUESTOES) * 100);
+            }
+        }
+
+        // ========== MODOS (ESCURO/AUTO-AVANÇAR) ==========
+        function toggleDarkMode() {
+            const estaAtivo = document.body.classList.toggle('dark-mode');
+            const icon = elementos.btnDarkMode.querySelector('i');
+            const texto = elementos.btnDarkMode.querySelector('span') || elementos.btnDarkMode;
+            
+            if (estaAtivo) {
+                icon.className = 'fas fa-sun';
+                if (elementos.btnDarkMode.querySelector('span')) {
+                    elementos.btnDarkMode.querySelector('span').textContent = ' Modo Claro';
+                }
+                localStorage.setItem('darkMode', 'true');
+                Utils.exibirNotificacao('Modo escuro ativado', 'info');
+            } else {
+                icon.className = 'fas fa-moon';
+                if (elementos.btnDarkMode.querySelector('span')) {
+                    elementos.btnDarkMode.querySelector('span').textContent = ' Modo Escuro';
+                }
+                localStorage.setItem('darkMode', 'false');
+                Utils.exibirNotificacao('Modo claro ativado', 'info');
+            }
+        }
+
+        function toggleAutoAvancar() {
+            const estaAtivo = localStorage.getItem('autoAvancar') === 'true';
+            const novoEstado = !estaAtivo;
+            
+            localStorage.setItem('autoAvancar', novoEstado.toString());
+            
+            // Atualizar botões
+            const botoes = [elementos.btnAutoAvancar, elementos.btnAutoToggle];
+            botoes.forEach(botao => {
+                if (botao) {
+                    const icon = botao.querySelector('i');
+                    const texto = botao.querySelector('span');
+                    
+                    if (novoEstado) {
+                        botao.classList.add('active', 'warning');
+                        if (icon) icon.className = 'fas fa-forward-fast';
+                        if (texto && texto.id === 'auto-avancar-text') {
+                            texto.textContent = 'Auto-Avançar: ON';
+                        }
+                    } else {
+                        botao.classList.remove('active', 'warning');
+                        if (icon) icon.className = 'fas fa-forward';
+                        if (texto && texto.id === 'auto-avancar-text') {
+                            texto.textContent = 'Auto-Avançar: OFF';
+                        }
+                    }
+                }
+            });
+            
+            Utils.exibirNotificacao(
+                novoEstado ? 'Auto-avanço ATIVADO' : 'Auto-avanço DESATIVADO',
+                novoEstado ? 'aviso' : 'info'
+            );
+        }
+
+        function verificarPreferencias() {
+            // Modo escuro
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                const icon = elementos.btnDarkMode?.querySelector('i');
+                if (icon) icon.className = 'fas fa-sun';
+            }
+            
+            // Auto-avançar
+            if (localStorage.getItem('autoAvancar') === 'true') {
+                const botoes = [elementos.btnAutoAvancar, elementos.btnAutoToggle];
+                botoes.forEach(botao => {
+                    if (botao) {
+                        botao.classList.add('active', 'warning');
+                        const icon = botao.querySelector('i');
+                        const texto = botao.querySelector('span');
+                        if (icon) icon.className = 'fas fa-forward-fast';
+                        if (texto && texto.id === 'auto-avancar-text') {
+                            texto.textContent = 'Auto-Avançar: ON';
+                        }
+                    }
+                });
+            }
+        }
+
+        // ========== CONTROLE DO SIMULADO ==========
+        class ControladorSimulado {
+            static async iniciar() {
+                console.log('🚀 Iniciando simulado...');
+                
+                // Verificar preferências
+                verificarPreferencias();
+                
+                // Verificar se há estado salvo
+                const estadoSalvo = Utils.carregarEstadoLocal();
+                if (estadoSalvo && await this.verificarContinuarSimulado(estadoSalvo)) {
+                    estadoSimulado = estadoSalvo;
+                    estadoSimulado.tempoInicio = Date.now() - (estadoSimulado.tempoDecorrido * 1000);
+                    this.renderizarEstadoSalvo();
+                } else {
+                    await this.carregarNovoSimulado();
+                }
+
+                this.iniciarTemporizador();
+                this.gerarBotoesProgresso();
+                this.carregarQuestao(estadoSimulado.questaoAtual);
+                this.configurarEventListeners();
+                this.configurarProtecaoNavegacao();
+            }
+
+            static async carregarNovoSimulado() {
+                try {
+                    // 1. Obter matéria da URL ou localStorage
+                    const urlParams = new URLSearchParams(window.location.search);
+                    let materia = urlParams.get('materia') || localStorage.getItem('materiaSelecionada');
+                    
+                    if (!materia) {
+                        Utils.exibirNotificacao('Nenhuma matéria selecionada! Redirecionando...', 'erro');
+                        setTimeout(() => window.location.href = 'index.html', 2000);
+                        return;
+                    }
+
+                    estadoSimulado.materia = materia;
+
+                    // 2. Atualizar título da matéria
+                    if (elementos.questionTopic && materia !== 'todas') {
+                        elementos.questionTopic.textContent = materia.toUpperCase();
+                    }
+
+                    // 3. Buscar simulado no servidor
+                    const resposta = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/iniciar?materia=${materia}`);
+                    
+                    if (!resposta.ok) {
+                        throw new Error(`HTTP ${resposta.status}`);
+                    }
+
+                    const data = await resposta.json();
+                    
+                    estadoSimulado.simulado_id = data.simulado_id;
+                    estadoSimulado.perguntas = data.perguntas;
+                    estadoSimulado.tempoInicio = Date.now();
+                    estadoSimulado.tempoDecorrido = 0;
+
+                    console.log('✅ Simulado carregado:', data);
+                    Utils.exibirNotificacao('Simulado iniciado com sucesso!', 'sucesso');
+
+                } catch (error) {
+                    console.error('❌ Erro ao carregar simulado:', error);
+                    
+                    // Fallback para dados de exemplo
+                    if (window.location.hostname === 'localhost') {
+                        Utils.exibirNotificacao('Usando dados de exemplo (modo desenvolvimento)', 'aviso');
+                        await this.carregarDadosExemplo();
+                    } else {
+                        Utils.exibirNotificacao('Erro ao carregar simulado. Tente novamente.', 'erro');
+                        setTimeout(() => window.location.href = 'index.html', 3000);
+                    }
+                }
+            }
+
+            static async carregarDadosExemplo() {
+                estadoSimulado.perguntas = Array.from({ length: 20 }, (_, i) => ({
+                    id: i + 1,
+                    pergunta: `Questão de exemplo ${i + 1} sobre ${estadoSimulado.materia || 'ANAC'}`,
+                    opcoes: {
+                        A: `Alternativa A da questão ${i + 1}`,
+                        B: `Alternativa B da questão ${i + 1}`
+                    },
+                    letra_correta: Math.random() > 0.5 ? 'A' : 'B'
+                }));
+                estadoSimulado.simulado_id = 'exemplo_' + Date.now();
+            }
+
+            static async verificarContinuarSimulado(estadoSalvo) {
+                const tempoPassado = Date.now() - estadoSalvo.tempoInicio;
+                const vinteQuatroHoras = 24 * 60 * 60 * 1000;
+                
+                if (tempoPassado > vinteQuatroHoras) {
+                    Utils.limparEstadoLocal();
+                    return false;
+                }
+
+                return await new Promise(resolve => {
+                    const modal = Utils.criarElemento('div', ['modal-continuar']);
+                    modal.innerHTML = `
+                        <div class="modal-content">
+                            <h3>Simulado em andamento</h3>
+                            <p>Você tem um simulado incompleto de ${Utils.formatarTempo(estadoSalvo.tempoDecorrido)}.</p>
+                            <p>${Object.keys(estadoSalvo.respostas).length} questões respondidas.</p>
+                            <div class="modal-buttons">
+                                <button class="btn btn-secondary" id="btn-novo">Iniciar Novo</button>
+                                <button class="btn btn-primary" id="btn-continuar">Continuar</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    
+                    document.getElementById('btn-novo').addEventListener('click', () => {
+                        modal.remove();
+                        Utils.limparEstadoLocal();
+                        resolve(false);
+                    });
+                    
+                    document.getElementById('btn-continuar').addEventListener('click', () => {
+                        modal.remove();
+                        resolve(true);
+                    });
+                });
+            }
+
+            static renderizarEstadoSalvo() {
+                Utils.exibirNotificacao(`Simulado retomado. ${Object.keys(estadoSimulado.respostas).length} questões respondidas.`, 'info');
+            }
+
+            static iniciarTemporizador() {
+                estadoSimulado.tempoInterval = setInterval(() => {
+                    estadoSimulado.tempoDecorrido++;
+                    
+                    if (elementos.timer) {
+                        elementos.timer.textContent = Utils.formatarTempo(estadoSimulado.tempoDecorrido);
+                    }
+                    
+                    if (estadoSimulado.tempoDecorrido >= CONFIG.TEMPO_LIMITE) {
+                        this.tempoEsgotado();
+                    }
+                    
+                    if (estadoSimulado.tempoDecorrido % 30 === 0) {
+                        Utils.salvarEstadoLocal();
+                    }
+                }, 1000);
+            }
+
+            static tempoEsgotado() {
+                clearInterval(estadoSimulado.tempoInterval);
+                Utils.exibirNotificacao('Tempo esgotado! Finalizando simulado...', 'aviso');
+                setTimeout(() => this.finalizar(), 2000);
+            }
+
+            static gerarBotoesProgresso() {
+                if (!elementos.progressNumbers) return;
+                
+                elementos.progressNumbers.innerHTML = '';
+                
+                for (let i = 0; i < CONFIG.TOTAL_QUESTOES; i++) {
+                    const btn = Utils.criarElemento('div', ['nav-dot'], {
+                        'data-indice': i,
+                        'title': `Questão ${i + 1}`
+                    });
+                    
+                    btn.innerHTML = `
+                        ${i + 1}
+                        <div class="status-indicator"></div>
+                    `;
+                    
+                    btn.addEventListener('click', () => this.carregarQuestao(i));
+                    
+                    elementos.progressNumbers.appendChild(btn);
+                }
+            }
+
+            static carregarQuestao(indice) {
+                if (indice < 0 || indice >= CONFIG.TOTAL_QUESTOES) return;
+                
+                const questao = estadoSimulado.perguntas[indice];
+                if (!questao) return;
+                
+                estadoSimulado.questaoAtual = indice;
+                
+                this.atualizarCabecalhoQuestao(indice, questao);
+                this.atualizarOpcoesResposta(indice, questao);
+                this.atualizarBotoesNavegacao(indice);
+                this.atualizarBotoesAcoes(indice);
+                this.atualizarBotoesProgresso();
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                Utils.salvarEstadoLocal();
+            }
+
+            static atualizarCabecalhoQuestao(indice, questao) {
+                if (elementos.currentQuestion) {
+                    elementos.currentQuestion.textContent = indice + 1;
+                }
+                
+                if (elementos.questionNumber) {
+                    elementos.questionNumber.textContent = `Questão ${indice + 1}`;
+                }
+                
+                if (elementos.questionText) {
+                    elementos.questionText.textContent = questao.pergunta;
+                }
+            }
+
+            static atualizarOpcoesResposta(indice, questao) {
+                if (!elementos.optionsContainer) return;
+                
+                elementos.optionsContainer.innerHTML = '';
+                
+                ['A', 'B'].forEach(letra => {
+                    const label = Utils.criarElemento('label', ['option']);
+                    
+                    const input = Utils.criarElemento('input', [], {
+                        type: 'radio',
+                        name: `q${indice}`,
+                        value: letra,
+                        id: `opcao-${indice}-${letra}`
+                    });
+                    
+                    if (estadoSimulado.respostas[indice] === letra) {
+                        input.checked = true;
+                    }
+                    
+                    input.addEventListener('change', () => this.selecionarResposta(letra));
+                    
+                    const customRadio = Utils.criarElemento('span', ['custom-radio']);
+                    const optionLetter = Utils.criarElemento('span', ['option-letter']);
+                    optionLetter.textContent = letra + '.';
+                    
+                    const optionText = Utils.criarElemento('span', ['option-text']);
+                    optionText.textContent = questao.opcoes[letra] || `Alternativa ${letra}`;
+                    
+                    label.appendChild(input);
+                    label.appendChild(customRadio);
+                    label.appendChild(optionLetter);
+                    label.appendChild(optionText);
+                    elementos.optionsContainer.appendChild(label);
+                });
+            }
+
+            static atualizarBotoesNavegacao(indice) {
+                if (elementos.btnAnterior) {
+                    elementos.btnAnterior.disabled = indice === 0;
+                }
+                
+                if (elementos.btnProxima) {
+                    elementos.btnProxima.disabled = indice === CONFIG.TOTAL_QUESTOES - 1;
+                }
+            }
+
+            static atualizarBotoesAcoes(indice) {
+                if (elementos.btnMarcar) {
+                    const marcada = estadoSimulado.marcadas.has(indice);
+                    elementos.btnMarcar.classList.toggle('active', marcada);
+                    elementos.btnMarcar.innerHTML = marcada 
+                        ? '<i class="fas fa-bookmark"></i> Desmarcar Revisão' 
+                        : '<i class="far fa-bookmark"></i> Marcar para Revisão';
+                }
+            }
+
+            static selecionarResposta(letra) {
+                if (!Utils.validarResposta(letra)) return;
+                
+                estadoSimulado.respostas[estadoSimulado.questaoAtual] = letra;
+                this.atualizarBotoesProgresso();
+                Utils.exibirNotificacao('Resposta registrada!', 'sucesso', 1500);
+                
+                // AUTO-AVANÇAR
+                const autoAvancar = localStorage.getItem('autoAvancar') === 'true';
+                if (autoAvancar && estadoSimulado.questaoAtual < CONFIG.TOTAL_QUESTOES - 1) {
+                    setTimeout(() => this.carregarQuestao(estadoSimulado.questaoAtual + 1), 500);
+                }
+            }
+
+            static marcarParaRevisao() {
+                const indice = estadoSimulado.questaoAtual;
+                
+                if (estadoSimulado.marcadas.has(indice)) {
+                    estadoSimulado.marcadas.delete(indice);
+                    Utils.exibirNotificacao('Questão desmarcada da revisão', 'info', 1500);
+                } else {
+                    estadoSimulado.marcadas.add(indice);
+                    Utils.exibirNotificacao('Questão marcada para revisão', 'sucesso', 1500);
+                }
+                
+                this.atualizarBotoesAcoes(indice);
+                this.atualizarBotoesProgresso();
+                Utils.salvarEstadoLocal();
+            }
+
+            static limparResposta() {
+                delete estadoSimulado.respostas[estadoSimulado.questaoAtual];
+                this.carregarQuestao(estadoSimulado.questaoAtual);
+                Utils.exibirNotificacao('Resposta limpa', 'info', 1500);
+            }
+
+            static atualizarBotoesProgresso() {
+                const botoes = elementos.progressNumbers?.children;
+                if (!botoes) return;
+                
+                for (let i = 0; i < botoes.length; i++) {
+                    const btn = botoes[i];
+                    btn.classList.remove('active', 'answered', 'marked');
+                    
+                    if (i === estadoSimulado.questaoAtual) {
+                        btn.classList.add('active');
+                    }
+                    
+                    if (estadoSimulado.respostas[i] !== undefined) {
+                        btn.classList.add('answered');
+                    }
+                    
+                    if (estadoSimulado.marcadas.has(i)) {
+                        btn.classList.add('marked');
+                    }
+                }
+            }
+
+            static questaoAnterior() {
+                if (estadoSimulado.questaoAtual > 0) {
+                    this.carregarQuestao(estadoSimulado.questaoAtual - 1);
+                }
+            }
+
+            static proximaQuestao() {
+                if (estadoSimulado.questaoAtual < CONFIG.TOTAL_QUESTOES - 1) {
+                    this.carregarQuestao(estadoSimulado.questaoAtual + 1);
+                }
+            }
+
+            static async finalizar() {
+                clearInterval(estadoSimulado.tempoInterval);
+                const respostasArray = this.prepararRespostasParaEnvio();
+                
+                try {
+                    const resultado = await this.enviarRespostasParaCorrecao(respostasArray);
+                    Utils.limparEstadoLocal();
+                    localStorage.setItem('resultado_simulado', JSON.stringify(resultado));
+                    window.location.href = 'resultado.html';
+                    
+                } catch (error) {
+                    console.error('Erro ao finalizar simulado:', error);
+                    const resultadoFallback = this.calcularResultadoLocal(respostasArray);
+                    localStorage.setItem('resultado_simulado', JSON.stringify(resultadoFallback));
+                    window.location.href = 'resultado.html';
+                }
+            }
+
+            static prepararRespostasParaEnvio() {
+                const respostasArray = [];
+                
+                for (let i = 0; i < CONFIG.TOTAL_QUESTOES; i++) {
+                    if (estadoSimulado.respostas[i] !== undefined) {
+                        const pergunta = estadoSimulado.perguntas[i];
+                        const minhaLetra = estadoSimulado.respostas[i];
+                        const meuTexto = pergunta.opcoes[minhaLetra];
+                        const acertou = minhaLetra === pergunta.letra_correta;
+                        
+                        respostasArray.push({
+                            numero: i + 1,
+                            pergunta_id: pergunta.id,
+                            resposta: minhaLetra,
+                            resposta_texto: meuTexto,
+                            resposta_letra: minhaLetra,
+                            correta: acertou,
+                            letra_correta: pergunta.letra_correta,
+                            marcada_revisao: estadoSimulado.marcadas.has(i)
+                        });
+                    }
+                }
+                
+                return respostasArray;
+            }
+
+            static async enviarRespostasParaCorrecao(respostasArray) {
+                const resposta = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/corrigir`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        simulado_id: estadoSimulado.simulado_id,
+                        respostas: respostasArray,
+                        tempo_total: estadoSimulado.tempoDecorrido,
+                        materia: estadoSimulado.materia,
+                        data_realizacao: new Date().toISOString()
+                    })
+                });
+                
+                if (!resposta.ok) {
+                    throw new Error(`HTTP ${resposta.status}`);
+                }
+                
+                return await resposta.json();
+            }
+
+            static calcularResultadoLocal(respostasArray) {
+                const corretas = respostasArray.filter(r => r.correta).length;
+                const porcentagem = Math.round((corretas / CONFIG.TOTAL_QUESTOES) * 100);
+                
+                return {
+                    simulado_id: estadoSimulado.simulado_id,
+                    total_questoes: CONFIG.TOTAL_QUESTOES,
+                    respondidas: respostasArray.length,
+                    corretas,
+                    porcentagem,
+                    tempo_total: estadoSimulado.tempoDecorrido,
+                    materia: estadoSimulado.materia,
+                    respostas: respostasArray,
+                    data: new Date().toISOString(),
+                    modo_offline: true
+                };
+            }
+
+            static configurarEventListeners() {
+                // Shortcuts de teclado
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                    
+                    switch(e.key) {
+                        case 'ArrowLeft': this.questaoAnterior(); break;
+                        case 'ArrowRight': this.proximaQuestao(); break;
+                        case '1': this.selecionarResposta('A'); break;
+                        case '2': this.selecionarResposta('B'); break;
+                        case 'm': case 'M': this.marcarParaRevisao(); break;
+                        case 'Escape': if (elementos.modalFinalizar?.style.display === 'flex') {
+                            this.fecharModal();
+                        } break;
+                        case 'd': case 'D': if (e.ctrlKey) toggleDarkMode(); break;
+                        case 'a': case 'A': if (e.ctrlKey) toggleAutoAvancar(); break;
+                    }
+                });
+                
+                window.addEventListener('beforeunload', (e) => {
+                    if (Object.keys(estadoSimulado.respostas).length > 0 && !estadoSimulado.estadoSalvo) {
+                        Utils.salvarEstadoLocal();
+                        e.preventDefault();
+                        e.returnValue = '';
+                    }
+                });
+            }
+
+            static configurarProtecaoNavegacao() {
+                window.addEventListener('beforeunload', (e) => {
+                    if (Object.keys(estadoSimulado.respostas).length > 0) {
+                        const mensagem = 'Você tem um simulado em andamento. Tem certeza que deseja sair?';
+                        e.returnValue = mensagem;
+                        return mensagem;
+                    }
+                });
+            }
+
+            static abrirModalFinalizar() {
+                const respondidas = Object.keys(estadoSimulado.respostas).length;
+                const marcadas = estadoSimulado.marcadas.size;
+                
+                if (elementos.modalRespondidas) {
+                    elementos.modalRespondidas.textContent = respondidas;
+                }
+                
+                if (elementos.modalMarcadas) {
+                    elementos.modalMarcadas.textContent = marcadas;
+                }
+                
+                if (elementos.modalTempo) {
+                    elementos.modalTempo.textContent = Utils.formatarTempo(estadoSimulado.tempoDecorrido);
+                }
+                
+                if (elementos.modalFinalizar) {
+                    elementos.modalFinalizar.style.display = 'flex';
+                }
+            }
+
+            static fecharModal() {
+                if (elementos.modalFinalizar) {
+                    elementos.modalFinalizar.style.display = 'none';
+                }
+            }
+        }
+
+        // ========== INICIALIZAÇÃO ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('📄 Simulado ANAC Premium carregado');
+            
+            // Iniciar o simulado
+            ControladorSimulado.iniciar().catch(error => {
+                console.error('Erro fatal ao iniciar simulado:', error);
+                Utils.exibirNotificacao('Erro ao iniciar simulado. Recarregue a página.', 'erro');
+            });
+        });
+
+        // ========== FUNÇÕES GLOBAIS PARA HTML ==========
+        window.toggleDarkMode = toggleDarkMode;
+        window.toggleAutoAvancar = toggleAutoAvancar;
+        window.marcarParaRevisao = () => ControladorSimulado.marcarParaRevisao();
+        window.limparResposta = () => ControladorSimulado.limparResposta();
+        window.questaoAnterior = () => ControladorSimulado.questaoAnterior();
+        window.proximaQuestao = () => ControladorSimulado.proximaQuestao();
+        window.abrirModalFinalizar = () => ControladorSimulado.abrirModalFinalizar();
+        window.fecharModal = () => ControladorSimulado.fecharModal();
+        window.finalizarSimulado = () => ControladorSimulado.finalizar();
+        window.ControladorSimulado = ControladorSimulado;
+        window.Utils = Utils;
+    </script>
+</body>
+</html>

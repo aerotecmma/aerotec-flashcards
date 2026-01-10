@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulado – UX Playground</title>
+
+  <!-- CSS EXTERNO -->
+  <link rel="stylesheet" href="assets/css/playground.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="question-counter">Questão 1 de 20</div>
+      <div class="timer">⏱️ 24:59</div>
+    </div>
+
+    <!-- CARD PRINCIPAL -->
+    <div class="card">
+      <div class="question">
+        Em um circuito elétrico em série, o aumento da resistência total provoca:
+      </div>
+
+      <!-- OPÇÕES -->
+      <div class="options">
+        <div class="option" data-option="A">
+          <div class="label">A)</div>
+          <div class="text">A diminuição da corrente elétrica no circuito</div>
+        </div>
+
+        <div class="option" data-option="B">
+          <div class="label">B)</div>
+          <div class="text">O aumento da tensão fornecida pela fonte</div>
+        </div>
+      </div>
+
+      <!-- AÇÕES -->
+      <div class="actions">
+        <div class="left-actions">
+          <button id="markReview">🚩 Marcar para revisão</button>
+          <button id="clearAnswer" class="btn-danger">🧹 Limpar resposta</button>
+        </div>
+
+        <div class="right-actions">
+          <button>⬅️ Anterior</button>
+          <button class="btn-primary">Próxima ➡️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="navigation">
+      <div class="nav-dot active"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <h2>Finalizar simulado?</h2>
+      <p>Você ainda tem questões não respondidas ou marcadas para revisão.</p>
+
+      <div class="modal-actions">
+        <button id="cancelModal">Cancelar</button>
+        <button class="btn-primary">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS DO PLAYGROUND -->
+  <script src="./playground.js"></script>
+</body>
+</html>

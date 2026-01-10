@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTecMMA - Preparatório ANAC</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <style>
+        /* CSS de emergência enquanto carrega */
+        body { margin: 0; font-family: Arial, sans-serif; }
+        .loading { text-align: center; padding: 50px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- CABEÇALHO -->
+        <header class="header">
+            <div class="logo">
+                <h1></h1>
+                <p class="subtitle"></p>
+            </div>
+             
+</header>
+
+
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>AeroTecMMA</h2>
+                <p class="hero-text">
+                    Estudo inteligente, técnico e direto ao ponto, focado na aprovação na banca da ANAC. 
+                    Flashcards Binários. <strong>Apenas duas opções:</strong> uma correta e uma pegadinha. 
+                    fixação rápida, menos fadiga e mais eficiência. Sistema baseado em ciência cognitiva para máxima retenção.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Matérias</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">140+</span>
+                        <span class="stat-label">Questões</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">70%</span>
+                        <span class="stat-label">Aprovação</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELEÇÃO DE MATÉRIA -->
+        <section class="materias-section">
+            <h2 class="section-title">📚 Escolha sua Matéria</h2>
+            <p class="section-subtitle">
+                Selecione uma matéria para gerar um simulado com 20 questões específicas
+            </p>
+            
+            <div class="materias-grid" id="materiasContainer">
+                <!-- Matérias serão carregadas aqui -->
+                <div class="loading" id="loadingMessage">
+                    <p>🔄 Carregando matérias disponíveis...</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p>📝 <strong>Como funciona:</strong> Cada simulado tem 20 questões. 
+                Você precisa acertar pelo menos <strong>14 questões (70%)</strong> 
+                para ser considerado aprovado no teste.</p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 AeroTecMMA - Material de estudo para a ANAC</p>
+            <p class="footer-note">
+                Este site não é afiliado à ANAC. Consulte sempre os regulamentos oficiais.
+            </p>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/home.js"></script>
+    
+    <!-- Script inline de emergência -->
+    <script>
+        console.log('✅ index.html carregado');
+        
+        // Fallback se o JS externo falhar
+        setTimeout(function() {
+            const loading = document.getElementById('loadingMessage');
+            if (loading && document.querySelectorAll('.materia-card').length === 0) {
+                loading.innerHTML = `
+                    <div style="background: #ffeaa7; padding: 20px; border-radius: 10px;">
+                        <h3 style="color: #e17055;">⚠️ JavaScript necessário</h3>
+                        <p>Ative o JavaScript para ver as matérias disponíveis.</p>
+                        <button onclick="location.reload()" style="
+                            background: #667eea; color: white; border: none; 
+                            padding: 10px 20px; border-radius: 5px; cursor: pointer;
+                        ">
+                            ⟳ Tentar Novamente
+                        </button>
+                    </div>
+                `;
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

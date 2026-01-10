@@ -1,0 +1,48 @@
+/* =====================================================
+   ESTILOS GLOBAIS - AEROTECMMA
+   Background com imagem + overlay escuro
+   ===================================================== */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte e corpo */
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    /* IMAGEM + OVERLAY */
+    background-image:
+        linear-gradient(
+            rgba(8, 20, 30, 0.40),
+            rgba(8, 20, 30, 0.50)
+        ),
+        url("../img/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Melhor experiência no desktop */
+    background-attachment: fixed;
+
+    color: #ffffff;
+}
+
+/* Garante que o conteúdo fique acima do background */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: bottom center;
+    }
+}
