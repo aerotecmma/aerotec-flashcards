@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroTecMMA · Treinamento Cognitivo ANAC</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- ================= DESIGN SYSTEM — PREMIUM ================= -->
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --text-soft: #64748b;
+      --border: #e2e8f0;
+      --brand: #1e40af;
+      --brand-soft: #3b82f6;
+
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow-sm: 0 10px 28px rgba(0,0,0,.06);
+      --shadow-lg: 0 22px 60px rgba(0,0,0,.1);
+      --transition: .25s ease;
+    }
+
+    body.dark-mode {
+      --bg: #0b1220;
+      --bg-soft: #0f172a;
+      --card: #111827;
+      --text: #f1f5f9;
+      --text-soft: #94a3b8;
+      --border: #1f2937;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, var(--bg-soft), var(--bg));
+      color: var(--text);
+      min-height: 100vh;
+      transition: var(--transition);
+    }
+
+    h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; }
+
+    .container {
+      max-width: 1080px;
+      margin: auto;
+      padding: 4rem 1.5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ================= TOGGLE ================= */
+    .theme-toggle {
+      position: fixed;
+      top: 22px;
+      right: 22px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .theme-toggle:hover { transform: translateY(-2px); }
+
+    /* ================= HEADER ================= */
+    .header {
+      text-align: center;
+      margin-bottom: 4.5rem;
+      max-width: 720px;
+    }
+
+    .logo h1 {
+      font-size: 3.2rem;
+      letter-spacing: -1.2px;
+      color: var(--brand);
+    }
+
+    .subtitle {
+      margin-top: .4rem;
+      font-size: .75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .tagline {
+      margin-top: 1.4rem;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--text-soft);
+    }
+
+    /* ================= HERO ================= */
+    .hero-minimal {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      line-height: 1.25;
+    }
+
+    .hero-description {
+      margin-top: 1.4rem;
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .hero-footnote {
+      margin-top: 1.8rem;
+      font-size: .8rem;
+      color: var(--text-soft);
+      opacity: .85;
+    }
+
+    .hero-stats {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 2.2rem;
+      padding: 3rem 2.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .stat-label {
+      margin-top: .5rem;
+      font-size: .7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    /* ================= SECTION ================= */
+    .materias-section {
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: .6rem;
+    }
+
+    .section-subtitle {
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    /* ================= GRID & CARDS ================= */
+    .materias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 2.4rem;
+    }
+
+    .materia-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.6rem 2.4rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .materia-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .materia-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: .9rem;
+    }
+
+    .materia-card p {
+      font-size: .95rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    .card-info {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 1.6rem 0 2.1rem;
+      font-size: .8rem;
+      color: var(--text-soft);
+    }
+
+    .btn-iniciar {
+      width: 100%;
+      max-width: 260px;
+      padding: .95rem 1rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--brand), var(--brand-soft));
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: .3px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-iniciar:hover { filter: brightness(1.12); }
+
+    /* ================= LOADING / ERROR ================= */
+    .loading {
+      grid-column: 1 / -1;
+      padding: 4rem 2rem;
+      color: var(--text-soft);
+      font-size: .95rem;
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      margin-top: 6rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text-soft);
+      max-width: 720px;
+    }
+
+    @media(max-width: 768px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .logo h1 { font-size: 2.6rem; }
+      .hero-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+  <i class="fas fa-moon"></i>
+</button>
+
+<div class="container">
+
+  <header class="header">
+    <div class="logo">
+      <h1>AeroTecMMA</h1>
+      <p class="subtitle">Treinamento Cognitivo ANAC</p>
+    </div>
+    <p class="tagline">
+      Sistema de estudo baseado em decisões binárias, redução de fadiga cognitiva
+      e foco absoluto no padrão real da banca.
+    </p>
+  </header>
+
+  <section class="hero-minimal">
+    <h2 class="hero-title">Treinamento cognitivo focado no padrão real da ANAC</h2>
+    <p class="hero-description">
+      Nada de múltipla escolha inflada. Apenas decisões técnicas objetivas,
+      distrações realistas e repetição inteligente.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-number">12</span><span class="stat-label">Matérias</span></div>
+      <div class="stat-item"><span class="stat-number">140+</span><span class="stat-label">Questões</span></div>
+      <div class="stat-item"><span class="stat-number">70%</span><span class="stat-label">Corte</span></div>
+    </div>
+
+    <p class="hero-footnote">
+  Na maioria das reprovações, o problema não é conhecimento — é fadiga cognitiva.<br>
+  Seu cérebro reconhece a resposta correta, mas o excesso de alternativas compromete a tomada de decisão.<br>
+  <strong>Aqui, treinamos exatamente isso: identificar a resposta certa com clareza.</strong>
+</p>
+  </section>
+
+  <section class="materias-section">
+    <h2 class="section-title">Sessões de Treinamento por Matéria</h2>
+    <p class="section-subtitle">
+      Cada sessão contém 20 questões estrategicamente selecionadas para expor
+      armadilhas recorrentes da prova.
+    </p>
+
+    <div class="materias-grid" id="materiasContainer">
+      <div class="loading">Preparando seu ambiente de estudo…</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 AeroTecMMA · Produto educacional independente, sem vínculo institucional com a ANAC.
+  </footer>
+
+</div>
+
+<!-- JS EXISTENTE (NÃO ALTERADO) -->
+<script src="home.js"></script>
+
+<!-- Dark Mode -->
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const icon = toggle.querySelector('i');
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const dark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+  });
+</script>
+
+</body>
+</html>
