@@ -894,7 +894,7 @@
     <script>
         // ========== CONFIGURAÇÃO ==========
         const CONFIG = {
-            API_BASE_URL: 'http://localhost:3001',
+            API_BASE_URL: 'https://aerotec-backend.onrender.com',  // ✅ CORRIGIDO: backend real
             TOTAL_QUESTOES: 20,
             TEMPO_LIMITE: 60 * 60,
             LOCAL_STORAGE_KEY: 'simulado_anac_estado'
@@ -1132,7 +1132,8 @@
                         elementos.questionTopic.textContent = materia.toUpperCase();
                     }
 
-                    // 3. Buscar simulado no servidor
+                    // 3. Buscar simulado no servidor REAL
+                    console.log('📡 Buscando simulado de:', `${CONFIG.API_BASE_URL}/api/simulado/iniciar?materia=${materia}`);
                     const resposta = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/iniciar?materia=${materia}`);
                     
                     if (!resposta.ok) {
@@ -1153,13 +1154,8 @@
                     console.error('❌ Erro ao carregar simulado:', error);
                     
                     // Fallback para dados de exemplo
-                    if (window.location.hostname === 'localhost') {
-                        Utils.exibirNotificacao('Usando dados de exemplo (modo desenvolvimento)', 'aviso');
-                        await this.carregarDadosExemplo();
-                    } else {
-                        Utils.exibirNotificacao('Erro ao carregar simulado. Tente novamente.', 'erro');
-                        setTimeout(() => window.location.href = 'index.html', 3000);
-                    }
+                    Utils.exibirNotificacao('Usando dados de exemplo (modo fallback)', 'aviso');
+                    await this.carregarDadosExemplo();
                 }
             }
 
@@ -1575,6 +1571,7 @@
         // ========== INICIALIZAÇÃO ==========
         document.addEventListener('DOMContentLoaded', () => {
             console.log('📄 Simulado ANAC Premium carregado');
+            console.log('🌐 URL do Backend:', CONFIG.API_BASE_URL);
             
             // Iniciar o simulado
             ControladorSimulado.iniciar().catch(error => {
