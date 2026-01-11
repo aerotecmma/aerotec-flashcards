@@ -2,14 +2,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log('🚀 AeroTecMMA - Página inicial carregada');
     
     try {
-        // 1. Carregar matérias da API
+        // 1. Carregar matérias da API REAL
         const materias = await carregarMaterias();
         
         // 2. Renderizar cards das matérias
         renderizarMaterias(materias);
         
         // 3. Atualizar contador de questões
-        atualizarEstatisticas();
+        atualizarEstatisticas(materias);
         
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
@@ -17,42 +17,104 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-// Função para carregar matérias da API
+// ========== FUNÇÃO PRINCIPAL ATUALIZADA ==========
 async function carregarMaterias() {
     try {
         console.log('📡 Buscando matérias da API...');
         
-        // Temporário: usando dados fixos enquanto a API não está pronta
-        const materiasFake = [
-            { nome: 'Aerodinâmica', codigo: 'aerodinamica', questoes: 20, cor: '#667eea' },
-            { nome: 'Combustíveis e Sistema de combustivel', codigo: 'combustiveis', questoes: 20, cor: '#764ba2' },
-            { nome: 'Comunicação Oral e Escrita', codigo: 'comunicacao', questoes: 20, cor: '#1a2980' },
-            { nome: 'Controle De Corrosão', codigo: 'corrosao', questoes: 20, cor: '#26d0ce' },
-            { nome: 'Desenho Técnico', codigo: 'desenho', questoes: 20, cor: '#ff6b6b' },
-            { nome: 'Eletricidade Básica', codigo: 'eletrica', questoes: 20, cor: '#f59e0b' },
-            { nome: 'Inglês Básico e Técnico', codigo: 'ingles', questoes: 20, cor: '#10b981' },
-            { nome: 'Hélices', codigo: 'helice', questoes: 20, cor: '#10b981' },
-            { nome: 'GMP 1', codigo: 'motores1', questoes: 20, cor: '#10b981' },
-            { nome: 'GMP 2', codigo: 'motores2', questoes: 20, cor: '#10b981' },
-            { nome: 'BÁSICO PREMIUM', codigo: 'basico', questoes: 20, cor: '#667eea' },
-            { nome: 'Apenas Cálculos Elétricos', codigo: 'calculo', questoes: 20, cor: '#1a2980' },
-            { nome: 'Geradores e Motores Elétricos', codigo: 'gerador', questoes: 20, cor: '#1a2980' },
-
-        ];  
+        const API_URL = 'https://aerotec-backend.onrender.com';
         
-        console.log('✅ Matérias carregadas:', materiasFake);
-        return materiasFake;
+        // ✅ CONECTA AO BACKEND REAL (Render)
+        const response = await fetch(`${API_URL}/api/materias`);
         
-        // Quando a API estiver pronta, descomente:
-        // const response = await fetch('http://localhost:3001/api/materias');
-        // if (!response.ok) throw new Error('API não respondeu');
-        // return await response.json();
+        if (!response.ok) {
+            throw new Error(`API respondeu com status ${response.status}`);
+        }
+        
+        const dados = await response.json();
+        console.log('📦 Dados crus da API:', dados);
+        
+        // ✅ CONVERTE strings para objetos completos
+        let materias;
+        if (Array.isArray(dados) && dados.length > 0 && typeof dados[0] === 'string') {
+            // Backend está retornando array de strings (códigos)
+            materias = converterStringsParaMaterias(dados);
+        } else {
+            // Backend já retorna objetos completos
+            materias = dados;
+        }
+        
+        console.log('✅ Matérias processadas:', materias);
+        return materias;
         
     } catch (error) {
-        console.error('❌ Erro ao carregar matérias:', error);
-        throw error;
+        console.error('❌ Erro ao carregar matérias da API:', error);
+        console.log('⚠️ Usando dados locais como fallback');
+        
+        // Fallback: dados locais completos
+        return getMateriasFallback();
     }
 }
+
+// ✅ FUNÇÃO AUXILIAR: Converte array de strings para objetos de matérias
+function converterStringsParaMaterias(codigosArray) {
+    // Mapeamento completo de códigos para informações
+    const mapeamento = {
+        'eletrica': { nome: 'Eletricidade Básica', questoes: 20, cor: '#f59e0b' },
+        'comunicacao': { nome: 'Comunicação Oral e Escrita', questoes: 20, cor: '#1a2980' },
+        'aerodinamica': { nome: 'Aerodinâmica', questoes: 20, cor: '#667eea' },
+        'ingles': { nome: 'Inglês Básico e Técnico', questoes: 20, cor: '#10b981' },
+        'motores1': { nome: 'GMP 1', questoes: 20, cor: '#10b981' },
+        'motores2': { nome: 'GMP 2', questoes: 20, cor: '#10b981' },
+        'helice': { nome: 'Hélices', questoes: 20, cor: '#26d0ce' },
+        'corrosao': { nome: 'Controle De Corrosão', questoes: 20, cor: '#26d0ce' },
+        'desenho': { nome: 'Desenho Técnico', questoes: 20, cor: '#ff6b6b' },
+        'combustiveis': { nome: 'Combustíveis e Sistema de Combustível', questoes: 20, cor: '#764ba2' },
+        'basico': { nome: 'BÁSICO PREMIUM', questoes: 20, cor: '#667eea' },
+        'calculo': { nome: 'Apenas Cálculos Elétricos', questoes: 20, cor: '#1a2980' },
+        'gerador': { nome: 'Geradores e Motores Elétricos', questoes: 20, cor: '#1a2980' },
+        'todas': { nome: 'Todas as Matérias', questoes: 20, cor: '#ff6b6b' }
+    };
+    
+    // Cores para matérias não mapeadas
+    const coresPadrao = ['#667eea', '#764ba2', '#1a2980', '#26d0ce', '#ff6b6b', '#f59e0b', '#10b981'];
+    
+    return codigosArray.map((codigo, index) => {
+        const info = mapeamento[codigo] || {
+            nome: codigo.charAt(0).toUpperCase() + codigo.slice(1).replace(/_/g, ' '),
+            questoes: 20,
+            cor: coresPadrao[index % coresPadrao.length]
+        };
+        
+        return {
+            nome: info.nome,
+            codigo: codigo,
+            questoes: info.questoes,
+            cor: info.cor
+        };
+    });
+}
+
+// ✅ FUNÇÃO AUXILIAR: Dados de fallback
+function getMateriasFallback() {
+    return [
+        { nome: 'Aerodinâmica', codigo: 'aerodinamica', questoes: 20, cor: '#667eea' },
+        { nome: 'Combustíveis e Sistema de combustivel', codigo: 'combustiveis', questoes: 20, cor: '#764ba2' },
+        { nome: 'Comunicação Oral e Escrita', codigo: 'comunicacao', questoes: 20, cor: '#1a2980' },
+        { nome: 'Controle De Corrosão', codigo: 'corrosao', questoes: 20, cor: '#26d0ce' },
+        { nome: 'Desenho Técnico', codigo: 'desenho', questoes: 20, cor: '#ff6b6b' },
+        { nome: 'Eletricidade Básica', codigo: 'eletrica', questoes: 20, cor: '#f59e0b' },
+        { nome: 'Inglês Básico e Técnico', codigo: 'ingles', questoes: 20, cor: '#10b981' },
+        { nome: 'Hélices', codigo: 'helice', questoes: 20, cor: '#10b981' },
+        { nome: 'GMP 1', codigo: 'motores1', questoes: 20, cor: '#10b981' },
+        { nome: 'GMP 2', codigo: 'motores2', questoes: 20, cor: '#10b981' },
+        { nome: 'BÁSICO PREMIUM', codigo: 'basico', questoes: 20, cor: '#667eea' },
+        { nome: 'Apenas Cálculos Elétricos', codigo: 'calculo', questoes: 20, cor: '#1a2980' },
+        { nome: 'Geradores e Motores Elétricos', codigo: 'gerador', questoes: 20, cor: '#1a2980' }
+    ];
+}
+
+// ========== FUNÇÕES EXISTENTES (MANTIDAS) ==========
 
 // Função para renderizar cards das matérias
 function renderizarMaterias(materias) {
@@ -89,10 +151,10 @@ function criarCardMateria(materia) {
     
     card.innerHTML = `
         <h3>${materia.nome}</h3>
-        <p>Simulado completo com 20 questões específicas de ${materia.nome.toLowerCase()}</p>
+        <p>Simulado completo com ${materia.questoes || 20} questões específicas de ${materia.nome.toLowerCase()}</p>
         <div class="card-info">
             <span class="questoes-count">📊 ${materia.questoes || 20} questões</span>
-            <span class="tempo-estimado">⏱️ ~40 minutos</span>
+            <span class="tempo-estimado">⏱️ ~${Math.ceil((materia.questoes || 20) * 2)} minutos</span>
         </div>
         <button class="btn-iniciar" data-codigo="${materia.codigo}" data-nome="${materia.nome}">
             ▶️ Iniciar Simulado
@@ -150,16 +212,29 @@ function iniciarSimulado(codigoMateria, nomeMateria, event) {
     window.location.href = `simulado.html?materia=${codigoMateria}`;
 }
 
-// Função para atualizar estatísticas (futuramente da API)
-function atualizarEstatisticas() {
-    // Futuramente buscar da API: /api/estatisticas
-    const totalQuestoes = 140; // Temporário
+// ✅ ATUALIZADA: Função para atualizar estatísticas
+function atualizarEstatisticas(materias) {
     const estatisticas = document.querySelector('.hero-stats');
     
-    if (estatisticas) {
+    if (estatisticas && materias) {
+        // Total de matérias
+        const materiasItem = estatisticas.querySelector('.stat-item:nth-child(1) .stat-number');
+        if (materiasItem) {
+            materiasItem.textContent = materias.length;
+        }
+        
+        // Total de questões (soma de todas as matérias)
+        const totalQuestoes = materias.reduce((sum, m) => sum + (m.questoes || 20), 0);
         const questaoItem = estatisticas.querySelector('.stat-item:nth-child(2) .stat-number');
         if (questaoItem) {
             questaoItem.textContent = `${totalQuestoes}+`;
+        }
+        
+        // Atualizar porcentagem de corte
+        const corteItem = estatisticas.querySelector('.stat-item:nth-child(3) .stat-number');
+        if (corteItem) {
+            // Lógica para calcular % de corte (pode ajustar depois)
+            corteItem.textContent = '70%';
         }
     }
 }
