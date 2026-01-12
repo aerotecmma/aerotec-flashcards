@@ -2247,6 +2247,86 @@ const perguntas = [
     explicacao: "O teste compara a queda de RPM de cada magneto separadamente, verificando o funcionamento individual de cada um.",
     materia: "revisao"
   },
+  {
+    id: 280,
+    pergunta: "Qual fator contribui para que os combustíveis de jato sejam mais suscetíveis à contaminação do que a gasolina de aviação?",
+    opcao_correta: "A alta viscosidade dos combustíveis de jato aumenta a capacidade em manter contaminantes em suspensão",
+    opcao_errada: "A composição química dos combustíveis de jato atrai naturalmente mais contaminantes",
+    explicacao: "A maior suscetibilidade à contaminação nos combustíveis de jato está relacionada à sua alta viscosidade, que favorece a suspensão e retenção de partículas contaminantes. A composição química não é o fator determinante para essa característica.",
+    materia: "revbasico"
+  },
+  {
+    id: 281,
+    pergunta: "O punção extrator também é chamado de:",
+    opcao_correta: "punção cônico",
+    opcao_errada: "marcador",
+    explicacao: "O punção extrator é uma ferramenta com face plana usada para remover rebites, pinos ou parafusos presos em orifícios. Ele é projetado para evitar a dilatação do objeto durante a extração, sendo também conhecido como 'punção cônico'. O termo 'marcador' refere-se a outro tipo de ferramenta.",
+    materia: "revbasico"
+  },
+  {
+    id: 282,
+    pergunta: "Os plásticos usados em pára-brisas e janelas transparentes de aeronaves são classificados de acordo com a sua:",
+    opcao_correta: "reação ao calor",
+    opcao_errada: "plasticidade",
+    explicacao: "A classificação desses plásticos (como acrílicos) é baseada no comportamento frente ao calor, dividindo-os em termoplásticos (que amolecem com calor e solidificam ao resfriar) e termoendurecidos (que não se alteram com reaquecimento). A plasticidade é uma propriedade física, não o critério de classificação.",
+    materia: "revbasico"
+  },
+  {
+    id: 283,
+    pergunta: "Como é determinado o crescimento da chave colar ou caixa?",
+    opcao_correta: "De extremo a extremo e de chave para chave, acrescentando 1/16",
+    opcao_errada: "De extremo a extremo e de chave para chave, acrescentando 11/16",
+    explicacao: "O tamanho dessas chaves aumenta progressivamente em 1/16 de polegada a cada número sequencial. O valor de 11/16 não corresponde ao padrão de crescimento.",
+    materia: "revbasico"
+  },
+  {
+    id: 284,
+    pergunta: "Durante a verificação pré-voo de um avião monomotor com sistema de duplo magneto, o piloto seleciona a chave em 'DIREITO'. O que o mecânico deve esperar no comportamento do motor?",
+    opcao_correta: "O magneto esquerdo é aterrado, ficando inoperante, enquanto o magneto direito continua ativo e fornece centelha apenas às velas dianteiras de cada cilindro.",
+    opcao_errada: "O magneto direito passa a fornecer centelha a todas as velas, substituindo completamente a função do magneto esquerdo, sem variação no desempenho do motor.",
+    explicacao: "Ao selecionar 'DIREITO', apenas o magneto direito permanece ativo, fornecendo centelha às velas dianteiras, enquanto o magneto esquerdo é aterrado e desligado. Isso causa uma leve queda nas RPM, o que é normal e indica que o sistema está funcionando corretamente. A ausência de queda nas RPM sugeriria falha no aterramento do magneto esquerdo.",
+    materia: "revisao"
+  },
+  {
+    id: 285,
+    pergunta: "Durante operação em 2.100 RPM, uma vela de ignição simples em um cilindro gera quantas centelhas distintas por segundo?",
+    opcao_correta: "Aproximadamente 17 centelhas distintas, observadas como disparos contínuos acima de 3000 °F",
+    opcao_errada: "Aproximadamente 22 centelhas distintas, registradas como ignições consecutivas a 15.000 volts.",
+    explicacao: "Em um motor de 4 tempos, cada cilindro produz uma centelha a cada duas rotações do virabrequim. Portanto, a 2.100 RPM, o número de centelhas por segundo por vela é: (2.100 RPM / 60 segundos) / 2 = 17,5 centelhas/segundo (aproximadamente 17).",
+    materia: "revisao"
+  },
+  {
+    id: 286,
+    pergunta: "Qual é a diferença operacional fundamental entre superalimentadores internos e turboalimentadores nos sistemas de indução de motores alternativos?",
+    opcao_correta: "Superalimentadores internos comprimem a mistura ar/combustível após a carburação, enquanto turboalimentadores comprimem apenas o ar antes da mistura.",
+    opcao_errada: "Superalimentadores internos comprimem o ar antes da carburação, enquanto os turboalimentadores atuam após a carburação.",
+    explicacao: "A diferença fundamental está no ponto de compressão e no que é comprimido. Superalimentadores internos (acionados mecanicamente) são instalados após o carburador, comprimindo a mistura ar-combustível já formada. Turboalimentadores (acionados pelos gases de escapamento) comprimem apenas o ar antes deste entrar no carburador ou no sistema de injeção, aumentando sua densidade para depois se misturar ao combustível.",
+    materia: "revisao"
+  },
+  {
+    id: 287,
+    pergunta: "As posições da chave seletora do magneto que são utilizadas para testar o sistema de ignição dupla:",
+    opcao_correta: "esquerdo e direito",
+    opcao_errada: "esquerdo e ambos",
+    explicacao: "O teste de magnetos é realizado para verificar o funcionamento independente de cada unidade. Para isso, a chave é alternada da posição 'AMBOS' para 'ESQUERDO' e depois para 'DIREITO'. As posições 'ESQUERDO' e 'DIREITO' são usadas para testar se cada magneto funciona isoladamente, causando uma pequena queda nas RPM quando apenas um está ativo. 'AMBOS' é a posição normal de operação.",
+    materia: "revisao"
+  },
+  {
+    id: 288,
+    pergunta: "Nos sistemas de combustível, para proteger a bomba de combustível acionada pelo motor existe o(a):",
+    opcao_correta: "filtro de baixa pressão",
+    opcao_errada: "válvula de derivação",
+    explicacao: "O filtro de baixa pressão é instalado na linha de combustível antes da bomba acionada pelo motor. Sua função é reter impurezas e contaminantes sólidos presentes no combustível, prevenindo danos aos componentes internos da bomba e garantindo um fluxo limpo para o restante do sistema.",
+    materia: "revisao"
+  },
+  {
+    id: 289,
+    pergunta: "Em um motor a pistão o que acontece com a mistura quando a densidade do ar diminui?",
+    opcao_correta: "A mistura torna-se mais rica",
+    opcao_errada: "A mistura torna-se mais pobre",
+    explicacao: "A densidade do ar diminui com o aumento da altitude ou da temperatura. Como a quantidade de combustível injetada tende a permanecer a mesma (em sistemas sem compensação automática), a proporção de combustível em relação ao ar disponível aumenta. Isso resulta em uma mistura mais rica (excesso de combustível em relação ao ar).",
+    materia: "revisao"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
