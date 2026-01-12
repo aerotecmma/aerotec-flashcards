@@ -73,7 +73,8 @@ function converterStringsParaMaterias(codigosArray) {
         'basico': { nome: 'BÁSICO PREMIUM', questoes: 20, cor: '#667eea' },
         'calculo': { nome: 'Apenas Cálculos Elétricos', questoes: 20, cor: '#1a2980' },
         'gerador': { nome: 'Geradores e Motores Elétricos', questoes: 20, cor: '#1a2980' },
-        'todas': { nome: 'Todas as Matérias', questoes: 20, cor: '#ff6b6b' }
+        'todas': { nome: 'Todas as Matérias', questoes: 20, cor: '#ff6b6b' },
+        'revisao': { nome: 'GMP 1 REVISÃO', questoes: 20, cor: '#ff6b6b' }
     };
     
     // Cores para matérias não mapeadas
@@ -107,6 +108,7 @@ function getMateriasFallback() {
         { nome: 'Inglês Básico e Técnico', codigo: 'ingles', questoes: 20, cor: '#10b981' },
         { nome: 'Hélices', codigo: 'helice', questoes: 20, cor: '#10b981' },
         { nome: 'GMP 1', codigo: 'motores1', questoes: 20, cor: '#10b981' },
+        { nome: 'GMP 1 REVISÃO', codigo: 'revisao', questoes: 20, cor: '#ff6b6b' },
         { nome: 'GMP 2', codigo: 'motores2', questoes: 20, cor: '#10b981' },
         { nome: 'BÁSICO PREMIUM', codigo: 'basico', questoes: 20, cor: '#667eea' },
         { nome: 'Apenas Cálculos Elétricos', codigo: 'calculo', questoes: 20, cor: '#1a2980' },
