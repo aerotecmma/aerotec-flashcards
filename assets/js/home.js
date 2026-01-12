@@ -71,6 +71,7 @@ function converterStringsParaMaterias(codigosArray) {
         'desenho': { nome: 'Desenho Técnico', questoes: 20, cor: '#ff6b6b' },
         'combustiveis': { nome: 'Combustíveis e Sistema de Combustível', questoes: 20, cor: '#764ba2' },
         'basico': { nome: 'BÁSICO PREMIUM', questoes: 20, cor: '#667eea' },
+        'revbasico': { nome: 'BÁSICO REVISÃO', questoes: 20, cor: '#667eea' },
         'calculo': { nome: 'Apenas Cálculos Elétricos', questoes: 20, cor: '#1a2980' },
         'gerador': { nome: 'Geradores e Motores Elétricos', questoes: 20, cor: '#1a2980' },
         'todas': { nome: 'Todas as Matérias', questoes: 20, cor: '#ff6b6b' },
@@ -111,6 +112,7 @@ function getMateriasFallback() {
         { nome: 'GMP 1 REVISÃO', codigo: 'revisao', questoes: 20, cor: '#ff6b6b' },
         { nome: 'GMP 2', codigo: 'motores2', questoes: 20, cor: '#10b981' },
         { nome: 'BÁSICO PREMIUM', codigo: 'basico', questoes: 20, cor: '#667eea' },
+        { nome: 'BÁSICO REVISÃO', codigo: 'revbasico', questoes: 20, cor: '#667eea' },
         { nome: 'Apenas Cálculos Elétricos', codigo: 'calculo', questoes: 20, cor: '#1a2980' },
         { nome: 'Geradores e Motores Elétricos', codigo: 'gerador', questoes: 20, cor: '#1a2980' }
     ];
