@@ -2175,6 +2175,78 @@ const perguntas = [
     explicacao: "Este é um conceito de sobreposição de válvulas (valve overlap). A válvula de admissão começa a abrir antes do Pistão Chegar ao Ponto Morto Superior (PMS) do final do curso de exaustão. Isso permite que a nova mistura comece a entrar enquanto o pistão ainda está terminando de expelir os gases queimados, melhorando a 'varredura' e o enchimento do cilindro.",
     materia: "motores1"
   },
+  {
+    id: 271,
+    pergunta: "O indicador da razão de pressão do motor (EPR) recebe sinal de sensores instalados na:",
+    opcao_correta: "Saída da turbina e entrada do compressor",
+    opcao_errada: "Entrada da câmara e saída da turbina",
+    explicacao: "O EPR é a razão entre a pressão total na entrada do compressor e a pressão total na saída da turbina, representando diretamente a potência do motor a reação.",
+    materia: "revisao"
+  },
+  {
+    id: 272,
+    pergunta: "Como precaução operacional, a bomba de combustível auxiliar (booster) deve ser ligada:",
+    opcao_correta: "Em todo o voo",
+    opcao_errada: "Somente na decolagem e no pouso",
+    explicacao: "A bomba booster mantém pressão positiva na linha, evitando vaporização do combustível, principalmente em grandes altitudes.",
+    materia: "revisao"
+  },
+  {
+    id: 273,
+    pergunta: "Nos motores radiais de uma única fileira de cilindros, a sequência correta de queima é:",
+    opcao_correta: "Primeiro os cilindros ímpares, depois os pares, em sequência numérica",
+    opcao_errada: "Sentido horário começando no cilindro superior",
+    explicacao: "Essa ordem garante equilíbrio dinâmico, funcionamento suave e distribuição uniforme da potência no motor radial.",
+    materia: "revisao"
+  },
+  {
+    id: 274,
+    pergunta: "A finalidade do sistema de marcha lenta, na maioria dos carburadores, é:",
+    opcao_correta: "Suprir combustível nas baixas velocidades do motor",
+    opcao_errada: "Aumentar o fluxo de combustível na baixa rotação",
+    explicacao: "Com a borboleta quase fechada, o sistema de marcha lenta fornece combustível suficiente para manter o motor funcionando de forma estável.",
+    materia: "revisao"
+  },
+  {
+    id: 275,
+    pergunta: "A principal diferença entre o taquímetro de motor alternativo e o de motor a reação está:",
+    opcao_correta: "No motor a reação medir a rotação percentual do eixo da turbina",
+    opcao_errada: "No motor a reação medir a rotação do eixo do compressor de alta",
+    explicacao: "Motores a reação indicam rotação em percentual da rotação máxima (N1/N2), e não em RPM direto como nos motores alternativos.",
+    materia: "revisao"
+  },
+  {
+    id: 276,
+    pergunta: "O sistema de ignição que apresenta menor incidência de falhas por fuga elétrica em cablagem é:",
+    opcao_correta: "Magneto de baixa tensão",
+    opcao_errada: "Magneto de alta tensão",
+    explicacao: "No magneto de baixa tensão, a alta tensão percorre apenas pequenos trechos, reduzindo riscos de fuga elétrica nos cabos.",
+    materia: "revisao"
+  },
+  {
+    id: 277,
+    pergunta: "Para evitar contato com fluidos, os fios elétricos devem ser posicionados:",
+    opcao_correta: "Nivelados com ou acima das tubulações",
+    opcao_errada: "Abaixo das tubulações",
+    explicacao: "Essa disposição impede que fluidos escorram sobre os fios, protegendo a isolação elétrica.",
+    materia: "revisao"
+  },
+  {
+    id: 278,
+    pergunta: "No sistema de ignição do motor turbojato, a alta tensão após o retificador é direcionada para o:",
+    opcao_correta: "Capacitor de carga",
+    opcao_errada: "Vela de ignição",
+    explicacao: "O capacitor armazena energia elétrica, que será descarregada posteriormente para gerar uma centelha forte na vela.",
+    materia: "revisao"
+  },
+  {
+    id: 279,
+    pergunta: "As posições da chave seletora utilizadas para testar o sistema de ignição dupla são:",
+    opcao_correta: "Esquerdo e direito",
+    opcao_errada: "Esquerdo e ambos",
+    explicacao: "O teste compara a queda de RPM de cada magneto separadamente, verificando o funcionamento individual de cada um.",
+    materia: "revisao"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
