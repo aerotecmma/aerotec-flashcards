@@ -2487,6 +2487,166 @@ const perguntas = [
     explicacao: "Em inglês técnico/aeronáutico, 'must' indica uma obrigação imperativa, um requisito mandatório. 'Should' indicaria recomendação/conselho. Em procedimentos de manutenção, 'must' significa que a ação é obrigatória para a segurança ou conformidade.",
     materia: "basico"
   },
+  {
+    id: 310,
+    pergunta: "Numa das revisões de um helicóptero foram substituídas as pás do rotor principal porque estavam com o tempo de vida útil vencendo. Neste caso, o tipo de manutenção realizada foi:",
+    opcao_correta: "preventiva",
+    opcao_errada: "corretiva",
+    explicacao: "A manutenção foi preventiva porque as pás foram substituídas antes de falharem, baseando-se no tempo de vida útil estabelecido pelo fabricante. A manutenção corretiva ocorre após uma falha ou defeito. A diferença crucial é que a preventiva age antecipadamente para prevenir problemas, enquanto a corretiva corrige problemas que já ocorreram.",
+    materia: "inspecao"
+  },
+  {
+    id: 311,
+    pergunta: "Inspeções irregulares ou ocasionais resultará?",
+    opcao_correta: "na deterioração gradual ou total da aeronave",
+    opcao_errada: "em um programa de manutenção satisfatório",
+    explicacao: "Inspeções irregulares permitem que pequenos defeitos passem despercebidos e se agravem com o tempo, levando a uma deterioração progressiva da aeronave. A alternativa errada é totalmente oposta à realidade, pois um programa satisfatório exige inspeções regulares e sistemáticas.",
+    materia: "inspecao"
+  },
+  {
+    id: 312,
+    pergunta: "É constituído por folhas de dados que descrevem o projeto do tipo da aeronave e estabelecem as limitações estipuladas pela autoridade aeronáutica:",
+    opcao_correta: "certificado de aprovação de aeronave",
+    opcao_errada: "diretrizes de aeronavegabilidade",
+    explicacao: "O Certificado de Aprovação de Aeronave (CAA) é o documento oficial que contém os dados técnicos do projeto aprovado e as limitações operacionais. As Diretrizes de Aeronavegabilidade (DA) são documentos que notificam sobre condições inseguras e exigem ações corretivas, mas não contêm os dados completos do projeto original.",
+    materia: "inspecao"
+  },
+  {
+    id: 313,
+    pergunta: "As inspeções regularmente programadas são inspeções de caráter:",
+    opcao_correta: "Preventivo",
+    opcao_errada: "Reativo",
+    explicacao: "Inspeções programadas são por definição preventivas, pois são realizadas em intervalos fixos (horas de voo, ciclos, tempo calendário) para prevenir falhas. Reativo é exatamente o oposto - ação tomada após a ocorrência de um problema.",
+    materia: "inspecao"
+  },
+  {
+    id: 314,
+    pergunta: "Num avião que ficou parado (sem voar) durante um grande período de tempo, pode haver troca de componente do mesmo. Qual o sistema de controle usado para essa troca?",
+    opcao_correta: "calendário",
+    opcao_errada: "horas de voo",
+    explicacao: "Quando uma aeronave fica parada por longo tempo, componentes podem deteriorar-se pelo envelhecimento natural (oxidação, ressecamento, etc.), independentemente do uso. Portanto, o controle é por calendário (dias, meses, anos). 'Horas de voo' é para componentes que se desgastam pelo uso, não pelo tempo parado.",
+    materia: "inspecao"
+  },
+  {
+    id: 315,
+    pergunta: "Projetar uma radiação em uma peça, de modo a sensibilizar um filme, é um processo de inspeção por:",
+    opcao_correta: "raio X",
+    opcao_errada: "partículas magnéticas",
+    explicacao: "A descrição é clara do processo radiográfico: radiação penetrante (raios X ou gama) atravessa a peça e sensibiliza um filme do outro lado, criando uma imagem interna. O ensaio por partículas magnéticas usa campo magnético e partículas ferromagnéticas, não envolve radiação nem filme.",
+    materia: "inspecao"
+  },
+  {
+    id: 316,
+    pergunta: "A descontinuidade apresentada em um material durante uma inspeção por partículas magnéticas se deve:",
+    opcao_correta: "ao campo magnético criado na própria peça",
+    opcao_errada: "ao campo magnético que varia em oposição ao campo magnético original",
+    explicacao: "No ensaio por partículas magnéticas, a peça é magnetizada. Descontinuidades (trincas, inclusões) criam pólos magnéticos locais que atraem as partículas ferromagnéticas, formando a indicação. A alternativa errada descreve incorretamente um fenômeno de oposição que não é o princípio básico.",
+    materia: "inspecao"
+  },
+  {
+    id: 317,
+    pergunta: "O princípio básico da inspeção por líquidos penetrantes é:",
+    opcao_correta: "capilar",
+    opcao_errada: "movimento ondulatório",
+    explicacao: "O princípio é a capilaridade - a capacidade do líquido penetrante de ser sugado para dentro de aberturas superficiais muito finas por ação capilar. 'Movimento ondulatório' não tem relação com este ensaio; é um conceito associado a ondas sonoras/ultrassônicas.",
+    materia: "inspecao"
+  },
+  {
+    id: 318,
+    pergunta: "A inspeção utilizando ultra-som como teste de feixe direto e eco-pulso é indicada para localizar:",
+    opcao_correta: "trincas paralelas ao plano da peça",
+    opcao_errada: "corrosão intragranular no interior de peças de liga de alumínio",
+    explicacao: "No feixe direto (perpendicular à superfície), o sinal reflete bem em descontinuidades paralelas ao plano de inspeção. Corrosão intragranular é um tipo de deterioração difusa e de difícil detecção por ultrassom convencional; não é a aplicação principal do feixe direto.",
+    materia: "inspecao"
+  },
+  {
+    id: 319,
+    pergunta: "A inspeção MAGNAGLO é semelhante a de partículas magnéticas e a inspeção é feita sob luz:",
+    opcao_correta: "negra",
+    opcao_errada: "branca",
+    explicacao: "O MagnaGlo usa partículas magnéticas fluorescentes. A inspeção é feita sob luz negra (UV-A) que faz as partículas brilharem intensamente, aumentando a sensibilidade. Luz branca comum não ativaria a fluorescência.",
+    materia: "inspecao"
+  },
+  {
+    id: 320,
+    pergunta: "O documento emitido por uma autoridade de aviação civil destinado a notificar os donos de aeronaves e outros interessados sobre condições inseguras em um produto aeronáutico e orientar sobre as medidas que deverão ser tomadas para que esses produtos possam continuar sendo operados é o (a):",
+    opcao_correta: "diretriz de aeronavegabilidade",
+    opcao_errada: "boletim de serviço",
+    explicacao: "A Diretriz de Aeronavegabilidade (DA) é um documento mandatório emitido pela autoridade (ANAC) para notificar sobre condições inseguras e exigir ações corretivas. O Boletim de Serviço é emitido pelo fabricante e pode conter melhorias ou modificações, mas não tem caráter mandatório como a DA.",
+    materia: "inspecao"
+  },
+  {
+    id: 321,
+    pergunta: "As condições sobre a Segurança do Voo podem ser divididas em duas categorias que são:",
+    opcao_correta: "aquelas de caráter de emergência, exigindo imediato cumprimento após notificação; aquelas de caráter menos urgente, estipulando um prazo para o cumprimento das medidas corretivas",
+    opcao_errada: "obrigatórias e satisfatórias",
+    explicacao: "A divisão correta baseia-se na urgência: condições de emergência (cumprimento imediato) e menos urgentes (prazo estabelecido). 'Obrigatórias e satisfatórias' não é uma classificação oficial para condições de segurança de voo.",
+    materia: "inspecao"
+  },
+  {
+    id: 322,
+    pergunta: "São essenciais para garantir a operação segura das aeronaves e a conformidade com os padrões de segurança estabelecidos. Quando condições comprometedoras são identificadas, os proprietários de aviões e outras partes interessadas são notificados, recebendo orientações sobre as medidas corretivas que devem ser tomadas para garantir a segurança. O texto refere-se a:",
+    opcao_correta: "DIRETRIZES DE AERONAVEGABILIDADE",
+    opcao_errada: "PUBLICAÇÕES",
+    explicacao: "O texto descreve exatamente a função das Diretrizes de Aeronavegabilidade (DA). 'Publicações' é um termo genérico que pode incluir vários documentos, mas não especifica o documento mandatório de notificação de condições inseguras.",
+    materia: "inspecao"
+  },
+  {
+    id: 323,
+    pergunta: "Que tipo de documento é emitido pelo ANAC para notificar os proprietários quanto ao risco à segurança de voo por falha de material ou equipamento:",
+    opcao_correta: "diretriz de aeronavegabilidade",
+    opcao_errada: "boletim de serviço",
+    explicacao: "A ANAC emite Diretrizes de Aeronavegabilidade para notificar sobre riscos à segurança. Boletim de Serviço é do fabricante. Esta é uma confusão comum: a autoridade reguladora emite DAs (mandatórias); o fabricante emite Boletins (recomendações que podem se tornar mandatórias se referendadas pela autoridade).",
+    materia: "inspecao"
+  },
+  {
+    id: 324,
+    pergunta: "Na documentação do avião, o livro de bordo possui uma função central no controle técnico. Qual das alternativas descreve corretamente a abrangência desse documento em relação à manutenção e operação da aeronave?",
+    opcao_correta: "O livro de bordo apresenta histórico de estrutura, motores e acessórios, incluindo inspeções, tempos acumulados e serviços realizados.",
+    opcao_errada: "O livro de bordo fornece exclusivamente informações sobre combustível consumido e horas de voo totais da aeronave.",
+    explicacao: "O Livro de Bordo (Technical Log) é o histórico vivo da aeronave, registrando todos os aspectos técnicos: inspeções, serviços, tempos de componentes, discrepâncias, etc. A alternativa errada reduz erroneamente sua função a apenas dois itens, ignorando sua abrangência completa.",
+    materia: "inspecao"
+  },
+  {
+    id: 325,
+    pergunta: "Especificações 'ATA 100', do sistema Pneumático corresponde a qual capítulo?",
+    opcao_correta: "Capítulo 36",
+    opcao_errada: "Capítulo 45",
+    explicacao: "No sistema de numeração ATA 100, o Capítulo 36 corresponde ao Sistema Pneumático. O Capítulo 45 é para Sistemas de Indicadores e Alertas. É comum confundir com capítulos de sistemas adjacentes.",
+    materia: "inspecao"
+  },
+  {
+    id: 326,
+    pergunta: "De acordo com o sistema de padronização de manuais 'ata100', qual capítulo corresponde o sistema de trem de pouso?",
+    opcao_correta: "Capítulo 32",
+    opcao_errada: "Capítulo 12",
+    explicacao: "O Capítulo 32 da ATA 100 é dedicado ao Trem de Pouso. O Capítulo 12 trata de Servicing (Abastecimento e Serviços) - uma confusão comum por ambos estarem relacionados a operações no solo, mas com funções diferentes.",
+    materia: "inspecao"
+  },
+  {
+    id: 327,
+    pergunta: "Sobre a especificação 'ATA-100', é correto afirmar:",
+    opcao_correta: "Criou um padrão de apresentação de dados técnicos para manuais de aviação Civil",
+    opcao_errada: "Criou uma norma de segurança internacional para procedimentos de manutenção visando a padronização e segurança",
+    explicacao: "A ATA 100 é especificamente um padrão de numeração e estrutura para manuais técnicos na aviação civil. A alternativa errada atribui a ela uma função mais ampla de 'norma de segurança', quando na verdade é uma estrutura de documentação. As normas de segurança são estabelecidas por autoridades como ICAO, FAA, ANAC.",
+    materia: "inspecao"
+  },
+  {
+    id: 328,
+    pergunta: "Qual manual que apresenta as informações específicas do fabricante para realizar reparo de estruturas primária e secundárias?",
+    opcao_correta: "Manual de reparos estruturais",
+    opcao_errada: "Manual de revisão",
+    explicacao: "O Manual de Reparos Estruturais (SRM - Structural Repair Manual) contém as instruções aprovadas pelo fabricante para reparos em estruturas primárias e secundárias. O Manual de Revisão geralmente se refere a um manual de overhaul/inspeção de componentes, não específico para reparos estruturais.",
+    materia: "inspecao"
+  },
+  {
+    id: 329,
+    pergunta: "Havendo necessidade de ser reparada uma chapa da seção da fuselagem, a publicação a ser consultada é o(a):",
+    opcao_correta: "manual de reparos estruturais",
+    opcao_errada: "catálogo ilustrado de peças",
+    explicacao: "Para reparar uma chapa da fuselagem, consulta-se o Manual de Reparos Estruturais que contém os procedimentos aprovados. O Catálogo Ilustrado de Peças (IPC) serve para identificar e solicitar peças, não contém procedimentos de reparo.",
+    materia: "inspecao"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
