@@ -114,7 +114,8 @@ function getMateriasFallback() {
         { nome: 'BÁSICO PREMIUM', codigo: 'basico', questoes: 20, cor: '#667eea' },
         { nome: 'BÁSICO REVISÃO', codigo: 'revbasico', questoes: 20, cor: '#667eea' },
         { nome: 'Apenas Cálculos Elétricos', codigo: 'calculo', questoes: 20, cor: '#1a2980' },
-        { nome: 'Geradores e Motores Elétricos', codigo: 'gerador', questoes: 20, cor: '#1a2980' }
+        { nome: 'Geradores e Motores Elétricos', codigo: 'gerador', questoes: 20, cor: '#1a2980' },
+        { nome: 'Princípios da Inspeção', codigo: 'inspecao', questoes: 20, cor: '#ff6b6b' }
     ];
 }
 
