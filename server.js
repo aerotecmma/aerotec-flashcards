@@ -2327,6 +2327,166 @@ const perguntas = [
     explicacao: "A densidade do ar diminui com o aumento da altitude ou da temperatura. Como a quantidade de combustível injetada tende a permanecer a mesma (em sistemas sem compensação automática), a proporção de combustível em relação ao ar disponível aumenta. Isso resulta em uma mistura mais rica (excesso de combustível em relação ao ar).",
     materia: "revisao"
   },
+  {
+    id: 290,
+    pergunta: "Um conjunto de trem de pouso apresenta rachaduras por fadiga suspeitas. O inspetor decide usar MAGNAGLO sob luz negra. Em termos de ponto de atuação e efeito colateral, qual escolha descreve corretamente o método?",
+    opcao_correta: "Atua predominantemente em descontinuidades superficiais e rasas; o contraste fluorescente acelera a percepção de indicações pequenas, exigindo posterior desmagnetização e lavagem.",
+    opcao_errada: "Atua na superfície e subsuperfície profunda; o brilho neon pode mascarar linhas de força, reduzindo a definição do contorno em descontinuidades abertas.",
+    explicacao: "O método Magnaglo é uma variação do ensaio por partículas magnéticas que utiliza partículas fluorescentes em suspensão líquida. Ele atua principalmente em descontinuidades superficiais e subsuperficiais rasas (não profundas). A fluorescência sob luz negra (UV-A) aumenta sensivelmente o contraste das indicações, facilitando a detecção de pequenas descontinuidades. Após o ensaio, é obrigatória a desmagnetização para eliminar magnetismo residual que poderia atrair partículas metálicas em operação, e a lavagem para remover os resíduos da suspensão fluorescente. A afirmação sobre 'mascarar linhas de força' é incorreta, pois o contraste fluorescente melhora, não prejudica, a definição das indicações.",
+    materia: "basico"
+  },
+  {
+    id: 291,
+    pergunta: "A alimentação de um motor feita por tanque destinado a suprir outro motor é denominada alimentação:",
+    opcao_correta: "cruzada",
+    opcao_errada: "invertida",
+    explicacao: "A alimentação cruzada ocorre quando um tanque de combustível, normalmente designado para suprir um motor específico, é utilizado para alimentar outro motor da aeronave. Isso é comum em situações de emergência ou para balancear o consumo de combustível. 'Alimentação invertida' não é um termo técnico correto no contexto de sistemas de combustível de aeronaves.",
+    materia: "basico"
+  },
+  {
+    id: 292,
+    pergunta: "In what units is impedance measured?",
+    opcao_correta: "In ohms",
+    opcao_errada: "In henry",
+    explicacao: "A impedância (Z) é medida em ohms (Ω), assim como a resistência (R). A impedância representa a oposição total que um circuito oferece ao fluxo de corrente alternada, combinando resistência e reatância. O henry (H) é a unidade de indutância (L), não de impedância.",
+    materia: "basico"
+  },
+  {
+    id: 293,
+    pergunta: "Determine a tensão de saída de um transformador cujo enrolamento primário, de 20 espiras, recebe 220v de tensão. Saiba que o enrolamento secundário desse transformador é formado por 10 espiras:",
+    opcao_correta: "110 v",
+    opcao_errada: "120 v",
+    explicacao: "A relação de transformação é dada por Vp/Vs = Np/Ns, onde Vp = tensão primária (220V), Vs = tensão secundária, Np = número de espiras do primário (20), Ns = número de espiras do secundário (10). Portanto: 220/Vs = 20/10 → 220/Vs = 2 → Vs = 220/2 = 110V.",
+    materia: "basico"
+  },
+  {
+    id: 294,
+    pergunta: "A inspeção utilizando ultra-som com feixe direto e eco-pulso é indicada para:",
+    opcao_correta: "localizar trincas paralelas ao plano da peça",
+    opcao_errada: "localizar trincas perpendiculares ao plano da peça",
+    explicacao: "No método de feixe direto (ou normal), o transdutor emite ondas ultrassônicas perpendicularmente à superfície da peça. Quando encontra uma descontinuidade paralela ao plano da peça (como uma trinca de fadiga horizontal), o sinal é refletido quase totalmente de volta ao transdutor, gerando um eco claro no equipamento. Já para trincas perpendiculares ao plano, o feixe direto tem baixa eficiência, pois a reflexão ocorre em direções que não retornam ao transdutor.",
+    materia: "basico"
+  },
+  {
+    id: 295,
+    pergunta: "Marque a afirmativa que está de acordo com a lei de Boyle:",
+    opcao_correta: "a pressão absoluta e o volume de uma certa quantidade de gás confinado são inversamente proporcionais se a temperatura permanece constante em um sistema fechado",
+    opcao_errada: "a pressão absoluta e o volume de uma certa quantidade de gás confinado são proporcionais se a temperatura permanece constante em um sistema fechado",
+    explicacao: "A Lei de Boyle (Boyle-Mariotte) estabelece que, para uma massa fixa de gás ideal mantida a temperatura constante, o produto da pressão pelo volume é constante: P × V = k. Isso significa que pressão e volume são inversamente proporcionais - se um aumenta, o outro diminui na mesma proporção.",
+    materia: "basico"
+  },
+  {
+    id: 296,
+    pergunta: "Em um helicóptero a sustentação e a tração são obtidas através do:",
+    opcao_correta: "Rotor principal",
+    opcao_errada: "Rotor de cauda",
+    explicacao: "No helicóptero, o rotor principal é responsável por gerar tanto a sustentação (para voar) quanto a tração (para se deslocar horizontalmente), através da variação cíclica e coletiva do passo das pás. O rotor de cauda serve apenas para compensar o torque do rotor principal e controlar a guinada (direção), não gerando sustentação ou tração significativas para o voo.",
+    materia: "basico"
+  },
+  {
+    id: 297,
+    pergunta: "A temperatura ideal pra a cura da maioria dos selantes é de?",
+    opcao_correta: "22°",
+    opcao_errada: "ambiente",
+    explicacao: "A temperatura específica de 22°C (71,6°F) é considerada ideal para a cura da maioria dos selantes aeronáuticos porque nesta temperatura as reações químicas de polimerização ocorrem no ritmo adequado, garantindo propriedades mecânicas ótimas. 'Ambiente' é enganoso porque a temperatura ambiente pode variar muito, o que afetaria drasticamente o tempo e a qualidade da cura.",
+    materia: "basico"
+  },
+  {
+    id: 298,
+    pergunta: "Qual nome dado a chave de boca em inglês?",
+    opcao_correta: "Open-end wrench",
+    opcao_errada: "Open -tall- rench",
+    explicacao: "'Open-end wrench' é o termo técnico correto para chave de boca (aquela com aberturas paralelas nas extremidades). A alternativa errada apresenta um erro comum de pronúncia/grafia.",
+    materia: "basico"
+  },
+  {
+    id: 299,
+    pergunta: "Nos termos da aplicação territorial do Código Brasileiro de Aeronáutica (Lei nº 7.565/1986), em qual cenário o CBA se estende ao espaço aéreo internacional?",
+    opcao_correta: "Quando a aeronave estiver registrada no Brasil, mesmo que esteja operando além dos limites do território nacional.",
+    opcao_errada: "Sempre que a aeronave estiver voando em espaço aéreo internacional, independentemente de sua origem ou destino.",
+    explicacao: "O CBA aplica-se pelo princípio da nacionalidade da aeronave, ou seja, às aeronaves brasileiras onde quer que estejam. Não se aplica a aeronaves estrangeiras no espaço aéreo internacional, que ficam sujeitas às leis de seu país de registro e aos tratados internacionais.",
+    materia: "basico"
+  },
+  {
+    id: 300,
+    pergunta: "Em um voo internacional, uma aeronave sofre pane em rota e desaparece do radar. Qual anexo da ICAO estabelece os padrões para a organização e a execução de operações de busca e salvamento?",
+    opcao_correta: "No Anexo 12, que trata especificamente de serviços de busca e salvamento para aeronaves em perigo ou desaparecidas.",
+    opcao_errada: "O Anexo 13 dedica-se especialmente à normatização dos serviços de busca e resgate para aeronaves em condições de risco ou desaparecimento.",
+    explicacao: "O Anexo 12 da ICAO é intitulado 'Busca e Salvamento' e estabelece todos os padrões para organização, coordenação e execução de operações SAR. O Anexo 13 trata de 'Investigação de Acidentes e Incidentes de Aeronaves', sendo uma confusão comum pensar que ele também cobre o resgate.",
+    materia: "basico"
+  },
+  {
+    id: 301,
+    pergunta: "O punção extrator também é chamado de:",
+    opcao_correta: "punção cônico",
+    opcao_errada: "punção de centro",
+    explicacao: "O punção extrator possui uma ponta plana (não cônica) e é usado para remover pinos, rebites ou parafusos presos sem expandi-los. É chamado de 'punção cônico' por sua forma geral. O 'punção de centro' tem ponta afiada e serve para marcar centros de furação.",
+    materia: "basico"
+  },
+  {
+    id: 302,
+    pergunta: "O eletrólito é uma solução que permite a Passagem de elétrons entre as placas de uma bateria. O eletrólito usado nas baterias de níquel-cádmio é uma solução de:",
+    opcao_correta: "30% de hidróxido de potássio em água destilada",
+    opcao_errada: "30% de hidróxido de cádmio em água Desmineralizada",
+    explicacao: "As baterias Ni-Cd utilizam hidróxido de potássio (KOH) como eletrólito, geralmente a 30% de concentração. O cádmio é o material do eletrodo negativo, não do eletrólito.",
+    materia: "basico"
+  },
+  {
+    id: 303,
+    pergunta: "As linhas de força invisíveis que deixam um ímã em um ponto e entram em outro ponto são conhecidas como:",
+    opcao_correta: "linhas de força",
+    opcao_errada: "densidade de fluxo",
+    explicacao: "As 'linhas de força' ou 'linhas de campo magnético' são as linhas imaginárias que representam a direção e intensidade do campo magnético, saindo do polo norte e entrando no polo sul. 'Densidade de fluxo' (B) é uma medida quantitativa da intensidade do campo magnético, não o nome das linhas em si.",
+    materia: "basico"
+  },
+  {
+    id: 304,
+    pergunta: "O que pode resultar se água for adicionada a uma bateria de níquel-cádmio quando ela não está completamente carregada?",
+    opcao_correta: "É provável que ocorra excesso de respingos durante o ciclo de carga",
+    opcao_errada: "Diluição excessiva do eletrólito",
+    explicacao: "Em baterias Ni-Cd, o nível do eletrólito varia com o estado de carga: mais baixo quando descarregada (eletrólito absorvido pelas placas), mais alto quando carregada. Se adicionar água com a bateria descarregada, quando ela carregar e o eletrólito expandir, transbordará. A 'diluição' não é o problema principal; o problema é o transbordamento de eletrólito corrosivo.",
+    materia: "basico"
+  },
+  {
+    id: 305,
+    pergunta: "Um mecânico de manutenção licenciado pela ANAC, habilitado em célula e grupo motopropulsor, está autorizado a aprovar o retorno ao serviço de uma aeronave de aeroclube após uma inspeção de 100 horas. Qual das condições a seguir é obrigatória para essa autorização?",
+    opcao_correta: "O mecânico precisa estar cadastrado na ANAC e a aeronave deve ser utilizada em operações não comerciais ou de instrução, sem organização de manutenção certificada",
+    opcao_errada: "O mecânico deve possuir registro junto à ANAC e a aeronave deve estar sob a regulamentação do RBAC 121 ou 135",
+    explicacao: "Conforme RBAC 43, para inspeções de 100 horas em aeroclubes, o mecânico precisa: 1) Ter habilitação em célula e GMP; 2) Estar cadastrado na ANAC; 3) A aeronave deve ser de aeroclube ou entidade governamental SEM organização de manutenção certificada (RBAC 145). A alternativa errada menciona RBAC 121/135 (aviação comercial), onde as regras são muito mais restritivas.",
+    materia: "basico"
+  },
+  {
+    id: 306,
+    pergunta: "Uma aeronave tem um peso vazio de 950 libras. Se o peso bruto máximo permitido na categoria normal for 1800 libras e na categoria utilitária for 1600 libras, qual será a carga útil para cada categoria?",
+    opcao_correta: "850 libras na categoria normal e 650 libras na categoria utilitária",
+    opcao_errada: "950 libras em ambas as categorias, pois o peso vazio não influencia a carga útil",
+    explicacao: "Carga útil = Peso bruto máximo - Peso vazio. Normal: 1800 - 950 = 850 lbs. Utilitária: 1600 - 950 = 650 lbs. O peso vazio É SUBTRAÍDO do peso bruto para calcular a carga útil - é exatamente o fator determinante!",
+    materia: "basico"
+  },
+  {
+    id: 307,
+    pergunta: "Com algumas instalações de motores elétricos, a corrente de partida é tão alta que ela poderia superaquecer e danificar a fiação ou a armadura. Para evitar esse problema pode-se usar:",
+    opcao_correta: "Uma resistência no circuito até que o motor ganhe velocidade",
+    opcao_errada: "Um comutador de alta velocidade",
+    explicacao: "A corrente de partida pode ser 5-10 vezes maior que a corrente nominal. Colocar uma resistência em série limita essa corrente inicial. Quando o motor atinge certa velocidade (e sua força contra-eletromotriz aumenta), a resistência é curto-circuitada. Um 'comutador de alta velocidade' não resolve este problema específico de corrente de partida.",
+    materia: "basico"
+  },
+  {
+    id: 308,
+    pergunta: "Além de outros materiais, o pára-brisa de aeronave é confeccionado em material do tipo:",
+    opcao_correta: "plástico",
+    opcao_errada: "silicone",
+    explicacao: "Os pára-brisas de aeronaves são feitos de plásticos acrílicos (como PMMA - polimetilmetacrilato) ou policarbonato, que oferecem transparência, resistência a impactos e facilidade de conformação aerodinâmica. Silicone é um material de vedação/encaixe, não estrutural para pára-brisas.",
+    materia: "basico"
+  },
+  {
+    id: 309,
+    pergunta: "Na sentença Before installation, you must examine the gaskets already used to make sure that they are serviceable, a palavra Must indica?",
+    opcao_correta: "Obrigação",
+    opcao_errada: "Conselho",
+    explicacao: "Em inglês técnico/aeronáutico, 'must' indica uma obrigação imperativa, um requisito mandatório. 'Should' indicaria recomendação/conselho. Em procedimentos de manutenção, 'must' significa que a ação é obrigatória para a segurança ou conformidade.",
+    materia: "basico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
