@@ -75,7 +75,8 @@ function converterStringsParaMaterias(codigosArray) {
         'calculo': { nome: 'Apenas Cálculos Elétricos', questoes: 20, cor: '#1a2980' },
         'gerador': { nome: 'Geradores e Motores Elétricos', questoes: 20, cor: '#1a2980' },
         'todas': { nome: 'Todas as Matérias', questoes: 20, cor: '#ff6b6b' },
-        'revisao': { nome: 'GMP 1 REVISÃO', questoes: 20, cor: '#ff6b6b' }
+        'revisao': { nome: 'GMP 1 REVISÃO', questoes: 20, cor: '#ff6b6b' },
+        'inspecao': { nome: 'Princípios da Inspeção', questoes: 20, cor: '#ff6b6b' },
     };
     
     // Cores para matérias não mapeadas
@@ -115,7 +116,7 @@ function getMateriasFallback() {
         { nome: 'BÁSICO REVISÃO', codigo: 'revbasico', questoes: 20, cor: '#667eea' },
         { nome: 'Apenas Cálculos Elétricos', codigo: 'calculo', questoes: 20, cor: '#1a2980' },
         { nome: 'Geradores e Motores Elétricos', codigo: 'gerador', questoes: 20, cor: '#1a2980' },
-        { nome: 'Princípios da Inspeção', codigo: 'inspecao', questoes: 20, cor: '#ff6b6b' }
+        { nome: 'Princípios da Inspeção', codigo: 'inspecao', questoes: 20, cor: '#ff6b6b' },
     ];
 }
 
