@@ -2647,6 +2647,70 @@ const perguntas = [
     explicacao: "Para reparar uma chapa da fuselagem, consulta-se o Manual de Reparos Estruturais que contém os procedimentos aprovados. O Catálogo Ilustrado de Peças (IPC) serve para identificar e solicitar peças, não contém procedimentos de reparo.",
     materia: "inspecao"
   },
+  {
+     id: 330,
+    pergunta: "Por que os combustíveis de jato não podem ser identificados visualmente?",
+    opcao_correta: "Porque variam de incolores a cor de palha (âmbar), dependendo da idade e origem do petróleo cru",
+    opcao_errada: "Porque são sempre incolores e transparentes",
+    explicacao: "Os combustíveis de jato não têm corantes adicionados. Sua cor varia naturalmente conforme a origem do petróleo e tempo de armazenamento, podendo ser desde incolores até âmbar. AVGAS tem cores específicas (púrpura, verde, azul) por adição de corantes, mas o combustível de jato não.",
+    materia: "revbasico"
+  },
+  {
+    id: 331,
+    pergunta: "Qual é o principal efeito do atrito entre o ar e a superfície de uma asa durante o voo?",
+    opcao_correta: "O atrito reduz a velocidade do ar próximo à superfície, formando uma camada limite de baixa velocidade.",
+    opcao_errada: "O atrito aumenta a velocidade do fluxo de ar sobre a asa, diminuindo o arrasto e ampliando a sustentação.",
+    explicacao: "O atrito faz com que as moléculas de ar em contato com a superfície fiquem quase paradas, criando uma camada limite com velocidade gradativa. Isso gera arrasto de fricção, não aumenta a velocidade nem a sustentação.",
+    materia: "revbasico"
+  },
+  {
+    id: 332,
+    pergunta: "Em uma aeronave equipada com um sistema de alimentação por pressão, qual das situações abaixo pode exigir o uso das bombas auxiliares?",
+    opcao_correta: "Durante a partida do motor e para suprir combustível ao sistema de injetores",
+    opcao_errada: "Para manter a pressão de combustível quando a aeronave estiver no solo, antes do reabastecimento",
+    explicacao: "Bombas auxiliares (elétricas) são usadas principalmente para fornecer pressão durante a partida, decolagem, pouso, e para alimentar injetores. Não são específicas para reabastecimento.",
+    materia: "revbasico"
+  },
+  {
+    id: 333,
+    pergunta: "Marque abaixo a característica do flap tipo fowler:",
+    opcao_correta: "São um tipo de flap com fenda. Esse design de flap não apenas muda a curvatura da asa, mas também aumenta a área da asa. Em vez de girar para baixo em uma dobradiça, ele desliza para trás em trilhos.",
+    opcao_errada: "Trata-se de uma variação de flap simples que possui abertura. Este modelo não só altera o formato curvo da asa como também amplia sua superfície. Diferentemente de outros tipos que se movimentam para trás através de uma articulação, este se desloca para baixo utilizando um sistema de trilhos.",
+    explicacao: "O flap Fowler se desloca para trás em trilhos, aumentando a área da asa, e depois se inclina para baixo. A alternativa errada descreve incorretamente o movimento ('desloca para baixo').",
+    materia: "revbasico"
+  },
+  {
+    id: 334,
+    pergunta: "Um conjunto de trem de pouso apresenta rachaduras por fadiga suspeitas. O inspetor decide usar MAGNAGLO sob luz negra. Em termos de ponto de atuação e efeito colateral, qual escolha descreve corretamente o método?",
+    opcao_correta: "Atua predominantemente em descontinuidades superficiais e rasas; o contraste fluorescente acelera a percepção de indicações pequenas, exigindo posterior desmagnetização e lavagem.",
+    opcao_errada: "Atua apenas em cavidades internas profundas; o uso de óleo fluorescente dispensa desmagnetização, evitando retenção de partículas.",
+    explicacao: "Magnaglo é um método de partículas magnéticas fluorescentes que detecta principalmente descontinuidades superficiais e rasas. Requer desmagnetização e limpeza após o uso. Não é para cavidades profundas nem dispensa desmagnetização.",
+    materia: "revbasico"
+  },
+  {
+    id: 335,
+    pergunta: "Qual dos punções abaixo é utilizada para fazer marcas de referência no metal?",
+    opcao_correta: "bico",
+    opcao_errada: "vazador",
+    explicacao: "O punção de bico (ou de marcação) é usado para fazer pequenas marcas de referência no metal, como para transferir medidas de um desenho. O vazador é para outros fins, como abrir furos iniciais.",
+    materia: "revbasico"
+  },
+  {
+    id: 336,
+    pergunta: "A distância compreendida entre os limites dianteiro e traseiro do c.g., conforme indicado na Especificação da Aeronave é o passeio:",
+    opcao_correta: "Operacional",
+    opcao_errada: "Máximo",
+    explicacao: "O passeio operacional do CG é a distância entre os limites dianteiro e traseiro permitidos para operação da aeronave. 'Máximo' se refere a outras características (como peso), não ao CG.",
+    materia: "revbasico"
+  },
+  {
+    id: 337,
+    pergunta: "Deseja-se construir um voltímetro com escala de 0-10 volts, mas tudo de que se dispõe é um miliamperímetro com escala de 0-1 miliampère e resistência interna de 50 ohms. Para fazer o voltímetro desejado, é necessário ligar um resistor de:",
+    opcao_correta: "9.950 ohms em série",
+    opcao_errada: "05 ohms em paralelo",
+    explicacao: "Para medir tensão, coloca-se um resistor em série com o amperímetro (multiplier). Cálculo: Para 10V e corrente máxima de 1mA (0,001A), pela Lei de Ohm: R_total = 10V / 0,001A = 10.000 Ω. Subtrai a resistência interna (50 Ω): 10.000 - 50 = 9.950 Ω em série.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
