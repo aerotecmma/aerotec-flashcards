@@ -2711,6 +2711,54 @@ const perguntas = [
     explicacao: "Para medir tensão, coloca-se um resistor em série com o amperímetro (multiplier). Cálculo: Para 10V e corrente máxima de 1mA (0,001A), pela Lei de Ohm: R_total = 10V / 0,001A = 10.000 Ω. Subtrai a resistência interna (50 Ω): 10.000 - 50 = 9.950 Ω em série.",
     materia: "revbasico"
   },
+  {
+     id: 338,
+    pergunta: "Qual RBAC trata sobre Pessoas autorizadas a executar manutenção, manutenção preventiva, reconstrução e alteração em artigo aeronáutico?",
+    opcao_correta: "D RBAC 43",
+    opcao_errada: "C RBAC 65",
+    explicacao: "O RBAC 43 ('Manutenção, Reconstrução e Alteração de Aeronave') define quem está autorizado a realizar manutenção e alterações. O RBAC 65 trata de certificação de pessoal (mecânicos, pilotos), mas a autorização específica para executar o trabalho está no RBAC 43.",
+    materia: "revbasico"
+  },
+  {
+    id: 339,
+    pergunta: "Em uma aeronave, o ângulo agudo formado pela corda da asa e o eixo longitudinal da aeronave é chamado de:",
+    opcao_correta: "D Ângulo de incidência",
+    opcao_errada: "C Ângulo de ataque",
+    explicacao: "Ângulo de incidência: ângulo fixo entre a corda da asa e o eixo longitudinal da aeronave (projeto da aeronave). Ângulo de ataque: ângulo variável entre a corda da asa e o vetor vento relativo (depende da atitude da aeronave).",
+    materia: "revbasico"
+  },
+  {
+    id: 340,
+    pergunta: "A liga 2024 é formada por alumínio e:",
+    opcao_correta: "C Cobre",
+    opcao_errada: "D Magnésio e silício",
+    explicacao: "A liga 2024 é uma liga de alumínio-cobre (principalmente cobre, com magnésio e manganês). A liga que contém magnésio e silício é a 6061.",
+    materia: "revbasico"
+  },
+  {
+    id: 341,
+    pergunta: "Um ciclo representa:",
+    opcao_correta: "C Duas reversões completas de direção.",
+    opcao_errada: "A Quatro reversões completas de direção.",
+    explicacao: "Um ciclo em aeronáutica (para análise de fadiga) é definido como duas reversões completas de tensão (de tração para compressão e volta). Exemplo: uma decolagem + pouso = 1 ciclo.",
+    materia: "revbasico"
+  },
+  {
+    id: 342,
+    pergunta: "Em um sistema de extinção de fogo, que utiliza as garrafas de dióxido de carbono, equipadas com tubos sifão reto e rígido, as garrafas devem ser instaladas na posição vertical observa-se que o tubo sifão reto e rígido tem uma tolerância de inclinação de quantos graus?",
+    opcao_correta: "B De 60º",
+    opcao_errada: "A De 90º",
+    explicacao: "Garrafas de CO₂ com tubo sifão reto e rígido devem ser instaladas na vertical, com tolerância máxima de 60º de inclinação. Isso garante que o CO₂ líquido seja expelido adequadamente quando acionado.",
+    materia: "revbasico"
+  },
+  {
+    id: 343,
+    pergunta: "No exemplo: 'The airplane can carry 100 passengers.' O verbo CAN significa:",
+    opcao_correta: "C Possibilidade",
+    opcao_errada: "B limitação",
+    explicacao: "Na frase, 'can' indica capacidade/possibilidade (pode transportar). 'Limitação' seria expressa por 'cannot' ou 'only'. Em aviação, 'can' frequentemente descreve capacidade operacional.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
