@@ -2759,6 +2759,86 @@ const perguntas = [
     explicacao: "Na frase, 'can' indica capacidade/possibilidade (pode transportar). 'Limitação' seria expressa por 'cannot' ou 'only'. Em aviação, 'can' frequentemente descreve capacidade operacional.",
     materia: "revbasico"
   },
+  {
+    id: 348,
+    pergunta: "Elemento mais indicado e utilizado para proteger o aço contra a corrosão e desgaste?",
+    opcao_correta: "Zinco e Cromo",
+    opcao_errada: "Níquel cádmio",
+    explicacao: "O zinco é o principal elemento usado na proteção do aço contra corrosão porque atua como ânodo de sacrifício. Isso significa que, mesmo se o revestimento for danificado, o zinco se corrói no lugar do aço, protegendo o metal base. O cromo, embora seja muito resistente ao desgaste e dê acabamento superficial, não protege galvanicamente o aço quando há falhas no revestimento. Ele funciona apenas como barreira física. A alternativa Níquel cádmio confunde porque o níquel também é usado como revestimento em alguns contextos, mas não é o principal método anticorrosivo do aço na indústria aeronáutica, nem atua como ânodo de sacrifício como o zinco.",
+    materia: "revbasico"
+  },
+  {
+    id: 349,
+    pergunta: "Forma aerodinâmica que provoca uma reação útil quando se deslocando no ar:",
+    opcao_correta: "Aerofólio",
+    opcao_errada: "Superfície aerodinâmica",
+    explicacao: "Um aerofólio é uma forma aerodinâmica projetada especificamente para transformar o escoamento do ar em força útil, como sustentação ou tração (exemplos: asa, pá de hélice, rotor). Já superfície aerodinâmica é um termo genérico, que inclui várias partes da aeronave, inclusive superfícies que não geram força útil, como carenagens. A palavra-chave 'reação útil no ar' indica diretamente aerofólio.",
+    materia: "revbasico"
+  },
+  {
+    id: 350,
+    pergunta: "Qual a principal característica que distingue o funcionamento de um compensador antiservo em relação à guia de balanceamento tradicional?",
+    opcao_correta: "O compensador antiservo se move na mesma direção da superfície de controle, aumentando a resistência ao movimento.",
+    opcao_errada: "O compensador antiservo se move na direção oposta, aliviando a força aplicada no manche de comando.",
+    explicacao: "A guia de balanceamento (trim/tab) move-se em sentido oposto para aliviar esforço. O compensador antiservo move-se no mesmo sentido da superfície de controle. Esse movimento aumenta a resistência nos comandos, deixando o controle mais 'pesado' e evitando sobrecontrole, principalmente em estabilizadores totalmente móveis. Resumo: Antiservo = anti-sensibilidade; Mesmo sentido = mais esforço.",
+    materia: "revbasico"
+  },
+  {
+    id: 351,
+    pergunta: "Em um parafuso do tipo 1-14NF o número 14 significa?",
+    opcao_correta: "O número de fios de rosca, em cada polegada da parte rosqueada",
+    opcao_errada: "O comprimento total do parafuso em milímetros",
+    explicacao: "A designação 1-14NF significa: 1 → diâmetro nominal (em polegadas); 14 → número de fios de rosca por polegada; NF → National Fine (rosca fina). Comprimento nunca aparece nessa nomenclatura. É uma pegadinha comum tentar confundir rosca com comprimento.",
+    materia: "revbasico"
+  },
+  {
+    id: 352,
+    pergunta: "Na frase “Fui a a área de manutenção”, apresenta qual vício de linguagem?",
+    opcao_correta: "Colisão",
+    opcao_errada: "Barbarismo",
+    explicacao: "Colisão ocorre quando há repetição desagradável de sons iguais, normalmente vogais ou consoantes consecutivas. Exemplo: 'Fui a a área' - som repetido da vogal 'a', gerando ruído fonético. Barbarismo é erro gramatical ou uso inadequado da língua (ex: 'menas', 'concerteza'), o que não ocorre aqui.",
+    materia: "revbasico"
+  },
+  {
+    id: 353,
+    pergunta: "Quando ligamos duas baterias em série:",
+    opcao_correta: "Somamos as tensões (DDP ou V) e não alteramos a corrente (A)",
+    opcao_errada: "Teremos a tensão constante e somam-se as correntes",
+    explicacao: "Ligação em série: Tensão soma, Corrente permanece a mesma. Ligação em paralelo é exatamente o contrário: Corrente soma, Tensão constante. Macete: Série → soma V; Paralelo → soma A.",
+    materia: "revbasico"
+  },
+  {
+    id: 354,
+    pergunta: "A velocidade do som depende diretamente da:",
+    opcao_correta: "Temperatura do ar",
+    opcao_errada: "Densidade do ar",
+    explicacao: "A velocidade do som no ar depende diretamente da temperatura e não da densidade ou pressão, quando consideradas separadamente. Fisicamente: a temperatura está ligada à energia cinética das moléculas. Quanto maior a temperatura, maior a agitação molecular, e o som se propaga mais rápido. Pressão e densidade não alteram a velocidade do som isoladamente, pois em um gás ideal elas se compensam.",
+    materia: "revbasico"
+  },
+  {
+    id: 355,
+    pergunta: "Os comandos de voo transmitidos do cíclico e do coletivo, para as pás, através da estrela:",
+    opcao_correta: "Estacionária e da rotativa",
+    opcao_errada: "Rotativa e das engrenagens",
+    explicacao: "No sistema do rotor principal do helicóptero existem duas estrelas: Estrela estacionária → recebe os comandos do piloto (cíclico e coletivo). Estrela rotativa → gira junto com o rotor e transmite os comandos às pás. As engrenagens não participam da transmissão direta dos comandos aerodinâmicos às pás. Sequência correta: Comandos → estrela estacionária → estrela rotativa → pás.",
+    materia: "revbasico"
+  },
+  {
+    id: 356,
+    pergunta: "O elemento da aeronave responsável por possibilitar a superação da resistência aerodinâmica é o(a):",
+    opcao_correta: "Grupo moto-propulsor",
+    opcao_errada: "Aerofólio",
+    explicacao: "O arrasto é vencido pelo empuxo, e quem gera empuxo é o grupo moto-propulsor (motor + hélice ou turbina). Asa/aerofólio gera sustentação. Grupo moto-propulsor gera empuxo. Sem empuxo suficiente, a aeronave não supera o arrasto, mesmo com asas eficientes. Forças do voo: Sustentação ↔ Peso; Empuxo ↔ Arrasto.",
+    materia: "revbasico"
+  },
+  {
+    id: 357,
+    pergunta: "De acordo com as regras que governam a densidade dos gases, como a densidade varia com a pressão?",
+    opcao_correta: "Varia diretamente com a pressão",
+    opcao_errada: "Varia inversamente com a pressão",
+    explicacao: "Mantida a temperatura constante, a relação é direta: Pressão ↑ → moléculas mais comprimidas → densidade ↑. Pressão ↓ → moléculas mais afastadas → densidade ↓. A confusão ocorre porque: Temperatura varia inversamente com a densidade, mas Pressão varia diretamente com a densidade.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
