@@ -2839,6 +2839,70 @@ const perguntas = [
     explicacao: "Mantida a temperatura constante, a relação é direta: Pressão ↑ → moléculas mais comprimidas → densidade ↑. Pressão ↓ → moléculas mais afastadas → densidade ↓. A confusão ocorre porque: Temperatura varia inversamente com a densidade, mas Pressão varia diretamente com a densidade.",
     materia: "revbasico"
   },
+  {
+     id: 358,
+    pergunta: "Na decolagem o ângulo de uma hélice:",
+    opcao_correta: "Mínimo",
+    opcao_errada: "Máximo",
+    explicacao: "Na decolagem, a hélice deve permitir máxima rotação do motor (RPM). Isso só ocorre com ângulo mínimo da pá, pois há menor resistência ao giro e maior aceleração inicial, fornecendo máxima potência disponível. Ângulo máximo é usado em cruzeiro, não na arrancada. Regra: Decolagem = ângulo mínimo (igual à 1ª marcha de um carro).",
+    materia: "helice"
+  },
+  {
+    id: 359,
+    pergunta: "O ângulo formado entre a corda da pá e o plano de rotação denomina-se ângulo de:",
+    opcao_correta: "Ângulo da pá",
+    opcao_errada: "Ângulo de ataque",
+    explicacao: "Ângulo da pá → é o ângulo geométrico entre a corda da pá e o plano de rotação (fixo, definido pela construção). Ângulo de ataque → é o ângulo aerodinâmico entre a corda da pá e o vento relativo (variável, depende do fluxo de ar). A banca frequentemente troca esses conceitos.",
+    materia: "helice"
+  },
+  {
+    id: 360,
+    pergunta: "É correto afirmar que a hélice transforma a força de rotação em:",
+    opcao_correta: "Tração",
+    opcao_errada: "Empuxo",
+    explicacao: "Na terminologia clássica da ANAC e da aviação convencional: Hélice gera Tração (força de puxar/puxão). Jato / foguete gera Empuxo (força de impulso). Fisicamente são semelhantes, mas a banca cobra o termo correto específico para cada sistema propulsivo.",
+    materia: "helice"
+  },
+  {
+    id: 361,
+    pergunta: "O governador da hélice é basicamente um(a):",
+    opcao_correta: "Bomba hidráulica",
+    opcao_errada: "Acumulador de pressão",
+    explicacao: "O governador é essencialmente uma bomba hidráulica que gera e regula a pressão do óleo para controlar o passo da hélice. Ele não armazena pressão (função do acumulador), mas sim a gera e modula para manter a RPM constante conforme as condições de voo.",
+    materia: "helice"
+  },
+  {
+    id: 362,
+    pergunta: "A bainha da pá (cuff) é uma estrutura de metal, madeira ou:",
+    opcao_correta: "Plástico",
+    opcao_errada: "Borracha neoprene",
+    explicacao: "A bainha (cuff) é uma estrutura rígida que dá formato aerodinâmico à raiz da pá e ajuda no fluxo de ar de refrigeração. É fabricada em materiais estruturais como metal, madeira ou plástico. Borracha (neoprene) não mantém o perfil aerodinâmico necessário e não é usada como material estrutural da bainha.",
+    materia: "helice"
+  },
+  {
+    id: 363,
+    pergunta: "Como e onde é encontrada a identificação de uma hélice de metal?",
+    opcao_correta: "Caracteres estampados no cubo",
+    opcao_errada: "Caracteres estampados na raiz da pá",
+    explicacao: "Por norma, a identificação oficial (número de série, modelo, aprovações) de uma hélice de metal é estampada no cubo (hub). A raiz da pá não é o local de referência legal para essa identificação. A ANAC cobra o local exato conforme os padrões técnicos.",
+    materia: "helice"
+  },
+  {
+    id: 364,
+    pergunta: "Com relação às bainhas das pás, qual alternativa ERRADA?",
+    opcao_correta: "Adesivos de borracha ou epóxi podem causar corrosão…",
+    opcao_errada: "Adesivos à base de borracha ou epóxi geralmente são usados como agentes de colagem",
+    explicacao: "Pegadinha: Adesivos à base de borracha ou epóxi podem ser usados como agentes de colagem (afirmação verdadeira). A alternativa tecnicamente incorreta (e, portanto, a resposta correta para 'qual é ERRADA') é a que omite ou nega o risco de que tais adesivos possam causar corrosão em certas condições. A banca quer a afirmação que está errada, não apenas incompleta.",
+    materia: "helice"
+  },
+  {
+    id: 365,
+    pergunta: "Seu funcionamento baseia-se totalmente na força centrífuga:",
+    opcao_correta: "Governador",
+    opcao_errada: "Came rotativo",
+    explicacao: "O governador da hélice funciona baseado na força centrífuga agindo sobre contrapesos, que movem uma válvula piloto para controlar o fluxo de óleo e, consequentemente, o passo da hélice. O came rotativo é um componente que converte movimento linear em rotativo, mas não é o elemento regulador principal baseado na força centrífuga.",
+    materia: "helice"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
