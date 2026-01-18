@@ -2903,6 +2903,38 @@ const perguntas = [
     explicacao: "O governador da hélice funciona baseado na força centrífuga agindo sobre contrapesos, que movem uma válvula piloto para controlar o fluxo de óleo e, consequentemente, o passo da hélice. O came rotativo é um componente que converte movimento linear em rotativo, mas não é o elemento regulador principal baseado na força centrífuga.",
     materia: "helice"
   },
+  {
+     id: 366,
+    pergunta: "Durante a operação do motor a pistão em aeronaves com carburador, qual é um efeito colateral crítico do uso prolongado e inadequado do aquecimento do carburador, especialmente em fases de alta potência como a decolagem?",
+    opcao_correta: "A elevação da temperatura do ar de admissão, reduzindo a densidade do ar e comprometendo a eficiência volumétrica do motor e também pode causar detonação e falha do motor.",
+    opcao_errada: "O aquecimento do ar de entrada provoca aumento da densidade atmosférica, resultando em menor eficiência volumétrica do propulsor, além de poder ocasionar fenômenos de detonação e consequente avaria do conjunto motor.",
+    explicacao: "O aquecimento do carburador eleva a temperatura do ar admitido, o que reduz sua densidade. Menor densidade = menos oxigênio disponível = pior eficiência volumétrica. Em alta potência (decolagem), isso é crítico porque o motor já opera próximo dos limites térmicos e ar quente favorece detonação, podendo levar a falha do motor. A alternativa errada tenta enganar dizendo que o aquecimento aumenta a densidade, o que é fisicamente impossível (ar quente é menos denso).",
+    materia: "revisao"
+  },
+  {
+    id: 367,
+    pergunta: "Num motor térmico cujo atraso de escapamento é de 20°, a válvula de escapamento:",
+    opcao_correta: "Fecha 20° após o ponto morto alto",
+    opcao_errada: "Abre 20° após o ponto morto alto",
+    explicacao: "O termo 'atraso de escapamento' se refere ao momento de FECHAMENTO da válvula de escapamento. Portanto, um atraso de 20° significa que a válvula fecha 20° após o ponto morto alto (PMA). A alternativa errada troca abrir por fechar, um erro clássico. Lembre-se: atraso → fechamento após o PMA; antecipação → abertura antes do PMA.",
+    materia: "revisao"
+  },
+  {
+    id: 368,
+    pergunta: "O fenômeno conhecido como zumbido em dutos de admissão em voos supersônicos está relacionado a qual condição aerodinâmica?",
+    opcao_correta: "Instabilidade do ar causada pela oscilação da onda de choque na tomada de ar.",
+    opcao_errada: "Compressibilidade do ar em regime subsônico, causando perda de pressão dinâmica na admissão.",
+    explicacao: "O zumbido (buzz) é um fenômeno aerodinâmico típico de voos supersônicos, ocorrendo quando a onda de choque na entrada do duto de admissão não se estabiliza, oscilando para dentro e para fora repetidamente. Isso gera flutuações de pressão, instabilidade no fluxo e ruído característico. A alternativa errada mistura conceitos reais (compressibilidade) com o regime errado (subsônico); o problema é supersônico e relacionado à oscilação da onda de choque.",
+    materia: "revisao"
+  },
+  {
+    id: 369,
+    pergunta: "Conector resistente à vibração e à umidade é de:",
+    opcao_correta: "Classe D",
+    opcao_errada: "Classe K",
+    explicacao: "O conector Classe D é projetado especificamente para ambientes adversos, possuindo ilhós selante de borracha que proporciona vedação eficaz contra umidade e alta resistência à vibração. A Classe K não possui essas características de vedação reforçada. Na classificação ANAC, Vibração + Umidade = Classe D.",
+    materia: "revisao"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
