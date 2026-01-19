@@ -2935,6 +2935,62 @@ const perguntas = [
     explicacao: "O conector Classe D é projetado especificamente para ambientes adversos, possuindo ilhós selante de borracha que proporciona vedação eficaz contra umidade e alta resistência à vibração. A Classe K não possui essas características de vedação reforçada. Na classificação ANAC, Vibração + Umidade = Classe D.",
     materia: "revisao"
   },
+  {
+    id: 370,
+    pergunta: "Aumentando o ângulo da pá de uma hélice ocorrerá o aumento do(a):",
+    opcao_correta: "Tração",
+    opcao_errada: "Arrasto",
+    explicacao: "Ao aumentar o ângulo da pá (aumentar o passo), a hélice 'morde' mais ar, movendo maior massa de ar por rotação, o que aumenta a tração produzida, desde que o motor tenha potência suficiente. O arrasto também pode aumentar, mas não é o efeito útil primário cobrado pela banca nesta formulação. Resumo: Ângulo da pá ↑ → Passo ↑ → Massa de ar ↑ → Tração ↑",
+    materia: "motores2"
+  },
+  {
+    id: 371,
+    pergunta: "No sistema de extinção de fogo com CO₂ em aeronaves quadrimotores, qual a função do disco vermelho do conjunto de garrafas?",
+    opcao_correta: "Romper-se em caso de sobrepressão ou temperatura acima de 74 °C",
+    opcao_errada: "Atuar como válvula de alívio durante a descarga para estabilizar a pressão de saída",
+    explicacao: "O disco vermelho é um dispositivo de segurança, não de controle. Ele se rompe quando há sobrepressão ou quando a temperatura atinge valores críticos (ex: acima de 74 °C), evitando a explosão da garrafa. Ele não regula pressão durante a descarga, apenas protege o sistema contra falha estrutural.",
+    materia: "motores2"
+  },
+  {
+    id: 372,
+    pergunta: "Qual é o papel da unidade de controle nos sistemas de detecção contínua aplicados aos motores?",
+    opcao_correta: "No Kidde, medir constantemente a resistência total do sensor; no Fenwal, acionar o alarme por meio de amplificador magnético",
+    opcao_errada: "No Kidde, detectar apenas a taxa de aumento de temperatura; no Fenwal, comparar resistência de múltiplos sensores em série",
+    explicacao: "Sistema Kidde: mede continuamente a resistência total do sensor (sistema proporcional, detecta temperatura média e pontos quentes). Sistema Fenwal: aciona o alarme por meio de um amplificador magnético quando um sal eutético no sensor se funde (sistema não proporcional/binário). A alternativa errada confunde com sistemas de taxa de aumento e sensores em série, que não correspondem ao funcionamento dos sistemas Kidde e Fenwal contínuos.",
+    materia: "motores2"
+  },
+  {
+    id: 373,
+    pergunta: "A distância mínima entre um fio elétrico e uma tubulação é de:",
+    opcao_correta: "1/2 polegada",
+    opcao_errada: "1 polegada",
+    explicacao: "Norma de instalação aeronáutica estabelece distância mínima de 1/2 polegada. Entre 1/2” e 2” deve-se usar luva protetora. Quando não for possível maior separação, os elementos devem ser fixados juntos na mesma estrutura. 1 polegada parece 'mais seguro', mas não é o valor normativo mínimo exigido.",
+    materia: "motores2"
+  },
+  {
+    id: 374,
+    pergunta: "A combustão espontânea da carga não queimada à frente da chama chama-se:",
+    opcao_correta: "Detonação",
+    opcao_errada: "Pré-ignição",
+    explicacao: "Detonação: combustão explosiva e descontrolada que ocorre após a ignição normal, na carga ainda não queimada à frente da frente de chama. Pré-ignição: inflamação da mistura antes da centelha, causada por um ponto quente (vela, válvula, depósito de carvão). A descrição da questão é exatamente a definição de detonação.",
+    materia: "motores2"
+  },
+  {
+    id: 375,
+    pergunta: "Qual a principal vantagem do magneto sobre o sistema de ignição por bateria?",
+    opcao_correta: "O magneto tem sua própria fonte de energia elétrica e não depende da bateria",
+    opcao_errada: "Magneto é mais eficiente em altas altitudes",
+    explicacao: "A grande vantagem do magneto é ser independente do sistema elétrico da aeronave; ele gera sua própria energia a partir da rotação do motor, continuando a funcionar mesmo com falha elétrica total (bateria ou alternador). A eficiência em altitude não é a característica primária ou vantagem definidora do magneto.",
+    materia: "motores2"
+  },
+  {
+    id: 376,
+    pergunta: "Se a caixa de engrenagens reduz a velocidade na proporção 6:1 e a hélice gira a 3000 RPM, qual a rotação do eixo de manivelas?",
+    opcao_correta: "18.000 RPM",
+    opcao_errada: "1800 RPM",
+    explicacao: "Redução de 6:1 significa que para cada 6 voltas do eixo de manivelas (motor), a hélice dá 1 volta. Portanto, a rotação do motor é a rotação da hélice multiplicada pela relação de redução: RPM motor = RPM hélice × 6 = 3000 × 6 = 18.000 RPM. A alternativa errada resulta de dividir (3000/6 = 500) ou de um erro de cálculo.",
+    materia: "motores2"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
