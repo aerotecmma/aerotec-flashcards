@@ -77,6 +77,7 @@ function converterStringsParaMaterias(codigosArray) {
         'todas': { nome: 'Todas as Matérias', questoes: 20, cor: '#ff6b6b' },
         'revisao': { nome: 'GMP 1 REVISÃO', questoes: 20, cor: '#ff6b6b' },
         'inspecao': { nome: 'Princípios da Inspeção', questoes: 20, cor: '#ff6b6b' },
+        'motores2': { nome: 'GMP 2', questoes: 20, cor: '#f59e0b' }
     };
     
     // Cores para matérias não mapeadas
