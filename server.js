@@ -2991,6 +2991,54 @@ const perguntas = [
     explicacao: "Redução de 6:1 significa que para cada 6 voltas do eixo de manivelas (motor), a hélice dá 1 volta. Portanto, a rotação do motor é a rotação da hélice multiplicada pela relação de redução: RPM motor = RPM hélice × 6 = 3000 × 6 = 18.000 RPM. A alternativa errada resulta de dividir (3000/6 = 500) ou de um erro de cálculo.",
     materia: "motores2"
   },
+  {
+    id: 377,
+    pergunta: "Quanto as linhas de centro a afirmativa incorreta é?",
+    opcao_correta: "indicam o plano no qual uma vista seccional do objeto é tomada",
+    opcao_errada: "elas indicam o centro do objeto ou parte do objeto",
+    explicacao: "A afirmativa incorreta é a que diz 'indicam o plano no qual uma vista seccional do objeto é tomada'. As linhas de centro (traços longos e curtos) são usadas para indicar o centro do objeto ou parte do objeto, não o plano de uma vista seccional. O plano de uma vista seccional é indicado por linhas de corte específicas, não pelas linhas de centro.",
+    materia: "revbasico"
+  },
+  {
+    id: 378,
+    pergunta: "O ângulo no qual a ponta da broca é afiada é chamada de ângulo da ponta da broca. Nas brocas padrão, usadas para cortar aço e ferro fundido, o ângulo de corte será de:",
+    opcao_correta: "59º de cada lado do centro",
+    opcao_errada: "90º de cada lado do centro",
+    explicacao: "O ângulo da ponta da broca padrão (ângulo de corte) para materiais como aço e ferro fundido é de 59º de cada lado do eixo central da broca, totalizando 118º de ângulo de ponta. O ângulo de 90º (total de 180º) seria inadequado e não proporcionaria um corte eficiente nestes materiais.",
+    materia: "revbasico"
+  },
+  {
+    id: 379,
+    pergunta: "São cuidados devem ser tomados ao utilizar macacos na suspensão de aeronaves com objetivo de realizar uma pesagem, exceto:",
+    opcao_correta: "Pode usar qualquer ferramenta não homolgada pelo fabricante, desde que o mecânico assuma a responsabilidade",
+    opcao_errada: "Deve ser feito em pontos específicos, na posição nivelada e protegido do vento",
+    explicacao: "O uso de ferramentas não homologadas pelo fabricante para suspensão e pesagem de aeronaves é sempre proibido, independentemente de o mecânico assumir a responsabilidade. A segurança em tais operações é regida por normas rígidas que exigem equipamentos aprovados. As demais opções descrevem cuidados obrigatórios e corretos: usar pontos específicos, nivelar a aeronave e protegê-la do vento.",
+    materia: "revbasico"
+  },
+  {
+    id: 380,
+    pergunta: "As tubulações de metal são medidas pelo (a):",
+    opcao_correta: "diâmetro externo",
+    opcao_errada: "diâmetro interno",
+    explicacao: "As tubulações (tubos) de metal na aviação são padronizadamente medidas pelo seu diâmetro externo. Essa convenção facilita a especificação, seleção e instalação, garantindo compatibilidade com conexões e suportes dimensionados para o diâmetro externo do tubo.",
+    materia: "revbasico"
+  },
+  {
+    id: 381,
+    pergunta: "A designação 5x15, dada a um cabo de comando, significa que o mesmo é confeccionado com:",
+    opcao_correta: "5 pernas e 15 fios",
+    opcao_errada: "5 pernas com 15 polegadas de diâmetro",
+    explicacao: "A designação 5x15 para cabos de comando significa que o cabo é constituído por 5 pernas (ou cordões), e cada perna é composta por 15 fios de aço. É uma especificação de construção, não de diâmetro. O diâmetro do cabo é especificado separadamente.",
+    materia: "revbasico"
+  },
+  {
+    id: 382,
+    pergunta: "O código de cores, a faixa que indica tolerância do valor ôhmico do resistor é a:",
+    opcao_correta: "quarta",
+    opcao_errada: "terceira",
+    explicacao: "No sistema de codificação de cores de resistores de 4 faixas: a primeira e segunda faixas indicam os dígitos significativos, a terceira faixa indica o multiplicador (quantidade de zeros), e a quarta faixa indica a tolerância (variação percentual permitida no valor). Portanto, a tolerância é sempre indicada pela quarta faixa.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
