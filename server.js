@@ -3039,6 +3039,62 @@ const perguntas = [
     explicacao: "No sistema de codificação de cores de resistores de 4 faixas: a primeira e segunda faixas indicam os dígitos significativos, a terceira faixa indica o multiplicador (quantidade de zeros), e a quarta faixa indica a tolerância (variação percentual permitida no valor). Portanto, a tolerância é sempre indicada pela quarta faixa.",
     materia: "revbasico"
   },
+  {
+    id: 383,
+    pergunta: "A instalação ou remoção de equipamentos modifica o peso vazio e o CG da aeronave, afetando consequentemente na mesma proporção a (o)?",
+    opcao_correta: "carga útil",
+    opcao_errada: "capacidade",
+    explicacao: "A carga útil é diretamente afetada por modificações no peso vazio e CG da aeronave. A carga útil é calculada subtraindo-se o peso vazio do peso bruto máximo permissível. Quando se instala ou remove equipamentos, altera-se o peso vazio, e a diferença entre o novo peso vazio e o peso máximo permitido resulta na nova carga útil. Qualquer alteração no peso vazio afeta proporcionalmente a carga útil disponível para combustível, passageiros e bagagem.",
+    materia: "revbasico"
+  },
+  {
+    id: 384,
+    pergunta: "Quando for realizar um furo em uma chapa, primeiro devemos marcar a chapa com qual tipo de punção?",
+    opcao_correta: "De centro",
+    opcao_errada: "Vasador",
+    explicacao: "Para marcar a chapa antes de realizar um furo, deve-se utilizar um punção de centro. Este tipo de punção tem uma ponta cônica e afiada ideal para fazer uma marcação profunda e precisa no metal, que serve como guia para a broca e evita que ela escorregue no início da furação. O punção vasador (ou vazador) é usado para outros fins, como abrir ou alargar furos existentes.",
+    materia: "revbasico"
+  },
+  {
+    id: 385,
+    pergunta: "Quando elevamos a tensão de um circuito e mantemos a resistência fixa, a corrente deve:",
+    opcao_correta: "aumentar proporcionalmente",
+    opcao_errada: "diminuir inversamente",
+    explicacao: "Esta relação é fundamentada na Lei de Ohm (I = V/R). Quando a tensão (V) aumenta e a resistência (R) permanece constante, a corrente (I) aumenta proporcionalmente. Por exemplo, com resistência fixa de 10 Ω: a 20V a corrente é 2A; a 40V a corrente passa a 4A. A tensão representa a 'pressão elétrica'; uma pressão maior força mais elétrons a fluir através da mesma resistência, resultando em maior corrente.",
+    materia: "revbasico"
+  },
+  {
+    id: 386,
+    pergunta: "Qual o procedimento deverá ser adotado quando a aeronave a ser rebocada for equipada com um sistema de direção na roda de nariz?",
+    opcao_correta: "o mecanismo de travamento deverá ser reestabelecido após a remoção do garfo de reboque",
+    opcao_errada: "conectar a tesoura para liberar o ctotal da roda durante o reboque",
+    explicacao: "O procedimento correto é reestabelecer o mecanismo de travamento da direção da roda do nariz após a remoção do garfo de reboque. Isso é fundamental para a segurança, garantindo que a roda fique travada e alinhada para a próxima operação de taxiamento ou estacionamento. O travamento evita movimentos indesejados e inesperados da roda durante a operação da aeronave.",
+    materia: "revbasico"
+  },
+  {
+    id: 387,
+    pergunta: "Qual a diferença entre Slats e slots de uma asa?",
+    opcao_correta: "Slots são fendas geradas no bordo de ataque da asa, já os Slats são superfícies móveis de controle presas ao bordo de ataque das asas que geram essa fenda",
+    opcao_errada: "Slats e slots são sinônimos ao se referir a superfícies de controle secundárias que agem no bordo de ataque da asa",
+    explicacao: "Slots são fendas ou aberturas fixas no bordo de ataque da asa que redirecionam o fluxo de ar para o extradorso, retardando o estol. Slats são superfícies móveis presas ao bordo de ataque que, quando estendidas, criam uma fenda controlada (slot) entre elas e a asa principal. A principal diferença é que slots são fixos, enquanto slats são móveis e controláveis.",
+    materia: "revbasico"
+  },
+  {
+    id: 388,
+    pergunta: "Se uma das extremidades das chaves de boca, colar e combinada, mede em todas 7/16 polegadas, as outras extremidades medirão, em polegadas, respectivamente:",
+    opcao_correta: "3/8, 3/8 e 7/16",
+    opcao_errada: "3/8, 3/8 e 3/8",
+    explicacao: "Chave de boca: extremidades com medidas diferentes (uma 7/16, a outra 3/8). Chave colar: extremidades com medidas diferentes (uma 7/16, a outra 3/8). Chave combinada: uma extremidade é boca e a outra é colar, mas ambas têm a mesma medida (7/16 e 7/16). As chaves de boca e colar são projetadas com medidas diferentes para versatilidade; a chave combinada tem a mesma medida nas duas extremidades para trabalhar na mesma porca/parafuso.",
+    materia: "revbasico"
+  },
+  {
+    id: 389,
+    pergunta: "Antes de lavar superfícies plásticas com água e sabão você deve:",
+    opcao_correta: "Lavar essa superfície com água limpa.",
+    opcao_errada: "Usar uma escova com cerdas de lã",
+    explicacao: "Antes de aplicar água e sabão, deve-se primeiro lavar a superfície plástica com água limpa. Esta etapa prévia remove depósitos de sal e partículas de poeira que, se não forem eliminados, podem atuar como abrasivos durante a esfrega com sabão, causando riscos e danos permanentes ao plástico transparente. A sequência correta é: 1) água limpa para pré-lavagem, 2) água com sabão neutro e material macio, 3) enxágue e secagem com tecido macio.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
