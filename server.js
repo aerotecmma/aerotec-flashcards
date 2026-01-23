@@ -3095,6 +3095,134 @@ const perguntas = [
     explicacao: "Antes de aplicar água e sabão, deve-se primeiro lavar a superfície plástica com água limpa. Esta etapa prévia remove depósitos de sal e partículas de poeira que, se não forem eliminados, podem atuar como abrasivos durante a esfrega com sabão, causando riscos e danos permanentes ao plástico transparente. A sequência correta é: 1) água limpa para pré-lavagem, 2) água com sabão neutro e material macio, 3) enxágue e secagem com tecido macio.",
     materia: "revbasico"
   },
+  {
+    id: 390,
+    pergunta: "Durante processos de usinagem ou esforços excessivos concentrados em componentes de motor, qual defeito é descrito como sobras de corte de metal ou liberação de lascas?",
+    opcao_correta: "Cavaco, descrito como sobras de corte de metal ou liberação de lascas causados por usinagem ou esforços excessivos.",
+    opcao_errada: "Rebarba, que se forma como projeção de metal nas bordas das peças durante usinagem ou esforços concentrados.",
+    explicacao: "O cavaco é o produto principal e intencional da remoção de material durante operações de usinagem (torneamento, fresamento, furação), apresentando-se como lascas ou fitas de metal. A rebarba é uma projeção metálica indesejada que se forma nas bordas, cantos ou ao redor de furos como efeito secundário do processo de corte. Enquanto o cavaco é o material deliberadamente removido, a rebarba é um subproduto que deve ser eliminado por processos de rebarbação para garantir a segurança e qualidade da peça.",
+    materia: "motores2"
+  },
+  {
+    id: 391,
+    pergunta: "O ângulo da pá, cujo arrasto da hélice é máximo, denomina-se:",
+    opcao_correta: "passo chato ou passo mínimo",
+    opcao_errada: "passo chato ou passo máximo",
+    explicacao: "No passo chato (ou passo mínimo), o ângulo da pá em relação ao plano de rotação é reduzido. Esta configuração permite alta RPM e é usada em decolagem, mas gera maior arrasto porque a hélice 'corta' o ar com menor eficiência aerodinâmica. O passo máximo (ângulo maior) resulta em menor arrasto e é utilizado em cruzeiro para maior eficiência. Portanto, o máximo arrasto ocorre no passo chato/mínimo.",
+    materia: "motores2"
+  },
+  {
+    id: 392,
+    pergunta: "Se ocorrer fogo no motor durante o ciclo de partida e, após mover a alavanca de corte de combustível para a posição off e continuar girando o motor com o arranque, o fogo ainda persistir, o que não se deve fazer?",
+    opcao_correta: "descarrega CO2 diretamente na saída do motor, porque isto pode danificá-lo",
+    opcao_errada: "descarregar CO2 no duto de entrada enquanto o motor está sendo virado",
+    explicacao: "A sequência correta para fogo na partida é: 1) cortar combustível (alavanca em OFF), 2) continuar girando o motor com o arranque para expelir as chamas, 3) se persistir, pode-se descarregar CO2 no duto de entrada enquanto o motor é virado. NUNCA se deve descarregar CO2 diretamente na saída (escapamento) do motor, pois o choque térmico súbito pode causar danos severos aos componentes. Se o fogo não for controlado, desligue todas as chaves e abandone a aeronave.",
+    materia: "motores2"
+  },
+  {
+    id: 393,
+    pergunta: "Na limpeza dos motores alternativos as escovas de aço:",
+    opcao_correta: "nunca devem ser usadas em buchas ou superfícies de contato",
+    opcao_errada: "devem ser usadas em buchas ou superfícies de contato com cautela",
+    explicacao: "Escovas de aço são abrasivas e não devem ser utilizadas em buchas, superfícies de contato ou qualquer superfície usinada de precisão, pois podem remover material, alterar tolerâncias e causar danos irreversíveis. Elas podem ser usadas com cuidado em outras áreas para remover depósitos de carbono, mas sempre evitando superfícies críticas. Para buchas e superfícies de contato, devem ser utilizados métodos de limpeza não abrasivos recomendados pelo fabricante.",
+    materia: "motores2"
+  },
+  {
+    id: 394,
+    pergunta: "Quando súbita redução de velocidade de rotação de um motor alternativo ocorrer o que deve ser feito?",
+    opcao_correta: "Remover os filtros de óleo e verificar se há partículas de metal",
+    opcao_errada: "Remover o motor e inspecionar",
+    explicacao: "Uma súbita redução de RPM exige uma sequência de inspeções antes de decidir pela remoção do motor. Primeiro, realiza-se uma inspeção externa do berço, carcaça e eixo. Em seguida, remove-se e inspeciona-se os filtros de óleo, verificando a presença de partículas metálicas. Também se drena o óleo através de um pano limpo para detectar partículas. Somente se houver danos evidentes não reparáveis na linha ou partículas metálicas grandes/grossas é que a remoção do motor se torna necessária. Partículas finas (pó) permitem continuar a inspeção com testes adicionais.",
+    materia: "motores2"
+  },
+  {
+    id: 395,
+    pergunta: "No circuito de detecção por pares térmicos, qual condição provoca o fechamento do relé sensível?",
+    opcao_correta: "A corrente gerada ultrapassar quatro miliampères, devido ao rápido aquecimento da junção quente.",
+    opcao_errada: "A atuação simultânea do relé escravo, que alimenta a bobina de indução principal do sistema.",
+    explicacao: "Nos sistemas de detecção por pares térmicos (termopares), o relé sensível é calibrado para fechar quando a corrente gerada pelo termopar, resultante do aquecimento diferencial entre suas junções (quente e fria), ultrapassa um limiar específico, geralmente em torno de 4 mA. Este aquecimento rápido da junção quente (exposta à temperatura do motor) em relação à junção fria (referência) gera uma força eletromotriz (tensão) que produz a corrente. O relé escravo é acionado posteriormente pelo relé sensível para ativar o alarme ou sistema de extinção.",
+    materia: "motores2"
+  },
+  {
+    id: 396,
+    pergunta: "O passo geométrico da hélice é igual ao passo:",
+    opcao_correta: "efetivo, mais o recuo",
+    opcao_errada: "teórico, mais o recuo",
+    explicacao: "O passo geométrico é a distância teórica que uma hélice avançaria em uma revolução completa se movesse em um meio sólido (como um parafuso na porca). O passo efetivo é a distância real que a hélice avança no ar em uma revolução. O recuo (slip) é a diferença entre o passo geométrico e o passo efetivo, causado pelo 'escorregamento' da hélice no ar. Portanto: Passo Geométrico = Passo Efetivo + Recuo. O passo teórico não é um termo técnico padrão nesta relação.",
+    materia: "motores2"
+  },
+  {
+    id: 397,
+    pergunta: "Ao processo de transferência de metal de um objeto para outro, por meios químicos e elétricos dá-se o nome de?",
+    opcao_correta: "eletrodeposição ou galvanoplastia",
+    opcao_errada: "anodização",
+    explicacao: "O processo descrito é a eletrodeposição (ou galvanoplastia), que utiliza um circuito elétrico para transferir íons metálicos de um ânodo (objeto fonte) para um cátodo (objeto a ser recoberto), depositando uma camada de metal sobre a superfície. A anodização é um processo eletroquímico diferente, que cria uma camada de óxido na superfície do próprio metal (geralmente alumínio) para proteção contra corrosão, não envolvendo transferência de metal de um objeto para outro.",
+    materia: "revbasico"
+  },
+  {
+    id: 398,
+    pergunta: "Um fabricante decide posicionar o plano de referência ligeiramente à frente do nariz da aeronave. Qual é o impacto dessa escolha nos cálculos de peso e balanceamento?",
+    opcao_correta: "Todos os momentos resultantes serão positivos, reduzindo a possibilidade de erros de cálculo e Facilitando a verificação dos resultados",
+    opcao_errada: "A posição do centro de gravidade será deslocada para frente, alterando a estabilidade da aeronave",
+    explicacao: "Posicionar o plano de referência à frente de todos os componentes da aeronave garante que todas as distâncias (braços) medidas a partir dele sejam positivas. Consequentemente, todos os momentos (peso × braço) também serão positivos. Isso simplifica os cálculos, elimina confusão com sinais negativos e reduz erros matemáticos. A posição física real do centro de gravidade (CG) da aeronave não é alterada por essa escolha de referência; apenas a forma de calcular e expressar seus valores se torna mais prática e à prova de erros.",
+    materia: "revbasico"
+  },
+  {
+    id: 399,
+    pergunta: "Qual o principal componente numa liga de latão:",
+    opcao_correta: "Cobre",
+    opcao_errada: "Alumínio",
+    explicacao: "O latão é uma liga metálica cujo principal componente é o cobre, geralmente combinado com zinco. A proporção de cobre pode variar, mas ele é sempre o elemento base que define a liga. Outros elementos (como alumínio, estanho, chumbo) podem ser adicionados em pequenas quantidades para conferir propriedades específicas, mas o cobre é o componente fundamental.",
+    materia: "revbasico"
+  },
+  {
+    id: 400,
+    pergunta: "O titular de uma licença de aviação civil, cujo a habilitação técnica esteja com validade totalmente vencida:",
+    opcao_correta: "Poderá exercer as funções especificadas em sua licença, até 30 dias após o vencimento do certificado",
+    opcao_errada: "Continuará nas funções específicas, pois a licença tem caráter permanente",
+    explicacao: "Conforme a regulamentação, o titular de uma licença com habilitação técnica vencida tem um período de tolerância de 30 dias após a data de vencimento para continuar exercendo as funções, desde que busque a revalidação. Após esse período, fica impedido de atuar até que regularize sua situação através dos exames e procedimentos de revalidação exigidos pela autoridade aeronáutica. A licença não tem caráter permanente; sua validade está condicionada à revalidação periódica.",
+    materia: "revbasico"
+  },
+  {
+    id: 401,
+    pergunta: "Marque a alternativa verdadeira sobre queda de tensão em um circuito elétrico:",
+    opcao_correta: "Há uma queda de tensão quando uma corrente flui através de uma resistência",
+    opcao_errada: "A queda de tensão em um circuito é um fenômeno que não tem relação com a resistência elétrica",
+    explicacao: "A queda de tensão é um fenômeno diretamente relacionado à resistência elétrica e à corrente que a atravessa, conforme a Lei de Ohm (V = I × R). Quando uma corrente (I) flui através de um componente com resistência (R), parte da energia elétrica é convertida em calor ou outra forma de energia, resultando em uma redução da tensão (queda de tensão) entre os terminais desse componente. Sem resistência e corrente, não há queda de tensão significativa.",
+    materia: "revbasico"
+  },
+  {
+    id: 402,
+    pergunta: "A carga útil da aeronave é determinada pela subtração do peso vazio do:",
+    opcao_correta: "peso bruto máximo permitido",
+    opcao_errada: "peso máximo operacional",
+    explicacao: "A carga útil máxima é calculada pela fórmula: Carga Útil = Peso Bruto Máximo Permitido - Peso Vazio. O peso bruto máximo permitido é o limite de peso absoluto estrutural da aeronave definido pelo fabricante. O 'peso máximo operacional' não é um termo técnico padronizado para este cálculo; pode referir-se a diferentes pesos (como máximo para decolagem, pouso ou zero combustível) em contextos específicos, mas não é o termo correto para esta fórmula básica.",
+    materia: "revbasico"
+  },
+  {
+    id: 403,
+    pergunta: "A finalidade principal do controle do peso e balanceamento das aeronaves, é o(a):",
+    opcao_correta: "segurança",
+    opcao_errada: "eficiência durante o voo",
+    explicacao: "A finalidade primordial e não negociável do controle de peso e balanceamento é garantir a segurança de voo. Um carregamento fora dos limites pode comprometer a estabilidade, a controlabilidade e a performance estrutural da aeronave, levando a situações críticas como estol prematuro, dificuldade de controle ou até falha estrutural. A eficiência (melhor desempenho, menor consumo) é uma consequência benéfica de um balanceamento adequado, mas a segurança é o objetivo principal e mandatório.",
+    materia: "revbasico"
+  },
+  {
+    id: 404,
+    pergunta: "Nos sistemas com ailerons diferenciais, a principal característica de projeto é:",
+    opcao_correta: "O aileron que sobe deflete-se em um ângulo maior do que o aileron que desce para um mesmo movimento do manche.",
+    opcao_errada: "Ambos os ailerons defletem igualmente, mantendo o equilíbrio aerodinâmico e eliminando o arrasto diferencial.",
+    explicacao: "Os ailerons diferenciais são projetados para minimizar a guinada adversa (adverse yaw). Para isso, quando o manche é movido, o aileron que se move para cima (na asa que desce) deflete-se mais do que o aileron que se move para baixo (na asa que sobe). Essa deflexão assimétrica cria mais arrasto na asa descendente, compensando o maior arrasto induzido pelo aileron abaixado na asa ascendente, reduzindo assim a tendência da aeronave a guinar na direção oposta à curva desejada.",
+    materia: "revbasico"
+  },
+  {
+    id: 405,
+    pergunta: "As linhas de fluido das aeronaves, são muitas vezes, identificadas por marcações em código de cores, palavras e símbolos geométricos. Essas marcações identificam a função, o conteúdo e o principal perigo de cada linha, tão bem quanto a direção do fluido, A cor cinza é a classificação de qual sistema?",
+    opcao_correta: "De-ice",
+    opcao_errada: "Pressurização",
+    explicacao: "No código de cores padrão para tubulações (linhas de fluido) em aeronaves, a cor cinza (gray) é especificamente reservada para identificar o sistema de degelo (de-ice). Este sistema pode utilizar ar quente, fluidos químicos ou sistemas elétricos para prevenir ou remover a formação de gelo em superfícies críticas como bordas de ataque das asas, hélices e sensores. A pressurização é normalmente identificada por outra cor (como branco para ar de ventilação/pressurização).",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
