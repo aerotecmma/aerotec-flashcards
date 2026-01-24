@@ -3223,6 +3223,126 @@ const perguntas = [
     explicacao: "No código de cores padrão para tubulações (linhas de fluido) em aeronaves, a cor cinza (gray) é especificamente reservada para identificar o sistema de degelo (de-ice). Este sistema pode utilizar ar quente, fluidos químicos ou sistemas elétricos para prevenir ou remover a formação de gelo em superfícies críticas como bordas de ataque das asas, hélices e sensores. A pressurização é normalmente identificada por outra cor (como branco para ar de ventilação/pressurização).",
     materia: "revbasico"
   },
+  {
+    id: 406,
+    pergunta: "Nos sistemas de ignição eletrônicos de motores turbojatos, o equipamento responsável por elevar a corrente contínua para a tensão de operação do excitador é denominado:",
+    opcao_correta: "dinamotor",
+    opcao_errada: "transformador",
+    explicacao: "O dinamotor é um motor-gerador de corrente contínua que atua como conversor de energia. Durante a partida, ele eleva a tensão da corrente contínua (vinda da bateria ou fonte externa) para o nível necessário para alimentar o excitador do sistema de ignição eletrônico. O excitador então carrega os capacitores que fornecerão a alta energia para as velas. Um transformador convencional opera com corrente alternada (CA) e não seria adequado para essa função específica de elevação de tensão em corrente contínua (CC).",
+    materia: "revisao"
+  },
+  {
+    id: 407,
+    pergunta: "No sistema de partida usando motor de inércia combinado, as chaves de controle localizadas no painel elétrico da cabine possuem três posições distintas que executam funções específicas durante o processo de partida do motor. Qual a posição é responsável por operar simultaneamente o solenóide de acoplamento de arranque e a bobina ativadora de ignição?",
+    opcao_correta: "Down",
+    opcao_errada: "On",
+    explicacao: "Em um sistema de partida por inércia combinado, a chave tem três posições: 'Up', 'Down' e 'Off' (ou neutro). A posição 'Down' (para baixo) é a que aciona simultaneamente o solenóide de acoplamento do motor de arranque (que engrena o volante de inércia ao motor) e a bobina ativadora de ignição, permitindo a transferência da energia cinética armazenada no volante para girar o motor e ao mesmo tempo fornecer ignição. 'Up' energiza o motor de arranque para acelerar o volante; 'On' não é uma posição padrão nesta chave específica.",
+    materia: "revisao"
+  },
+  {
+     id: 408,
+    pergunta: "O instrumento que recebe o sinal elétrico de um transmissor instalado na tubulação de combustível, e que tem finalidade de indicar o consumo horário do motor, denomina-se:",
+    opcao_correta: "fluxômetro",
+    opcao_errada: "liquidômetro",
+    explicacao: "O fluxômetro (ou medidor de fluxo de combustível) é o instrumento que recebe sinais elétricos de um transmissor de vazão instalado na linha de combustível. Ele mede a taxa de fluxo (ex: galões por hora ou libras por hora) e indica o consumo horário do motor. O liquidômetro (ou indicador de quantidade) mede o volume total de combustível nos tanques, não a taxa de consumo em tempo real.",
+    materia: "motores2"
+  },
+  {
+    id: 409,
+    pergunta: "O embandeiramento de uma hélice ocorre por ação de:",
+    opcao_correta: "mola e contrapesos",
+    opcao_errada: "mola e pressão de óleo",
+    explicacao: "O embandeiramento (feathering) de uma hélice de passo controlável em caso de falha do motor é realizado por um sistema mecânico independente, que consiste em molas e contrapesos. Isso garante que, mesmo com a perda total de pressão hidráulica (óleo) do motor, a hélice embandeire automaticamente para a posição de mínimo arrasto. Depender apenas de pressão de óleo seria arriscado, pois uma falha no motor também cortaria a fonte de pressão.",
+    materia: "motores2"
+  },
+  {
+    id: 410,
+    pergunta: "Em um motor que usa carburador, a tubulação de admissão fornece os meios de distribuição de ar ou a mistura de ar/combustível para os cilindros. Em um motor com injeção de combustível, o combustível é liberado para os bicos de injeção, um em cada cilindro, que fornece um jato apropriado para uma queima eficiente. Nos motores com injeção de combustível mistura de ar e combustível acontece:",
+    opcao_correta: "No interior do cilindro",
+    opcao_errada: "No carburador",
+    explicacao: "Em motores com injeção de combustível, o ar é admitido pela tubulação de admissão e o combustível é injetado diretamente no coletor de admissão (próximo à válvula) ou dentro da câmara de combustão (injeção direta), dependendo do sistema. A mistura ar-combustível ocorre, portanto, dentro ou imediatamente antes da entrada no cilindro, e não no carburador (que não existe nesses sistemas). Em contraste, no carburador a mistura é formada no venturi e viaja pré-misturada pela tubulação.",
+    materia: "motores2"
+  },
+  {
+    id: 411,
+    pergunta: "Qual foi a principal razão para o banimento internacional da produção de halons a partir de 1986?",
+    opcao_correta: "Impacto significativo na camada de ozônio, resultando em restrição global de fabricação.",
+    opcao_errada: "Classificação de toxicidade UL incompatível com áreas ocupadas em aeronaves.",
+    explicacao: "Os halons (como o Halon 1301 e 1211) foram banidos pela produção por causa de seu alto potencial de destruição da camada de ozônio (ODP - Ozone Depletion Potential). Eles contêm bromo, que é particularmente eficaz em catalisar a destruição do ozônio estratosférico. O Protocolo de Montreal (1987) estabeleceu a eliminação progressiva de sua produção. A toxicidade relativamente baixa dos halons é, na verdade, uma de suas vantagens para uso em espaços ocupados, e não a razão do banimento.",
+    materia: "motores2"
+  },
+  {
+    id: 412,
+    pergunta: "Quanto a bomba de pressão de óleo do sistema de lubrificação é correto afirmar que a mesma possui:",
+    opcao_correta: "duas engrenagens que giram em sentido inverso",
+    opcao_errada: "uma única engrenagem",
+    explicacao: "A bomba de óleo em motores alternativos típicos é do tipo de engrenagens (gear pump). Ela possui duas engrenagens dentadas que giram em sentidos opostos dentro de uma carcaça. Uma engrenagem é acionada pelo motor (motriz) e a outra é movida por ela (livre). O óleo é capturado nos vãos entre os dentes e a carcaça, sendo transportado do lado de sucção para o lado de descarga, onde é comprimido e enviado sob pressão para o sistema de lubrificação.",
+    materia: "motores2"
+  },
+  {
+     id: 413,
+    pergunta: "Quais as vantagens das porcas elastic stop:",
+    opcao_correta: "porcas que podem ser usadas muitas vezes com completa segurança sem perder suas eficiências",
+    opcao_errada: "porcas lisas com arruela frena",
+    explicacao: "A principal vantagem das porcas elastic stop (ou porcas auto-frenantes com inserto de nylon/plástico) é sua capacidade de serem reutilizadas várias vezes com segurança, mantendo sua eficiência de frenagem (torque de desaperto). O inserto elástico não perde sua capacidade de atrito significativamente após usos múltiplos, desde que não esteja danificado ou desgastado. Porcas lisas com arruela frena são um tipo diferente de fixação, não oferecendo a mesma vantagem de reutilização fácil.",
+    materia: "revbasico"
+  },
+  {
+    id: 414,
+    pergunta: "A queda de voltagem dos cabos principais da fonte de geração ou da bateria para a barra não deve exceder, da voltagem regulada, de:",
+    opcao_correta: "2%",
+    opcao_errada: "4%",
+    explicacao: "Normas de instalação elétrica em aeronaves estabelecem que a queda de tensão (voltagem) nos cabos principais entre a fonte de energia (gerador/alternador ou bateria) e a barra de distribuição (bus bar) não deve exceder 2% da tensão regulada do sistema. Este limite garante que os equipamentos alimentados pela barra recebam tensão adequada para operação segura e eficiente. Uma queda maior comprometeria o funcionamento dos sistemas elétricos.",
+    materia: "revbasico"
+  },
+  {
+    id: 415,
+    pergunta: "Ao conjunto cossinete e desandador dá-se o nome de:",
+    opcao_correta: "tarraxa",
+    opcao_errada: "tambor",
+    explicacao: "O conjunto composto pelo cossinete (ferramenta de corte para abrir roscas internas) e pelo desandador (suporte ou porta-ferramenta que segura e gira o cossinete) é denominado tarraxa. É o conjunto completo utilizado para executar roscas internas (fêmeas) em furos. Tambor é uma peça cilíndrica diferente, não relacionada a este conjunto.",
+    materia: "revbasico"
+  },
+  {
+    id: 416,
+    pergunta: "Quanto a tubulações flexíveis, está incorreta a afirmativa:",
+    opcao_correta: "em alojamento de trem de pouso devem ser protegidas contra o desgaste e abrasão por meio de um invólucro de metal resistente ou teflon",
+    opcao_errada: "as tubulações flexíveis deverão ser instaladas, de tal maneira, que sofram um mínimo de flexão durante a operação",
+    explicacao: "A afirmativa incorreta é sobre a proteção com invólucro de metal ou teflon. Teflon (PTFE) é um material de baixo atrito usado como revestimento interno de mangueiras, não como invólucro externo de proteção. As tubulações flexíveis em áreas de desgaste (como alojamento de trem) devem ser protegidas com invólucros adequados como malha metálica, espirais de proteção ou mangas de material resistente à abrasão (borracha, polímeros), nunca com teflon puro como invólucro estrutural. A afirmativa sobre minimizar a flexão durante a operação está correta.",
+    materia: "revbasico"
+  },
+  {
+    id: 417,
+    pergunta: "Ferramentas para abrir roscas internas são os machos, identifique quais os tipos de machos nas alternativas abaixo:",
+    opcao_correta: "Cônico, semi-cônico e paralelo",
+    opcao_errada: "Cossinete, tarraxa e desandador",
+    explicacao: "Os machos (ferramentas para cortar roscas internas) são classificados pelo perfil de sua parte cortante: 1) Cônico: ponta longa e afilada, para início fácil e roscas cegas; 2) Semi-cônico (ou intermediário): afilamento moderado; 3) Paralelo (ou final): quase cilíndrico, para acabamento e roscas passantes. Cossinete é sinônimo de macho; tarraxa é o conjunto macho+suporte; desandador é o suporte/porte-ferramenta. Portanto, a classificação correta dos tipos de machos é cônico, semi-cônico e paralelo.",
+    materia: "revbasico"
+  },
+  {
+    id: 418,
+    pergunta: "Em uma aeronave com configuração canard, qual é a principal diferença funcional entre o canard e o estabilizador horizontal de um design de cauda convencional?",
+    opcao_correta: "O canard gera força de sustentação positiva que auxilia na elevação do nariz, enquanto o estabilizador convencional aplica força descendente para equilibrar o momento de arfagem.",
+    opcao_errada: "O canard é projetado para compensar o arrasto induzido das asas principais, enquanto o estabilizador convencional compensa apenas o momento de guinada.",
+    explicacao: "Em um design convencional (cauda traseira), o estabilizador horizontal gera uma força aerodinâmica para baixo (downforce) para contrabalançar o momento de arfagem 'nariz-pesado' causado pelo centro de sustentação da asa atrás do CG. Em uma configuração canard, a superfície horizontal dianteira (canard) gera sustentação positiva (para cima), ajudando ativamente a elevar o nariz e contribuindo para a sustentação total da aeronave. O canard funciona como uma mini-asa dianteira, enquanto o estabilizador traseiro funciona como um contrapeso aerodinâmico.",
+    materia: "revbasico"
+  },
+  {
+    id: 419,
+    pergunta: "Qual das seguintes alternativas inclui um fator que NÃO é listado no The Dirty Dozen, os 12 fatores humanos comuns que podem contribuir para erros na aviação?",
+    opcao_correta: "Falta de Recursos, Pressão, Desorganização",
+    opcao_errada: "Fadiga, Distração, Falta de Recursos",
+    explicacao: "Os 12 fatores do 'Dirty Dozen' são: 1) Falta de comunicação, 2) Complacência, 3) Falta de conhecimento, 4) Distração, 5) Falta de trabalho em equipe, 6) Fadiga, 7) Falta de recursos, 8) Pressão, 9) Falta de assertividade, 10) Estresse, 11) Falta de consciência situacional, 12) Normas. 'Desorganização' não faz parte da lista oficial dos 12 fatores. Portanto, a alternativa que inclui 'Desorganização' contém um fator que NÃO está no Dirty Dozen.",
+    materia: "revbasico"
+  },
+  {
+    id: 420,
+    pergunta: "Na simbologia de uma bateria, a linha vertical mais longa representa o terminal:",
+    opcao_correta: "positivo",
+    opcao_errada: "negativo",
+    explicacao: "No símbolo esquemático padrão de uma bateria (pilha ou acumulador), a linha vertical mais longa representa o terminal positivo (+), e a linha vertical mais curta representa o terminal negativo (-). Esta convenção é universal em diagramas elétricos e eletrônicos. A corrente convencional flui do terminal positivo (linha longa) para o terminal negativo (linha curta) no circuito externo.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
