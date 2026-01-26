@@ -3343,6 +3343,110 @@ const perguntas = [
     explicacao: "No símbolo esquemático padrão de uma bateria (pilha ou acumulador), a linha vertical mais longa representa o terminal positivo (+), e a linha vertical mais curta representa o terminal negativo (-). Esta convenção é universal em diagramas elétricos e eletrônicos. A corrente convencional flui do terminal positivo (linha longa) para o terminal negativo (linha curta) no circuito externo.",
     materia: "revbasico"
   },
+  {
+     id: 421,
+    pergunta: "Os inversores fornecem alimentação de:",
+    opcao_correta: "corrente alternado de frequência fixa",
+    opcao_errada: "115V",
+    explicacao: "Um inversor é um dispositivo que converte corrente contínua (CC) em corrente alternada (CA) com frequência fixa (geralmente 400 Hz em aeronaves). Sua função principal é gerar CA de frequência estável para alimentar equipamentos que exigem esse tipo de energia. A tensão de saída (como 115V) é uma característica específica, mas não define a função básica do inversor, que é a conversão CC→CA com frequência fixa. Diferentes inversores podem fornecer diferentes tensões (26V, 115V, etc.), mas todos fornecem CA de frequência fixa.",
+    materia: "revbasico"
+  },
+  {
+    id: 422,
+    pergunta: "A chave mista ou combinada que tem um lado 1/2 polegadas, terá do outro lado?",
+    opcao_correta: "1/2 pol",
+    opcao_errada: "9/16 pol",
+    explicacao: "A chave combinada (ou mista) possui uma extremidade tipo 'boca' (open-end) e a outra extremidade tipo 'colar' (box-end), mas ambas as extremidades são dimensionadas para o mesmo tamanho de porca/parafuso. Portanto, se um lado é de 1/2 polegada, o outro lado também será de 1/2 polegada. Isso permite ao mecânico usar a extremidade mais adequada para a situação (boca para acesso rápido, colar para maior aperto) sem trocar de ferramenta, mantendo a mesma medida.",
+    materia: "revbasico"
+  },
+  {
+    id: 423,
+    pergunta: "The Power in an Electrical Circuit is measured in:",
+    opcao_correta: "Watts (W)",
+    opcao_errada: "Volt (V)",
+    explicacao: "A potência (Power) em um circuito elétrico é medida em Watts (W). Ela representa a taxa de consumo ou produção de energia elétrica. A relação fundamental é P (potência em Watts) = V (tensão em Volts) × I (corrente em Ampères). Volt (V) é a unidade de tensão (diferença de potencial), não de potência. Outras unidades como ampère (A) medem corrente, e ohm (Ω) mede resistência.",
+    materia: "revbasico"
+  },
+  {
+     id: 424,
+    pergunta: "Uma das finalidades da válvula seletora de combustível é?",
+    opcao_correta: "Permitir a transferência de combustível entre os tanques",
+    opcao_errada: "Aliviar o excesso de combustível, na saída da bomba",
+    explicacao: "A válvula seletora (ou válvula de seleção) de combustível permite ao piloto ou ao sistema automático selecionar de qual tanque o combustível será fornecido ao motor, e também possibilita a transferência de combustível entre tanques para balancear o peso e manter o centro de gravidade adequado. A função de aliviar excesso de pressão é realizada por válvulas de alívio (bypass) ou válvulas de retorno, não pela válvula seletora.",
+    materia: "revisao"
+  },
+  {
+     id: 425,
+    pergunta: "No motor turboélice a força é controlada diretamente pela:",
+    opcao_correta: "temperatura dos gases da entrada da turbina",
+    opcao_errada: "velocidade do motor (RPM)",
+    explicacao: "Em motores turboélice, a potência (força) é primariamente controlada pela temperatura dos gases na entrada da turbina (TET ou ITT - Interstage Turbine Temperature). O piloto comanda o fluxo de combustível, que ajusta a TET. Um governador mantém a RPM da hélice constante (geralmente em 100% da rotação), e a hélice ajusta seu passo para absorver o torque gerado pela turbina. Portanto, a variável de controle direta é a temperatura, não a RPM.",
+    materia: "motores2"
+  },
+  {
+    id: 426,
+    pergunta: "Ao sair do radiador, a viscosidade do óleo é:",
+    opcao_correta: "Maior do que ao entrar",
+    opcao_errada: "Menor do que ao entrar",
+    explicacao: "O radiador de óleo resfria o óleo que circula pelo motor. Como a viscosidade do óleo é inversamente proporcional à temperatura (óleo fica mais fino quando quente e mais grosso quando frio), ao passar pelo radiador e perder calor, sua temperatura diminui e sua viscosidade aumenta. Portanto, ao sair do radiador, o óleo está mais frio e mais viscoso do que quando entrou.",
+    materia: "motores2"
+  },
+  {
+    id: 427,
+    pergunta: "As bombas que circulam o óleo através do motor e as que retornam o óleo para o reservatório são, respectivamente do tipo:",
+    opcao_correta: "pressão e sucção",
+    opcao_errada: "sucção e sucção",
+    explicacao: "Em um sistema de lubrificação típico de motor alternativo: a bomba de pressão (geralmente do tipo engrenagem) é responsável por pressurizar o óleo e forçá-lo a circular através dos galerias e componentes do motor. A bomba de sucção (ou de retorno), que pode ser do tipo palheta ou engrenagem, tem a função de aspirar o óleo que se acumula no cárter e devolvê-lo ao reservatório ou tanque de óleo. São funções distintas: uma pressuriza, outra retorna.",
+    materia: "motores2"
+  },
+  {
+    id: 428,
+    pergunta: "Diversos fatores devem ser considerados na seleção da bitola do fio para transmissão e distribuição de força elétrica. O primeiro fator é o(a):",
+    opcao_correta: "perda da energia permitida na linha",
+    opcao_errada: "capacidade do condutor para conduzir corrente",
+    explicacao: "Na seleção da bitola de um fio para transmissão de força, o primeiro fator a ser considerado é a perda de energia (queda de tensão) permitida ao longo do circuito. Normas estabelecem um limite máximo (ex: 2% para circuitos principais). Com essa perda permitida definida, calcula-se a bitola mínima necessária para atender ao limite de queda de tensão, considerando corrente, comprimento e material do condutor. A capacidade de corrente (ampacidade) é verificada em seguida, mas a queda de tensão é o critério inicial determinante.",
+    materia: "motores2"
+  },
+  {
+    id: 429,
+    pergunta: "Durante a inspeção de um motor, um mecânico detecta um trinco na aleta de resfriamento do cilindro. Quais são os procedimentos recomendados a serem seguidos para lidar com essa situação?",
+    opcao_correta: "Soldagem dentro dos limites pré estabelecidos pelo fabricante",
+    opcao_errada: "A aleta de resfriamento não pode ser reparada",
+    explicacao: "Trincas em aletas de resfriamento de cilindros podem ser reparadas por soldagem, desde que seguidas as especificações do fabricante do motor. Geralmente, é permitido soldar até um certo número de aletas por cilindro e até um certo comprimento de trinca por aleta. O procedimento exato (tipo de solda, material, técnica) deve estar de acordo com o manual de manutenção. A substituição do cilindro completo é necessária apenas se os danos excederem os limites de reparo estabelecidos.",
+    materia: "motores2"
+  },
+  {
+    id: 430,
+    pergunta: "Onde a água é injetada em um motor a turbina para fins de resfriamento?",
+    opcao_correta: "Na entrada do compressor e no compartimento do difusor do motor",
+    opcao_errada: "No estágio de potência e na câmara de combustão",
+    explicacao: "Sistemas de injeção de água em turbinas para aumento de potência/resfriamento normalmente injetam água em dois locais: 1) Na entrada do compressor: a água evaporando resfria o ar de entrada, aumentando sua densidade e massa de fluxo. 2) No difusor (entre compressor e câmara de combustão): a água resfria o ar comprimido antes da combustão, permitindo maior fluxo de combustível sem exceder limites de temperatura da turbina. A injeção direta na câmara de combustão ou nos estágios da turbina não é prática comum para este fim, pois poderia causar choque térmico severo.",
+    materia: "motores2"
+  },
+  {
+     id: 431,
+    pergunta: "Dentre as alternativas abaixo, indique aquela que apresenta superfícies móveis da deriva de um avião:",
+    opcao_correta: "leme e compensador",
+    opcao_errada: "estabilizador horizontal e profundor",
+    explicacao: "A deriva (ou estabilizador vertical) é a superfície vertical fixa da cauda. Nela estão localizadas as superfícies móveis de controle de guinada: o leme (superfície principal) e o compensador do leme (ou trim tab, uma pequena superfície ajustável na borda de fuga do leme). Estabilizador horizontal e profundor são superfícies da cauda horizontal, não da deriva.",
+    materia: "revbasico"
+  },
+  {
+    id: 432,
+    pergunta: "Em um sistema de comando de voo que utiliza aileron e leme acoplados, qual é a principal função das molas de interconexão?",
+    opcao_correta: "Corrigir o arrasto do aileron aplicando automaticamente uma deflexão coordenada do leme.",
+    opcao_errada: "Limitar o curso máximo dos pedais de leme para evitar guinadas excessivas em curvas.",
+    explicacao: "As molas (ou mecanismos) de interconexão aileron-leme são projetadas para reduzir ou eliminar a guinada adversa (adverse yaw). Quando o piloto movimenta os ailerons para inclinar a aeronave, o sistema automaticamente e proporcionalmente deflete o leme na direção correta para compensar o arrasto diferencial criado pelos ailerons. Isso fornece uma curva coordenada sem necessidade de ação direta do piloto nos pedais do leme, facilitando o controle. A limitação do curso dos pedais é uma função separada, normalmente feita por batentes mecânicos.",
+    materia: "revbasico"
+  },
+  {
+    id: 433,
+    pergunta: "Em uma rebitagem utilizou-se uma barra encontradora, pode-se afirmar que o rebite usado é do tipo:",
+    opcao_correta: "sólido",
+    opcao_errada: "pull-thru",
+    explicacao: "A barra encontradora (ou bucking bar) é uma ferramenta que se opõe ao martelo rebitador (ou pistola de rebitar) durante a instalação de rebites sólidos. O rebite sólido (de alumínio, aço, monel, etc.) é colocado no furo, e a barra encontradora é mantida na cabeça do rebite enquanto a pistola forma a cabeça de fechamento (shop head) no lado oposto. Rebites 'pull-thru' (como os cherry) são instalados com uma ferramenta de puxar, não requerendo uma barra encontradora no lado oposto.",
+    materia: "revbasico"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
