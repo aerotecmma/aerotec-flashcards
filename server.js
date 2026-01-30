@@ -3447,6 +3447,166 @@ const perguntas = [
     explicacao: "A barra encontradora (ou bucking bar) é uma ferramenta que se opõe ao martelo rebitador (ou pistola de rebitar) durante a instalação de rebites sólidos. O rebite sólido (de alumínio, aço, monel, etc.) é colocado no furo, e a barra encontradora é mantida na cabeça do rebite enquanto a pistola forma a cabeça de fechamento (shop head) no lado oposto. Rebites 'pull-thru' (como os cherry) são instalados com uma ferramenta de puxar, não requerendo uma barra encontradora no lado oposto.",
     materia: "revbasico"
   },
+  {
+    id: 434,
+    pergunta: "A condição de sobrevelocidade que pode ocorrer num motor a reação (turbina), poderá ser observada por qual instrumento?",
+    opcao_correta: "Tacômetro",
+    opcao_errada: "Indicador de vibração do motor",
+    explicacao: "O tacômetro é o instrumento responsável por medir a rotação (r.p.m.) do compressor, que é igual à rotação da turbina em motores a reação. Ele é calibrado em percentagem de r.p.m. e tem como uma de suas principais funções monitorar condições de sobrevelocidade, especialmente durante a partida do motor e em operações críticas. O indicador de vibração, por outro lado, monitora desbalanceamentos mecânicos, não sendo específico para detecção de sobrevelocidade.",
+    materia: "motores2"
+  },
+  {
+    id: 435,
+    pergunta: "A hélice percorre uma distância denominada passo efetivo quando?",
+    opcao_correta: "Realiza uma volta completa, considerando o recuo.",
+    opcao_errada: "Comandada para o passo mínimo.",
+    explicacao: "O passo efetivo é a distância real que a hélice avança em uma revolução, considerando o recuo (slip) no ar. Diferencia-se do passo geométrico (teórico), que é calculado sem considerar o recuo. O passo efetivo leva em conta a perda de eficiência aerodinâmica.",
+    materia: "motores2"
+  },
+  {
+    id: 436,
+    pergunta: "Nos sistemas de hélice automáticas, o sistema de controle ajusta o passo, sem atuação do:",
+    opcao_correta: "Operador",
+    opcao_errada: "Neutra",
+    explicacao: "Em hélices automáticas (ou de velocidade constante), o sistema ajusta automaticamente o ângulo da pá para manter a rotação do motor constante, sem intervenção do piloto. O sistema reage a variações de rotação, ajustando o passo conforme necessário para otimizar desempenho.",
+    materia: "motores2"
+  },
+  {
+    id: 437,
+    pergunta: "Os governadores usados para controlar o mecanismo hidráulico de mudança de passo são acionados pelo(a)?",
+    opcao_correta: "Eixo de manivelas",
+    opcao_errada: "Compressor",
+    explicacao: "Os governadores são acionados diretamente pelo eixo de manivelas do motor, o que os torna sensíveis às variações de rotação. Eles controlam o fluxo de óleo para o mecanismo hidráulico de mudança de passo da hélice.",
+    materia: "motores2"
+  },
+  {
+    id: 438,
+    pergunta: "Sistema tipo cárter seco, a bomba de sucção nos motores convencionais tem como finalidade?",
+    opcao_correta: "Retornar o óleo para o tanque",
+    opcao_errada: "Circular o óleo, através do motor",
+    explicacao: "No sistema de cárter seco, a bomba de pressão envia óleo do tanque para o motor, enquanto a bomba de sucção retorna o óleo do cárter de volta ao tanque. Isso evita acúmulo excessivo de óleo no cárter e mantém a lubrificação eficiente.",
+    materia: "motores2"
+  },
+  {
+    id: 439,
+    pergunta: "A formação de gelo no sistema de admissão pode ser impedida ou eliminada pelo?",
+    opcao_correta: "Aumento da temperatura do ar",
+    opcao_errada: "Temperatura do ar de escapamento",
+    explicacao: "O aumento da temperatura do ar de admissão é realizado por meio de um pré-aquecedor, localizado antes das zonas de formação de gelo. Isso evita o acúmulo de gelo que poderia restringir o fluxo de ar e prejudicar o desempenho do motor.",
+    materia: "motores2"
+  },
+  {
+    id: 440,
+    pergunta: "No sistema de lubrificação, a válvula de desvio (by-pass) que permite que o óleo seja desviado para o motor, em caso de filtro entupido, está localizada?",
+    opcao_correta: "Entre a saída de pressão da bomba de óleo e o filtro",
+    opcao_errada: "Após o filtro",
+    explicacao: "A válvula de desvio fica entre a bomba e o filtro. Se o filtro estiver obstruído ou o óleo muito frio, a pressão abre a válvula, permitindo que o óleo não filtrado circule diretamente para o motor, evitando falta de lubrificação.",
+    materia: "motores2"
+  },
+  {
+    id: 441,
+    pergunta: "Efeito da altitude, uma vez que o gradiente de temperatura é menor que o gradiente de pressão. Conforme se aumenta a altitude a densidade é?",
+    opcao_correta: "Reduzida",
+    opcao_errada: "Aumentada",
+    explicacao: "Com o aumento da altitude, a pressão cai mais rapidamente que a temperatura, resultando em redução da densidade do ar. Isso diminui o empuxo disponível do motor, mesmo com temperaturas mais baixas.",
+    materia: "motores2"
+  },
+  {
+    id: 442,
+    pergunta: "O objetivo da sincronização das hélices é?",
+    opcao_correta: "Reduzir a vibração da hélice",
+    opcao_errada: "Embandeirar a hélice",
+    explicacao: "A sincronização iguala a rotação dos motores em aeronaves multimotoras, reduzindo vibrações e o desconforto causado por hélices operando em frequências diferentes.",
+    materia: "motores2"
+  },
+  {
+    id: 443,
+    pergunta: "Para reduzir a velocidade no pouso, imediatamente após o toque, de uma aeronave turbofan, utiliza-se o(a)?",
+    opcao_correta: "Reversor",
+    opcao_errada: "Freio das rodas",
+    explicacao: "O reversor de empuxo desvia o fluxo dos gases para frente, gerando uma força contrária ao movimento. É ativado logo após o toque, em conjunto com spoilers e freios, para reduzir a distância de frenagem.",
+    materia: "motores2"
+  },
+  {
+    id: 444,
+    pergunta: "No motor convencional, converter o movimento de rotação do eixo de ressaltos, em movimento alternativo para abrir a válvula, é função do(a)?",
+    opcao_correta: "Conjunto de tuchos",
+    opcao_errada: "Conjunto de bielas",
+    explicacao: "O conjunto de tuchos transforma o movimento rotativo do eixo de ressaltos em movimento linear alternado, transmitindo-o às hastes impulsoras e balancins para abrir as válvulas no tempo correto.",
+    materia: "motores2"
+  },
+  {
+    id: 445,
+    pergunta: "Quanto à hélice ajustável no solo, pode-se dizer que a mesma opera como uma hélice de passo?",
+    opcao_correta: "Fixo",
+    opcao_errada: "Controlável",
+    explicacao: "Hélices ajustáveis no solo são reguladas apenas em terra, antes do voo. Durante o voo, funcionam como hélices de passo fixo, sem alteração de ângulo.",
+    materia: "motores2"
+  },
+  {
+    id: 446,
+    pergunta: "A resistência que o óleo lubrificante oferece ao escoamento denomina-se?",
+    opcao_correta: "Viscosidade",
+    opcao_errada: "Compressibilidade",
+    explicacao: "Viscosidade é a propriedade do óleo que define sua resistência ao fluxo. Alta viscosidade indica óleo mais espesso; baixa viscosidade, óleo mais fluido. A viscosidade varia com a temperatura.",
+    materia: "motores2"
+  },
+  {
+    id: 447,
+    pergunta: "Nos motores a reação, os compressores são classificados como?",
+    opcao_correta: "Axial e centrífugo",
+    opcao_errada: "Axial e convencional",
+    explicacao: "Os dois tipos principais de compressores em motores a jato são o axial (fluxo paralelo ao eixo) e o centrífugo (fluxo radial para fora). A classificação se baseia na direção do fluxo de ar através do compressor.",
+    materia: "motores2"
+  },
+  {
+    id: 448,
+    pergunta: "A finalidade do sistema de embandeiramento da hélice é?",
+    opcao_correta: "Reduzir, ao mínimo, a resistência ao avanço",
+    opcao_errada: "Eliminar vibrações da hélice",
+    explicacao: "O embandeiramento posiciona as pás no ângulo de menor arrasto quando o motor para. Em aeronaves multimotoras, isso reduz a resistência aerodinâmica causada por uma hélice parada.",
+    materia: "motores2"
+  },
+  {
+    id: 449,
+    pergunta: "Eixos de manivelas são balanceados estático e dinamicamente. Durante o teste de balanceamento estático do eixo de manivelas, ele é colocado sobre dois:",
+    opcao_correta: "Cutelos",
+    opcao_errada: "Suporte flexíveis",
+    explicacao: "No teste estático, o eixo é apoiado sobre cutelos (facas de balanceamento). Se girar espontaneamente, indica desbalanceamento. O balanceamento dinâmico verifica forças rotativas durante a operação.",
+    materia: "motores2"
+  },
+  {
+    id: 450,
+    pergunta: "Os cilindros são instalados no motor na seção denominada?",
+    opcao_correta: "Potência",
+    opcao_errada: "Acessórios",
+    explicacao: "A seção de potência é onde ocorre a combustão e a geração de energia. Os cilindros, pistões e bielas estão localizados nessa seção.",
+    materia: "motores2"
+  },
+  {
+    id: 451,
+    pergunta: "Após a sua leitura, assinale a alternativa correta: 'The thermal discharge indicator is connected to the fire container relief fitting and ejects a red disk to show when container contents have dumped overboard due to excessive heat.' 'Excessive heat' quer dizer:",
+    opcao_correta: "Calor excessivo",
+    opcao_errada: "Temperatura excessiva",
+    explicacao: "A tradução correta de 'excessive heat' é 'calor excessivo'. O indicador de descarga térmica aciona um disco vermelho quando o sistema de extinção descarrega devido a superaquecimento.",
+    materia: "motores2"
+  },
+  {
+    id: 452,
+    pergunta: "A finalidade de converter a alta velocidade do ar de saída do compressor em pressão estática é?",
+    opcao_correta: "Fazer com que o ar nos queimadores queime sem se apagar",
+    opcao_errada: "Aumentar a potência do motor",
+    explicacao: "O difusor converte a energia cinética do ar em pressão estática, reduzindo a velocidade e estabilizando o fluxo para que a combustão ocorra de forma contínua nos queimadores.",
+    materia: "motores2"
+  },
+  {
+    id: 453,
+    pergunta: "No sistema de lubrificação do motor, a válvula de alívio localizada na saída da bomba principal limita a pressão máxima do sistema, desviando o óleo para o reservatório ou para o(a):",
+    opcao_correta: "Entrada da bomba",
+    opcao_errada: "Interior do filtro",
+    explicacao: "A válvula de alívio desvia o excesso de óleo de volta para a entrada da bomba, mantendo a pressão do sistema dentro dos limites seguros e protegendo componentes contra sobrepressão.",
+    materia: "motores2"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
