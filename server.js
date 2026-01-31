@@ -3607,6 +3607,166 @@ const perguntas = [
     explicacao: "A válvula de alívio desvia o excesso de óleo de volta para a entrada da bomba, mantendo a pressão do sistema dentro dos limites seguros e protegendo componentes contra sobrepressão.",
     materia: "motores2"
   },
+  {
+    id: 454,
+    pergunta: "O sistema de medição principal fornece combustível para o motor em todas?",
+    opcao_correta: "As velocidades acima de marcha lenta",
+    opcao_errada: "As baixa rotação do rotor de ignição",
+    explicacao: "O sistema de medição principal opera apenas acima da marcha lenta, pois abaixo dessa velocidade a queda de pressão no Venturi é insuficiente para descarregar combustível. Para marcha lenta, existe um sistema separado.",
+    materia: "motores1"
+  },
+  {
+    id: 455,
+    pergunta: "O compressor de fluxo axial tem dois elementos principais:",
+    opcao_correta: "Rotor e estator",
+    opcao_errada: "Difusor e turbina",
+    explicacao: "No compressor axial, o rotor (parte giratória) acelera o ar, enquanto o estator (parte fixa) converte essa velocidade em pressão e direciona o fluxo para o próximo estágio.",
+    materia: "motores1"
+  },
+  {
+    id: 456,
+    pergunta: "A baixa volatilidade é preferível para reduzir a possibilidade do calço de vapor, e reduzir as perdas de:",
+    opcao_correta: "Combustível por evaporação",
+    opcao_errada: "Os gases cinéticos de queima no corte do motor",
+    explicacao: "Combustíveis com baixa volatilidade evaporam menos, reduzindo perdas por evaporação e minimizando o risco de calço de vapor no sistema de combustível.",
+    materia: "motores1"
+  },
+  {
+    id: 457,
+    pergunta: "Se a mistura usada for mais pobre do que a especificada para o motor em uso, o cilindro com a mistura mais pobre estará sujeito?",
+    opcao_correta: "Ao retorno de chama",
+    opcao_errada: "A pré-ignição",
+    explicacao: "Misturas muito pobres queimam lentamente, podendo continuar queimando durante a abertura da válvula de admissão, causando retorno de chama (backfire) no coletor.",
+    materia: "motores1"
+  },
+  {
+    id: 458,
+    pergunta: "Os anéis de segmento nos motores convencionais tem a função de?",
+    opcao_correta: "Vedação",
+    opcao_errada: "Limitar o movimento do eixo de manivelas",
+    explicacao: "Os anéis de segmento vedam a câmara de combustão, impedindo vazamento de gases e controlando a quantidade de óleo que chega à área de combustão.",
+    materia: "motores1"
+  },
+  {
+    id: 459,
+    pergunta: "O motor que utiliza um sistema de biela mestra e bielas articuladas, é denominado motor?",
+    opcao_correta: "Radial",
+    opcao_errada: "Em V",
+    explicacao: "Motores radiais utilizam biela mestra (conectada ao eixo) e bielas articuladas (conectadas à mestra) para conectar múltiplos pistões dispostos radialmente ao mesmo eixo.",
+    materia: "motores1"
+  },
+  {
+    id: 460,
+    pergunta: "Quando um êmbolo vai do PMB até o PMA, o mesmo desloca um volume que se denomina?",
+    opcao_correta: "Cilindrada",
+    opcao_errada: "Desenvolvimento",
+    explicacao: "Cilindrada é o volume deslocado pelo pistão ao se mover do ponto morto inferior (PMI) ao ponto morto superior (PMS). É calculada pela área do cilindro × curso do pistão.",
+    materia: "motores1"
+  },
+  {
+    id: 461,
+    pergunta: "A alta tensão induzida na bobina secundária é enviada ao?",
+    opcao_correta: "Distribuidor",
+    opcao_errada: "Condensador",
+    explicacao: "A alta tensão gerada na bobina secundária é direcionada ao distribuidor, que a distribui às velas na sequência correta de ignição.",
+    materia: "motores1"
+  },
+  {
+    id: 462,
+    pergunta: "O gerador no sistema elétrico tem a finalidade de?",
+    opcao_correta: "Converter energia mecânica em elétrica",
+    opcao_errada: "Acumular energia estática",
+    explicacao: "O gerador transforma energia mecânica (do motor) em energia elétrica por indução eletromagnética, alimentando os sistemas da aeronave e carregando a bateria.",
+    materia: "motores1"
+  },
+  {
+    id: 463,
+    pergunta: "Durante a partida de um motor a reação, deve-se monitorar o(a)?",
+    opcao_correta: "Pressão de óleo, temperatura do compressor e a TIT",
+    opcao_errada: "Tacômetro e a TIT",
+    explicacao: "Na partida de motores a reação, é essencial monitorar pressão de óleo, temperatura do compressor e Temperatura de Inlet Turbine (TIT) para garantir operação segura e evitar danos.",
+    materia: "motores1"
+  },
+  {
+    id: 464,
+    pergunta: "O rotor de um motor a reação é uma combinação dos rotores do compressor e da turbina, unidos por?",
+    opcao_correta: "Um eixo",
+    opcao_errada: "Três eixos distintos",
+    explicacao: "O rotor do motor a reação consiste nos rotores do compressor e da turbina conectados por um único eixo comum, que transmite a energia da turbina para o compressor.",
+    materia: "motores1"
+  },
+  {
+    id: 465,
+    pergunta: "O princípio usado por um motor turbojato quando ele provê força para mover um avião, baseia-se no(a)?",
+    opcao_correta: "Segunda lei de Newton",
+    opcao_errada: "Princípio de Pascal",
+    explicacao: "A segunda lei de Newton (F = m × a) explica como o motor acelera uma massa de ar, gerando uma força de reação (empuxo) que impulsiona a aeronave.",
+    materia: "motores1"
+  },
+  {
+    id: 466,
+    pergunta: "Cada válvula é fechada por meio de duas ou três molas helicoidais para:",
+    opcao_correta: "Evitar vibração ou oscilação em determinadas velocidades",
+    opcao_errada: "Aumentar a pressão de fechamento",
+    explicacao: "Múltiplas molas com frequências naturais diferentes previnem ressonância e vibração excessiva, garantindo fechamento estável da válvula em todas as rotações.",
+    materia: "motores1"
+  },
+  {
+    id: 467,
+    pergunta: "Nos motores convencionais a quatro tempos, a sequência de funcionamento é?",
+    opcao_correta: "Admissão, compressão, explosão e escapamento",
+    opcao_errada: "Admissão, motor, explosão e escapamento",
+    explicacao: "O ciclo de quatro tempos segue a sequência: 1) Admissão, 2) Compressão, 3) Combustão/Explosão, 4) Escape. Conhecido como ciclo Otto.",
+    materia: "motores1"
+  },
+  {
+    id: 468,
+    pergunta: "Leia com atenção o texto e responda a alternativa correta: 'A complete fire protection system includes both a fire detection and a fire extinguishing system. To detect fires or overheat conditions, detectors are placed in the various zones to be monitored.' A expressão 'overheat conditions' quer dizer:",
+    opcao_correta: "Condições de superaquecimento",
+    opcao_errada: "Condições de tempo",
+    explicacao: "'Overheat conditions' traduz-se como 'condições de superaquecimento', referindo-se a temperaturas excessivas que podem indicar risco de incêndio.",
+    materia: "motores1"
+  },
+  {
+    id: 469,
+    pergunta: "No sistema de ignição a parte giratória do distribuidor é denominada?",
+    opcao_correta: "Rotor",
+    opcao_errada: "Capacitor",
+    explicacao: "A parte giratória do distribuidor é o rotor, que distribui a alta tensão das bobinas para os terminais das velas na sequência correta.",
+    materia: "motores1"
+  },
+  {
+    id: 470,
+    pergunta: "O ar que entra na câmara de combustão é dividido em duas correntes principais: ar primário e ar secundário. Qual a finalidade do ar secundário no motor a reação?",
+    opcao_correta: "Refrigeração",
+    opcao_errada: "Para queima",
+    explicacao: "O ar secundário resfria os gases de combustão, passando entre a carcaça e a camisa da câmara, reduzindo a temperatura antes da turbina.",
+    materia: "motores1"
+  },
+  {
+    id: 471,
+    pergunta: "Além dos a reação, os motores radial são fixados à nacelle do avião através de(o)?",
+    opcao_correta: "Berço",
+    opcao_errada: "Suporte",
+    explicacao: "Motores radiais são montados em berços de tubos de aço soldados, que suportam o peso e absorvem cargas dinâmicas e vibrações.",
+    materia: "motores1"
+  },
+  {
+    id: 472,
+    pergunta: "Geralmente de qual material de alta resistência é fabricado o corpo do cilindro no qual trabalha o pistão:",
+    opcao_correta: "Aço",
+    opcao_errada: "Amianto",
+    explicacao: "O corpo do cilindro é feito de aço de alta resistência, geralmente nitretado para endurecer a superfície interna e resistir ao desgaste.",
+    materia: "motores1"
+  },
+  {
+    id: 473,
+    pergunta: "Anel raspador de óleo, geralmente tem uma face chanfrada e está instalado em uma ranhura no fundo da saia do(a):",
+    opcao_correta: "Pistão",
+    opcao_errada: "Eixo de manivelas",
+    explicacao: "O anel raspador de óleo fica na ranhura inferior da saia do pistão, com face chanfrada para controlar o filme de óleo na parede do cilindro.",
+    materia: "motores1"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
