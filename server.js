@@ -3767,6 +3767,166 @@ const perguntas = [
     explicacao: "O anel raspador de óleo fica na ranhura inferior da saia do pistão, com face chanfrada para controlar o filme de óleo na parede do cilindro.",
     materia: "motores1"
   },
+  {
+    id: 474,
+    pergunta: "Teoricamente, a distância que uma hélice deveria avançar em uma revolução, denomina-se?",
+    opcao_correta: "Passo geométrico",
+    opcao_errada: "Passo efetivo",
+    explicacao: "O passo geométrico é a distância teórica que a hélice avançaria em uma revolução se não houvesse recuo (slip). Já o passo efetivo é a distância real percorrida.",
+    materia: "motores2"
+  },
+  {
+    id: 475,
+    pergunta: "Determinar qual das vias o óleo tomará em função do radiador, é objetivo da válvula?",
+    opcao_correta: "De controle de fluxo",
+    opcao_errada: "De alívio",
+    explicacao: "A válvula de controle de fluxo direciona o óleo para passar pelo radiador ou desviar dele, dependendo da temperatura, para otimizar o aquecimento/resfriamento.",
+    materia: "motores2"
+  },
+  {
+    id: 476,
+    pergunta: "A construção do amortecedor dinâmico em um motor convencional, consiste de um contrapeso de aço com ranhuras, conectados ao braço da manivela. Dois pinos de aço em forma de carretel se prolongam pelas ranhuras e passam através dos tubos superdimensionados nos contrapesos e no(a)?",
+    opcao_correta: "Braço de manivelas",
+    opcao_errada: "Turbina",
+    explicacao: "Os pinos passam pelos tubos nos contrapesos e no braço da manivela, criando um efeito de pêndulo que absorve vibrações torcionais do eixo.",
+    materia: "motores2"
+  },
+  {
+    id: 477,
+    pergunta: "A pressão do óleo do motor é medida por um instrumento que emprega um mecanismo, do tipo?",
+    opcao_correta: "Tubo de Bourdon",
+    opcao_errada: "Sonda",
+    explicacao: "O indicador de pressão de óleo geralmente usa um tubo de Bourdon, que se deforma com a pressão, movendo um ponteiro no mostrador.",
+    materia: "motores2"
+  },
+  {
+    id: 478,
+    pergunta: "Para dar partida num motor com as baterias do avião a chave de partida é colocada na posição?",
+    opcao_correta: "START",
+    opcao_errada: "STOP",
+    explicacao: "A posição START energiza o circuito de partida, ativando os relés e conectando as baterias em série para fornecer energia ao motor de arranque.",
+    materia: "motores2"
+  },
+  {
+    id: 479,
+    pergunta: "Na construção de um motor a reação, qual peça tem características de maior influência na performance final do motor?",
+    opcao_correta: "Compressor (axial e centrífugo)",
+    opcao_errada: "Turbina",
+    explicacao: "O tipo de compressor (axial ou centrífugo) define as dimensões, eficiência e características de fluxo do motor, impactando diretamente seu desempenho.",
+    materia: "motores2"
+  },
+  {
+    id: 480,
+    pergunta: "O sistema de lubrificação é protegido contra uma pressão excessiva que possa causar vazamentos no sistema, através do componente denominado?",
+    opcao_correta: "Válvula de alívio",
+    opcao_errada: "Filtro",
+    explicacao: "A válvula de alívio desvia o excesso de óleo quando a pressão ultrapassa o limite seguro, prevenindo danos ao sistema.",
+    materia: "motores2"
+  },
+  {
+    id: 481,
+    pergunta: "A finalidade do compressor nos motores a jato é fornecer?",
+    opcao_correta: "Ar em quantidade suficiente aos queimadores de combustão",
+    opcao_errada: "Pressão suficiente à caixa de acessórios",
+    explicacao: "O compressor aumenta a pressão e densidade do ar, fornecendo-o em quantidade adequada para os queimadores onde ocorre a combustão.",
+    materia: "motores2"
+  },
+  {
+    id: 482,
+    pergunta: "Havendo necessidade de substituição de uma ou mais palheta da turbina geradora de gases devido a discrepância. O mecânico obrigatoriamente deverá:",
+    opcao_correta: "Substituir a palheta oposta, para haver equilíbrio no balanceamento do conjunto",
+    opcao_errada: "Substituir o eixo de ligação do compressor / turbina",
+    explicacao: "Para manter o balanceamento dinâmico, deve-se substituir também a palheta diametralmente oposta, evitando desbalanceamento e vibrações.",
+    materia: "motores2"
+  },
+  {
+    id: 483,
+    pergunta: "A distância que a hélice realmente percorre, denomina-se passo?",
+    opcao_correta: "Efetivo",
+    opcao_errada: "Geométrico",
+    explicacao: "Passo efetivo é a distância real avançada pela hélice em uma revolução, considerando o recuo aerodinâmico (slip).",
+    materia: "motores2"
+  },
+  {
+    id: 484,
+    pergunta: "Nos motores a reação, as câmaras de combustão do tipo caneca, dispõe de interconectores cuja finalidade é?",
+    opcao_correta: "Propagar a chama",
+    opcao_errada: "Isolar a chama",
+    explicacao: "Os tubos interconectores permitem que a chama se espalhe de uma câmara para outra durante a partida, garantindo ignição em todas as câmaras.",
+    materia: "motores2"
+  },
+  {
+    id: 485,
+    pergunta: "A força das explosões nos cilindros são igualmente distribuídas ao longo do eixo de manivelas através da sequência denominada?",
+    opcao_correta: "Ordem de fogo, na qual o tempo motor ocorre nos diferentes cilindros",
+    opcao_errada: "Cilindrada, na qual o combustível é admitido e comprimido",
+    explicacao: "A ordem de fogo organiza a sequência de ignição dos cilindros para distribuir uniformemente os impulsos e minimizar vibrações.",
+    materia: "motores2"
+  },
+  {
+    id: 486,
+    pergunta: "Durante o funcionamento de um motor a quatro tempos, a compressão ocorrem em qual tempo?",
+    opcao_correta: "Segundo tempo",
+    opcao_errada: "Primeiro tempo",
+    explicacao: "No ciclo de 4 tempos: 1° Admissão, 2° Compressão, 3° Explosão, 4° Escape. A compressão ocorre no segundo tempo.",
+    materia: "motores2"
+  },
+  {
+    id: 487,
+    pergunta: "Está provado que as inspeções regularmente programadas e a manutenção preventiva asseguram boas condições de voo, conforme orientação do:",
+    opcao_correta: "Fabricante",
+    opcao_errada: "Mecânico",
+    explicacao: "Os intervalos e procedimentos de inspeção e manutenção são estabelecidos pelo fabricante da aeronave/motor, seguindo normas e garantindo segurança.",
+    materia: "motores2"
+  },
+  {
+    id: 488,
+    pergunta: "Após a sua leitura, assinale a alternativa correta: 'On many aircraft, means are usually provided for rapid access to the compressor, tailpipe, or burner compartments. Many aircraft systems are equipped with spring-loaded or pop-out access doors in the skin of the various compartments.' “Compressor”, pode ser traduzido como:",
+    opcao_correta: "Compressor",
+    opcao_errada: "Condensador",
+    explicacao: "A tradução correta de 'compressor' é 'compressor', componente do motor a reação responsável por comprimir o ar.",
+    materia: "motores2"
+  },
+  {
+    id: 489,
+    pergunta: "Aumentando o ângulo da pá numa hélice ocorrerá aumento do(a)?",
+    opcao_correta: "Passo",
+    opcao_errada: "Rotação",
+    explicacao: "Aumentar o ângulo da pá aumenta o passo (distância teórica por revolução), exigindo mais potência para manter a mesma rotação.",
+    materia: "motores2"
+  },
+  {
+    id: 490,
+    pergunta: "O primeiro propósito da lubrificação é reduzir a fricção entre as partes?",
+    opcao_correta: "Móveis",
+    opcao_errada: "Imóveis",
+    explicacao: "A lubrificação reduz o atrito entre partes móveis em contato, como pistões, bielas e mancais, minimizando desgaste e calor.",
+    materia: "motores2"
+  },
+  {
+    id: 491,
+    pergunta: "Responda com a alternativa certa: 'Discharge indicators provide immediate visual evidence of container discharge on fire extinguishing systems.' “Visual evidence” é traduzido como:",
+    opcao_correta: "Evidência visual",
+    opcao_errada: "Visual de checagem",
+    explicacao: "'Visual evidence' significa 'evidência visual', indicando que o descarregamento do extintor é confirmado por um sinal visível.",
+    materia: "motores2"
+  },
+  {
+    id: 492,
+    pergunta: "Na limpeza das peças da seção quente do motor, podem ser utilizados agentes do tipo?",
+    opcao_correta: "Emulsão ou solvente clorado",
+    opcao_errada: "Álcool ou querosene",
+    explicacao: "Agentes de limpeza como emulsões ou solventes clorados são seguros e eficazes para remover depósitos das peças da seção quente sem danificar os metais.",
+    materia: "motores2"
+  },
+  {
+    id: 493,
+    pergunta: "A finalidade de converter a alta velocidade do ar de saída do compressor em pressão estática é?",
+    opcao_correta: "Fazer com que o ar nos queimadores queime sem se apagar",
+    opcao_errada: "Refrigerar o ar do compressor",
+    explicacao: "O difusor reduz a velocidade do ar e aumenta sua pressão estática, estabilizando o fluxo para que a combustão ocorra de forma contínua nos queimadores.",
+    materia: "motores2"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
