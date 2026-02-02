@@ -3927,6 +3927,166 @@ const perguntas = [
     explicacao: "O difusor reduz a velocidade do ar e aumenta sua pressão estática, estabilizando o fluxo para que a combustão ocorra de forma contínua nos queimadores.",
     materia: "motores2"
   },
+  {
+     id: 494,
+    pergunta: "Em projeções ortográficas:",
+    opcao_correta: "existem seis vistas possíveis de um objeto ou lados que são: frente, cima, parte de baixo, traseira, lado direito e lado esquerdo",
+    opcao_errada: "existem cinco vistas possíveis de um objeto ou lados que são: frente, cima, parte de baixo, lado direito e lado esquerdo",
+    explicacao: "A projeção ortográfica representa o objeto em seis vistas possíveis, cada uma correspondente a um plano ortogonal. A exclusão de qualquer uma dessas vistas torna a representação incompleta.",
+    materia: "desenho"
+  },
+  {
+    id: 495,
+    pergunta: "Em desenhos técnicos aeronáuticos, qual é a principal função das linhas de centro e como são representadas graficamente?",
+    opcao_correta: "As linhas de centro são compostas por traços longos alternados com traços curtos e indicam o centro de peças ou objetos.",
+    opcao_errada: "As linhas de centro são traços curtos paralelos utilizados para identificar superfícies ocultas em diferentes vistas do desenho.",
+    explicacao: "Linhas de centro indicam eixos, simetria e centros geométricos, não superfícies ocultas (essas são linhas tracejadas).",
+    materia: "desenho"
+  },
+  {
+    id: 496,
+    pergunta: "São linhas, com uma seta numa das pontas, e indicam uma parte ou porção de uma nota, número ou uma outra referência?",
+    opcao_correta: "Linhas líderes",
+    opcao_errada: "Linhas chefe",
+    explicacao: "Essas linhas são representadas por uma seta em uma das pontas e são usadas para indicar uma parte ou porção de uma nota, número ou outra referência.",
+    materia: "desenho"
+  },
+  {
+    id: 497,
+    pergunta: "Quando uma dimensão dada em uma planta mostra uma variação permitida, o sinal (+), indica o máximo; e o sinal (-), indica a mínima variação permitida. A soma dos sinais indicam?",
+    opcao_correta: "A tolerância",
+    opcao_errada: "A resistência",
+    explicacao: "A soma das variações máxima (+) e mínima (-) representa a tolerância dimensional permitida.",
+    materia: "desenho"
+  },
+  {
+    id: 498,
+    pergunta: "Desenhos podem ser dimensionados em?",
+    opcao_correta: "Decimais ou frações",
+    opcao_errada: "Estações e zonas",
+    explicacao: "Desenhos podem ser dimensionados em decimais ou frações, especialmente quando se trata de tolerâncias e precisão dimensional.",
+    materia: "desenho"
+  },
+  {
+    id: 499,
+    pergunta: "Desenho de trabalho podem ser divididos em quantas partes?",
+    opcao_correta: "3",
+    opcao_errada: "6",
+    explicacao: "Desenhos de trabalho podem ser divididos em três partes: desenhos de detalhes, desenhos de conjuntos e desenhos de montagens.",
+    materia: "desenho"
+  },
+  {
+    id: 500,
+    pergunta: "Têm informação quanto ao tamanho do objeto e suas partes, seu formato e especificações como: material a ser usado, como ele deve ser acabado, como suas partes devem ser montadas:",
+    opcao_correta: "desenhos de trabalho",
+    opcao_errada: "planta",
+    explicacao: "Desenhos de trabalho concentram todas as informações necessárias à fabricação e montagem.",
+    materia: "desenho"
+  },
+  {
+    id: 501,
+    pergunta: "É definido como uma representação gráfica de um conjunto ou sistema, indicando as várias partes e expressamente, os métodos ou princípios de operação:",
+    opcao_correta: "diagrama",
+    opcao_errada: "esquemático",
+    explicacao: "Diagramas mostram funcionamento e princípios de operação, enquanto esquemas focam conexões.",
+    materia: "desenho"
+  },
+  {
+    id: 502,
+    pergunta: "No dimensionamento de distâncias entre furos no objeto, as dimensões são usualmente dadas de?",
+    opcao_correta: "Centro a centro",
+    opcao_errada: "Extremo a extremo",
+    explicacao: "O padrão técnico utiliza a medida de centro a centro para garantir precisão na localização dos furos.",
+    materia: "desenho"
+  },
+  {
+    id: 503,
+    pergunta: "Para que é usado o bloco de revisão em um desenho?",
+    opcao_correta: "fornecer todas as mudança de dimensões, modelo ou materiais",
+    opcao_errada: "Fornecer informações sobre a montagem do desenho",
+    explicacao: "O bloco de revisão registra todas as alterações aprovadas feitas no desenho.",
+    materia: "desenho"
+  },
+  {
+    id: 504,
+    pergunta: "Encontramos no bloco de títulos de um desenho?",
+    opcao_correta: "o nome da peça ou conjunto, a escala e data",
+    opcao_errada: "todas as mudanças aprovadas para um desenho",
+    explicacao: "Mudanças ficam no bloco de revisão, não no bloco de títulos.",
+    materia: "desenho"
+  },
+  {
+    id: 505,
+    pergunta: "Desenho de trabalho podem ser divididos em três partes que são?",
+    opcao_correta: "Desenhos de detalhes, Desenhos de conjuntos e Desenhos de montagens",
+    opcao_errada: "Plantas, conjuntos e montagens",
+    explicacao: "A nomenclatura correta é detalhes, conjuntos e montagens.",
+    materia: "desenho"
+  },
+  {
+    id: 506,
+    pergunta: "Qual o objetivo das revisões em um desenho?",
+    opcao_correta: "Para mudanças de dimensões, modelo ou materiais",
+    opcao_errada: "Para mudança de fabricante",
+    explicacao: "Revisões garantem que o desenho reflita alterações técnicas aprovadas.",
+    materia: "desenho"
+  },
+  {
+    id: 507,
+    pergunta: "Indicam que uma porção do objeto não é mostrada no desenho e as linhas são feitas sólidas, e à mão livre:",
+    opcao_correta: "linhas de ruptura",
+    opcao_errada: "linhas de corte e vista de corte",
+    explicacao: "Linhas de ruptura indicam interrupção do objeto para economia de espaço e clareza.",
+    materia: "desenho"
+  },
+  {
+    id: 508,
+    pergunta: "Desenhos que utilizam mais de uma vista para mostrar formas de objetos complexos, denominam-se desenho de projeções:",
+    opcao_correta: "ortográficas",
+    opcao_errada: "gráficas",
+    explicacao: "Projeções ortográficas utilizam múltiplas vistas sem perspectiva.",
+    materia: "desenho"
+  },
+  {
+    id: 509,
+    pergunta: "Qual a função do zoneamento em um desenho técnico?",
+    opcao_correta: "Para auxiliar a localização de um determinado ponto",
+    opcao_errada: "Fornecer as medidas do desenho",
+    explicacao: "Zoneamento funciona como coordenadas de mapa.",
+    materia: "desenho"
+  },
+  {
+    id: 510,
+    pergunta: "Normalmente, o bloco de títulos fica localizado?",
+    opcao_correta: "Canto inferior direito",
+    opcao_errada: "No canto superior direito",
+    explicacao: "Padrão técnico: inferior direito.",
+    materia: "desenho"
+  },
+  {
+    id: 511,
+    pergunta: "Onde geralmente está localizado o bloco de título em um desenho de aeronave?",
+    opcao_correta: "No canto inferior direito do desenho",
+    opcao_errada: "No canto superior esquerdo do desenho",
+    explicacao: "Reforço do padrão de identificação visual.",
+    materia: "desenho"
+  },
+  {
+    id: 512,
+    pergunta: "Linhas de hachuras indicam superfícies exposta do(a)?",
+    opcao_correta: "Objeto",
+    opcao_errada: "Núcleo",
+    explicacao: "Hachuras mostram material cortado do objeto.",
+    materia: "desenho"
+  },
+  {
+    id: 513,
+    pergunta: "Inúmeros métodos são usados para ilustrar objetos graficamente, os mais comuns são?",
+    opcao_correta: "Desenhos, projeções ortográficas e diagramas",
+    opcao_errada: "Rascunho , projeções ortográficas e diafragmas",
+    explicacao: "Rascunho não é método técnico formal, e 'diafragma' não se aplica a desenho técnico.",
+    materia: "desenho"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
