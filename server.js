@@ -4087,6 +4087,166 @@ const perguntas = [
     explicacao: "Rascunho não é método técnico formal, e 'diafragma' não se aplica a desenho técnico.",
     materia: "desenho"
   },
+  {
+    id: 514,
+    pergunta: "A chave de utilização manual que possui um mordente fixo e outro móvel e é utilizada como chave de boca, dentre as abaixo, é denominada:",
+    opcao_correta: "ajustável",
+    opcao_errada: "desandador",
+    explicacao: "A chave de utilização manual que possui um mordente fixo e outro móvel e é utilizada como chave de boca é denominada chave ajustável. Ela permite ajustar a abertura dos mordentes para diferentes tamanhos de porcas.",
+    materia: "ferramentas"
+  },
+  {
+    id: 515,
+    pergunta: "Praticamente todas as chaves colar são feitas com 12 pontos para que possam ser usadas em lugares que só permitem um deslocamento de:",
+    opcao_correta: "15°",
+    opcao_errada: "30°",
+    explicacao: "As chaves de colar possuem 12 pontos para permitir uso em locais estreitos, onde o deslocamento possível é de apenas 15°.",
+    materia: "ferramentas"
+  },
+  {
+    id: 516,
+    pergunta: "A chave de fenda Phillips e a Reed Prince são usadas no parafuso:",
+    opcao_correta: "fenda em cruz",
+    opcao_errada: "fenda",
+    explicacao: "Phillips e Reed and Prince são usadas em parafusos com fenda em cruz, porém não são intercambiáveis devido ao formato diferente da ponta.",
+    materia: "ferramentas"
+  },
+  {
+    id: 517,
+    pergunta: "Ao usarmos brocas para furar materiais macios, o ângulo mais eficiente será de:",
+    opcao_correta: "90°",
+    opcao_errada: "120°",
+    explicacao: "Para materiais macios, utiliza-se broca com ângulo de 90°, permitindo maior eficiência e rotação elevada.",
+    materia: "ferramentas"
+  },
+  {
+    id: 518,
+    pergunta: "Num jogo de ferramentas do tipo soquetes, se uma das peças mede 9/16 da polegada, a peça imediatamente superior mede, em polegada?",
+    opcao_correta: "5/8",
+    opcao_errada: "11/16",
+    explicacao: "No sistema fracionado, após 9/16 a próxima medida é 10/16, que corresponde a 5/8.",
+    materia: "ferramentas"
+  },
+  {
+    id: 519,
+    pergunta: "Dentre as ferramentas abaixo, identifique aquela que é usada para frenar parafusos com arame:",
+    opcao_correta: "alicate de bico de pato",
+    opcao_errada: "toca pino",
+    explicacao: "O alicate de bico de pato é próprio para instalar e remover frenagens com arame de segurança.",
+    materia: "ferramentas"
+  },
+  {
+    id: 520,
+    pergunta: "This tool can be used to cut wire, rivets, small screws, and cotter pins, besides being practically indispensable in removing or installing safety wire. O que o texto acima se refere?",
+    opcao_correta: "Diagonal pliers",
+    opcao_errada: "Socket wrench",
+    explicacao: "A descrição corresponde ao alicate diagonal, amplamente usado para corte e manuseio de arame de segurança.",
+    materia: "ferramentas"
+  },
+  {
+    id: 521,
+    pergunta: "Num jogo de ferramentas do tipo soquete, se uma das peças mede 9/16 da polegada, a peça imediatamente superior mede:",
+    opcao_correta: "5/8 da polegada",
+    opcao_errada: "7/16 da polegada",
+    explicacao: "9/16 acrescido de 1/16 resulta em 10/16, equivalente a 5/8.",
+    materia: "ferramentas"
+  },
+  {
+    id: 522,
+    pergunta: "Em relação a chave de fenda, é correto afirmar que:",
+    opcao_correta: "as chaves de medidas incorretas poderão deslizar e danificar peças adjacentes da estrutura",
+    opcao_errada: "as chaves Philips e Reed and Prince são intercambiáveis",
+    explicacao: "Usar chave incorreta pode causar danos; Phillips e Reed and Prince não são intercambiáveis.",
+    materia: "ferramentas"
+  },
+  {
+    id: 523,
+    pergunta: "As chaves colar são feitas de 12 pontos para permitir um deslocamento de?",
+    opcao_correta: "15°",
+    opcao_errada: "mão livre",
+    explicacao: "Os 12 pontos permitem reaperto com deslocamento mínimo de 15°.",
+    materia: "ferramentas"
+  },
+  {
+    id: 524,
+    pergunta: "O peso de um martelo é dado em:",
+    opcao_correta: "onça",
+    opcao_errada: "gramas",
+    explicacao: "No sistema inglês, o peso de martelos é normalmente dado em onças.",
+    materia: "ferramentas"
+  },
+  {
+    id: 525,
+    pergunta: "A parte da lima onde se fixa o cabo denomina-se:",
+    opcao_correta: "espiga",
+    opcao_errada: "ponta",
+    explicacao: "A espiga é a parte onde o cabo é fixado para permitir o manuseio seguro da lima.",
+    materia: "ferramentas"
+  },
+  {
+    id: 526,
+    pergunta: "A ferramenta utilizada para abrir rosca externa denomina-se:",
+    opcao_correta: "cossinete",
+    opcao_errada: "macho",
+    explicacao: "Macho abre rosca interna; cossinete abre rosca externa.",
+    materia: "ferramentas"
+  },
+  {
+    id: 527,
+    pergunta: "O passo de uma lâmina de serra indica o número de dentes por?",
+    opcao_correta: "Polegadas",
+    opcao_errada: "Milímetros",
+    explicacao: "O passo da lâmina indica o número de dentes por polegada.",
+    materia: "ferramentas"
+  },
+  {
+    id: 528,
+    pergunta: "Na aviação, os dois tipos de alicates de bico mais usados são:",
+    opcao_correta: "fino e reto",
+    opcao_errada: "curvo e reto",
+    explicacao: "Alicates de bico fino e reto são os mais utilizados; o reto é ideal para flanges.",
+    materia: "ferramentas"
+  },
+  {
+    id: 529,
+    pergunta: "A montagem de metais maleáveis através do uso de martelos é chamada de:",
+    opcao_correta: "golpeamento",
+    opcao_errada: "laminação",
+    explicacao: "Golpeamento molda metais por impacto; laminação utiliza rolos.",
+    materia: "ferramentas"
+  },
+  {
+    id: 530,
+    pergunta: "As chaves de boca comuns em polegadas crescem ou decrescem na ordem de:",
+    opcao_correta: "1/16 em 1/16",
+    opcao_errada: "1/4 em 1/4",
+    explicacao: "As medidas seguem incrementos de 1/16 de polegada.",
+    materia: "ferramentas"
+  },
+  {
+    id: 531,
+    pergunta: "Por que as chaves de colar são muito utilizadas em lugares estreitos?",
+    opcao_correta: "Por envolverem completamente a porca ou cabeça do parafuso",
+    opcao_errada: "por possuirem 12 pontos",
+    explicacao: "O principal motivo é o envolvimento completo da porca, garantindo firmeza.",
+    materia: "ferramentas"
+  },
+  {
+    id: 532,
+    pergunta: "Como é composto o arco de serra comum?",
+    opcao_correta: "Lâmina, arco e punho",
+    opcao_errada: "Serra, bancada e lâmina",
+    explicacao: "O arco de serra é formado por lâmina, estrutura (arco) e punho.",
+    materia: "ferramentas"
+  },
+  {
+    id: 533,
+    pergunta: "Ferramenta muito utilizada para remover rebites, pinos e parafusos:",
+    opcao_correta: "Punção",
+    opcao_errada: "Martelo",
+    explicacao: "O punção extrator é específico para remover rebites, pinos e parafusos.",
+    materia: "ferramentas"
+  },
 ];
 
 // ========== ROTAS PRINCIPAIS ==========
