@@ -1,883 +1,337 @@
-// SIMULADO.JS CORRIGIDO - VERSÃO COMPATÍVEL COM resultado.js
-
-// ========== CONFIGURAÇÃO ==========
 const CONFIG = {
-    API_BASE_URL: 'http://localhost:3001',
-    TOTAL_QUESTOES: 20,
-    TEMPO_LIMITE: 60 * 60,
-    LOCAL_STORAGE_KEY: 'simulado_anac_estado'
+  API_BASE_URL: window.location.origin.startsWith('http') ? window.location.origin : 'http://localhost:3001',
+  TEMPO_LIMITE: 60 * 60,
+  AUTO_KEY: 'simulado_auto_avancar'
 };
 
-// ========== ESTADO GLOBAL ==========
-let estadoSimulado = {
-    simulado_id: null,
-    perguntas: [],
-    respostas: {},
-    marcadas: new Set(),
-    questaoAtual: 0,
-    tempoInicio: null,
-    tempoDecorrido: 0,
-    tempoInterval: null,
-    materia: null,
-    estadoSalvo: false
+const estado = {
+  simuladoId: null,
+  perguntas: [],
+  respostas: {},
+  marcadas: new Set(),
+  questaoAtual: 0,
+  tempoDecorrido: 0,
+  timerId: null,
+  materia: 'todas',
+  modulo: 'todos',
+  quantidade: 20
 };
 
-// ========== ELEMENTOS DOM ==========
-const elementos = {
-    timer: document.getElementById('timer'),
-    currentQuestion: document.getElementById('current-question'),
-    questionNumber: document.getElementById('question-number'),
-    questionText: document.getElementById('question-text'),
-    optionsContainer: document.getElementById('options-container'),
-    progressNumbers: document.getElementById('progress-numbers'),
-    btnAnterior: document.getElementById('btn-anterior'),
-    btnProxima: document.getElementById('btn-proxima'),
-    btnMarcar: document.getElementById('btn-marcar'),
-    btnLimpar: document.getElementById('btn-limpar'),
-    modalFinalizar: document.getElementById('modal-finalizar'),
-    modalRespondidas: document.getElementById('modal-respondidas'),
-    modalTempo: document.getElementById('modal-tempo'),
-    modalMarcadas: document.getElementById('modal-marcadas'),
-    questionTopic: document.querySelector('.question-topic')
+const el = {
+  timer: document.getElementById('timer'),
+  currentQuestion: document.getElementById('current-question'),
+  questionNumber: document.getElementById('question-number'),
+  questionText: document.getElementById('question-text'),
+  optionsContainer: document.getElementById('options-container'),
+  progressNumbers: document.getElementById('progress-numbers'),
+  btnAnterior: document.getElementById('btn-anterior'),
+  btnProxima: document.getElementById('btn-proxima'),
+  btnMarcar: document.getElementById('btn-marcar'),
+  btnAutoAvancar: document.getElementById('btn-auto-avancar'),
+  btnAutoToggle: document.getElementById('btn-auto-toggle'),
+  autoText: document.getElementById('auto-avancar-text'),
+  modalFinalizar: document.getElementById('modal-finalizar'),
+  modalRespondidas: document.getElementById('modal-respondidas'),
+  modalTempo: document.getElementById('modal-tempo'),
+  modalMarcadas: document.getElementById('modal-marcadas'),
+  questionTopic: document.querySelector('.question-topic')
 };
 
-// ========== FUNÇÕES UTILITÁRIAS ==========
-class Utils {
-    static formatarTempo(segundos) {
-        const horas = Math.floor(segundos / 3600);
-        const minutos = Math.floor((segundos % 3600) / 60);
-        const segs = segundos % 60;
-        return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segs.toString().padStart(2, '0')}`;
-    }
-
-    static criarElemento(tag, classes = [], atributos = {}) {
-        const elemento = document.createElement(tag);
-        classes.forEach(classe => elemento.classList.add(classe));
-        Object.entries(atributos).forEach(([attr, valor]) => elemento.setAttribute(attr, valor));
-        return elemento;
-    }
-
-    static salvarEstadoLocal() {
-        try {
-            const estadoParaSalvar = {
-                ...estadoSimulado,
-                marcadas: Array.from(estadoSimulado.marcadas),
-                tempoInicio: Date.now() - (estadoSimulado.tempoDecorrido * 1000)
-            };
-            localStorage.setItem(CONFIG.LOCAL_STORAGE_KEY, JSON.stringify(estadoParaSalvar));
-            estadoSimulado.estadoSalvo = true;
-        } catch (error) {
-            console.error('Erro ao salvar estado:', error);
-        }
-    }
-
-    static carregarEstadoLocal() {
-        try {
-            const estadoSalvo = localStorage.getItem(CONFIG.LOCAL_STORAGE_KEY);
-            if (estadoSalvo) {
-                const parsed = JSON.parse(estadoSalvo);
-                parsed.marcadas = new Set(parsed.marcadas);
-                return parsed;
-            }
-        } catch (error) {
-            console.error('Erro ao carregar estado:', error);
-        }
-        return null;
-    }
-
-    static limparEstadoLocal() {
-        localStorage.removeItem(CONFIG.LOCAL_STORAGE_KEY);
-    }
-
-    static exibirNotificacao(mensagem, tipo = 'info', duracao = 3000) {
-        const notificacao = this.criarElemento('div', ['notificacao', `notificacao-${tipo}`]);
-        notificacao.textContent = mensagem;
-        document.body.appendChild(notificacao);
-
-        setTimeout(() => {
-            notificacao.classList.add('fade-out');
-            setTimeout(() => notificacao.remove(), 500);
-        }, duracao);
-    }
-
-    static validarResposta(resposta) {
-        return ['A', 'B'].includes(resposta);
-    }
-
-    static calcularPorcentagemCompleta() {
-        const respondidas = Object.keys(estadoSimulado.respostas).length;
-        return Math.round((respondidas / CONFIG.TOTAL_QUESTOES) * 100);
-    }
+function formatarTempo(segundos) {
+  const horas = Math.floor(segundos / 3600);
+  const minutos = Math.floor((segundos % 3600) / 60);
+  const secs = segundos % 60;
+  return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 }
 
-// ========== CONTROLE DO SIMULADO ==========
-class ControladorSimulado {
-    static async iniciar() {
-        console.log('🚀 Iniciando simulado...');
-
-        // Verificar se há estado salvo
-        const estadoSalvo = Utils.carregarEstadoLocal();
-        if (estadoSalvo && await this.verificarContinuarSimulado(estadoSalvo)) {
-            estadoSimulado = estadoSalvo;
-            estadoSimulado.tempoInicio = Date.now() - (estadoSimulado.tempoDecorrido * 1000);
-            this.renderizarEstadoSalvo();
-        } else {
-            await this.carregarNovoSimulado();
-        }
-
-        this.iniciarTemporizador();
-        this.gerarBotoesProgresso();
-        this.carregarQuestao(estadoSimulado.questaoAtual);
-        this.configurarEventListeners();
-        this.configurarProtecaoNavegacao();
-    }
-
-    static async carregarNovoSimulado() {
-        try {
-            // 1. Obter matéria da URL ou localStorage
-            const urlParams = new URLSearchParams(window.location.search);
-            let materia = urlParams.get('materia') || localStorage.getItem('materiaSelecionada');
-            
-            if (!materia) {
-                Utils.exibirNotificacao('Nenhuma matéria selecionada! Redirecionando...', 'erro');
-                setTimeout(() => window.location.href = 'index.html', 2000);
-                return;
-            }
-
-            estadoSimulado.materia = materia;
-
-            // 2. Atualizar título da matéria
-            if (elementos.questionTopic && materia !== 'todas') {
-                elementos.questionTopic.textContent = materia.toUpperCase();
-            }
-
-            // 3. Buscar simulado no servidor
-            const resposta = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/iniciar?materia=${materia}`);
-            
-            if (!resposta.ok) {
-                throw new Error(`HTTP ${resposta.status}`);
-            }
-
-            const data = await resposta.json();
-            
-            estadoSimulado.simulado_id = data.simulado_id;
-            estadoSimulado.perguntas = data.perguntas;
-            estadoSimulado.tempoInicio = Date.now();
-            estadoSimulado.tempoDecorrido = 0;
-
-            console.log('✅ Simulado carregado:', data);
-            Utils.exibirNotificacao('Simulado iniciado com sucesso!', 'sucesso');
-
-        } catch (error) {
-            console.error('❌ Erro ao carregar simulado:', error);
-            
-            // Fallback para dados de exemplo (para desenvolvimento)
-            if (window.location.hostname === 'localhost') {
-                Utils.exibirNotificacao('Usando dados de exemplo (modo desenvolvimento)', 'aviso');
-                await this.carregarDadosExemplo();
-            } else {
-                Utils.exibirNotificacao('Erro ao carregar simulado. Tente novamente.', 'erro');
-                setTimeout(() => window.location.href = 'index.html', 3000);
-            }
-        }
-    }
-
-    static async carregarDadosExemplo() {
-        // Dados de exemplo para desenvolvimento
-        estadoSimulado.perguntas = Array.from({ length: 20 }, (_, i) => ({
-            id: i + 1,
-            pergunta: `Questão de exemplo ${i + 1} sobre ${estadoSimulado.materia || 'ANAC'}`,
-            opcoes: {
-                A: `Alternativa A da questão ${i + 1}`,
-                B: `Alternativa B da questão ${i + 1}`
-            },
-            letra_correta: Math.random() > 0.5 ? 'A' : 'B'
-        }));
-        estadoSimulado.simulado_id = 'exemplo_' + Date.now();
-    }
-
-    static async verificarContinuarSimulado(estadoSalvo) {
-        // Verificar se o simulado salvo é recente (menos de 24 horas)
-        const tempoPassado = Date.now() - estadoSalvo.tempoInicio;
-        const vinteQuatroHoras = 24 * 60 * 60 * 1000;
-        
-        if (tempoPassado > vinteQuatroHoras) {
-            Utils.limparEstadoLocal();
-            return false;
-        }
-
-        // Perguntar ao usuário se deseja continuar
-        return await new Promise(resolve => {
-            const modal = Utils.criarElemento('div', ['modal-continuar']);
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <h3>Simulado em andamento</h3>
-                    <p>Você tem um simulado incompleto de ${Utils.formatarTempo(estadoSalvo.tempoDecorrido)}.</p>
-                    <p>${Object.keys(estadoSalvo.respostas).length} questões respondidas.</p>
-                    <div class="modal-buttons">
-                        <button class="btn btn-secondary" id="btn-novo">Iniciar Novo</button>
-                        <button class="btn btn-primary" id="btn-continuar">Continuar</button>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            document.getElementById('btn-novo').addEventListener('click', () => {
-                modal.remove();
-                Utils.limparEstadoLocal();
-                resolve(false);
-            });
-            
-            document.getElementById('btn-continuar').addEventListener('click', () => {
-                modal.remove();
-                resolve(true);
-            });
-        });
-    }
-
-    static renderizarEstadoSalvo() {
-        Utils.exibirNotificacao(`Simulado retomado. ${Object.keys(estadoSimulado.respostas).length} questões respondidas.`, 'info');
-    }
-
-    static iniciarTemporizador() {
-        estadoSimulado.tempoInterval = setInterval(() => {
-            estadoSimulado.tempoDecorrido++;
-            
-            // Atualizar timer na tela
-            if (elementos.timer) {
-                elementos.timer.textContent = Utils.formatarTempo(estadoSimulado.tempoDecorrido);
-            }
-            
-            // Verificar tempo limite
-            if (estadoSimulado.tempoDecorrido >= CONFIG.TEMPO_LIMITE) {
-                this.tempoEsgotado();
-            }
-            
-            // Salvar estado a cada 30 segundos
-            if (estadoSimulado.tempoDecorrido % 30 === 0) {
-                Utils.salvarEstadoLocal();
-            }
-        }, 1000);
-    }
-
-    static tempoEsgotado() {
-        clearInterval(estadoSimulado.tempoInterval);
-        Utils.exibirNotificacao('Tempo esgotado! Finalizando simulado...', 'aviso');
-        setTimeout(() => this.finalizar(), 2000);
-    }
-
-    static gerarBotoesProgresso() {
-        if (!elementos.progressNumbers) return;
-        
-        elementos.progressNumbers.innerHTML = '';
-        
-        for (let i = 0; i < CONFIG.TOTAL_QUESTOES; i++) {
-            const btn = Utils.criarElemento('div', ['nav-dot'], {
-                'data-indice': i,
-                'title': `Questão ${i + 1}`
-            });
-            
-            btn.innerHTML = `
-                ${i + 1}
-                <div class="status-indicator"></div>
-            `;
-            
-            btn.addEventListener('click', () => this.carregarQuestao(i));
-            
-            elementos.progressNumbers.appendChild(btn);
-        }
-    }
-
-    static carregarQuestao(indice) {
-        if (indice < 0 || indice >= CONFIG.TOTAL_QUESTOES) return;
-        
-        const questao = estadoSimulado.perguntas[indice];
-        if (!questao) return;
-        
-        estadoSimulado.questaoAtual = indice;
-        
-        // Atualizar elementos da tela
-        this.atualizarCabecalhoQuestao(indice, questao);
-        this.atualizarOpcoesResposta(indice, questao);
-        this.atualizarBotoesNavegacao(indice);
-        this.atualizarBotoesAcoes(indice);
-        this.atualizarBotoesProgresso();
-        
-        // Rolagem suave para o topo da questão
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        // Salvar estado
-        Utils.salvarEstadoLocal();
-    }
-
-    static atualizarCabecalhoQuestao(indice, questao) {
-        if (elementos.currentQuestion) {
-            elementos.currentQuestion.textContent = indice + 1;
-        }
-        
-        if (elementos.questionNumber) {
-            elementos.questionNumber.textContent = `Questão ${indice + 1}`;
-        }
-        
-        if (elementos.questionText) {
-            elementos.questionText.textContent = questao.pergunta;
-        }
-    }
-
-    static atualizarOpcoesResposta(indice, questao) {
-        if (!elementos.optionsContainer) return;
-        
-        elementos.optionsContainer.innerHTML = '';
-        
-        ['A', 'B'].forEach(letra => {
-            const label = Utils.criarElemento('label', ['option']);
-            
-            const input = Utils.criarElemento('input', [], {
-                type: 'radio',
-                name: `q${indice}`,
-                value: letra,
-                id: `opcao-${indice}-${letra}`
-            });
-            
-            if (estadoSimulado.respostas[indice] === letra) {
-                input.checked = true;
-            }
-            
-            input.addEventListener('change', () => this.selecionarResposta(letra));
-            
-            const customRadio = Utils.criarElemento('span', ['custom-radio']);
-            const optionLetter = Utils.criarElemento('span', ['option-letter']);
-            optionLetter.textContent = letra + '.';
-            
-            const optionText = Utils.criarElemento('span', ['option-text']);
-            optionText.textContent = questao.opcoes[letra] || `Alternativa ${letra}`;
-            
-            label.appendChild(input);
-            label.appendChild(customRadio);
-            label.appendChild(optionLetter);
-            label.appendChild(optionText);
-            elementos.optionsContainer.appendChild(label);
-        });
-    }
-
-    static atualizarBotoesNavegacao(indice) {
-        if (elementos.btnAnterior) {
-            elementos.btnAnterior.disabled = indice === 0;
-        }
-        
-        if (elementos.btnProxima) {
-            elementos.btnProxima.disabled = indice === CONFIG.TOTAL_QUESTOES - 1;
-        }
-    }
-
-    static atualizarBotoesAcoes(indice) {
-        if (elementos.btnMarcar) {
-            const marcada = estadoSimulado.marcadas.has(indice);
-            elementos.btnMarcar.classList.toggle('active', marcada);
-            elementos.btnMarcar.innerHTML = marcada 
-                ? '<i class="fas fa-bookmark"></i> Desmarcar Revisão' 
-                : '<i class="far fa-bookmark"></i> Marcar para Revisão';
-        }
-    }
-
-    static selecionarResposta(letra) {
-        if (!Utils.validarResposta(letra)) return;
-        
-        estadoSimulado.respostas[estadoSimulado.questaoAtual] = letra;
-        
-        // Atualizar visual da questão atual
-        this.atualizarBotoesProgresso();
-        
-        // Notificação de confirmação
-        Utils.exibirNotificacao('Resposta registrada!', 'sucesso', 1500);
-        
-        // Auto-avançar se configurado
-        const autoAvancar = localStorage.getItem('autoAvancar') === 'true';
-        if (autoAvancar && estadoSimulado.questaoAtual < CONFIG.TOTAL_QUESTOES - 1) {
-            setTimeout(() => this.carregarQuestao(estadoSimulado.questaoAtual + 1), 500);
-        }
-    }
-
-    static marcarParaRevisao() {
-        const indice = estadoSimulado.questaoAtual;
-        
-        if (estadoSimulado.marcadas.has(indice)) {
-            estadoSimulado.marcadas.delete(indice);
-            Utils.exibirNotificacao('Questão desmarcada da revisão', 'info', 1500);
-        } else {
-            estadoSimulado.marcadas.add(indice);
-            Utils.exibirNotificacao('Questão marcada para revisão', 'sucesso', 1500);
-        }
-        
-        this.atualizarBotoesAcoes(indice);
-        this.atualizarBotoesProgresso();
-        Utils.salvarEstadoLocal();
-    }
-
-    static limparResposta() {
-        delete estadoSimulado.respostas[estadoSimulado.questaoAtual];
-        this.carregarQuestao(estadoSimulado.questaoAtual);
-        Utils.exibirNotificacao('Resposta limpa', 'info', 1500);
-    }
-
-    static atualizarBotoesProgresso() {
-        const botoes = elementos.progressNumbers?.children;
-        if (!botoes) return;
-        
-        for (let i = 0; i < botoes.length; i++) {
-            const btn = botoes[i];
-            btn.classList.remove('active', 'answered', 'marked');
-            
-            if (i === estadoSimulado.questaoAtual) {
-                btn.classList.add('active');
-            }
-            
-            if (estadoSimulado.respostas[i] !== undefined) {
-                btn.classList.add('answered');
-            }
-            
-            if (estadoSimulado.marcadas.has(i)) {
-                btn.classList.add('marked');
-            }
-        }
-    }
-
-    static questaoAnterior() {
-        if (estadoSimulado.questaoAtual > 0) {
-            this.carregarQuestao(estadoSimulado.questaoAtual - 1);
-        }
-    }
-
-    static proximaQuestao() {
-        if (estadoSimulado.questaoAtual < CONFIG.TOTAL_QUESTOES - 1) {
-            this.carregarQuestao(estadoSimulado.questaoAtual + 1);
-        }
-    }
-
-    // ========== FUNÇÃO FINALIZAR CORRIGIDA ==========
-    static async finalizar() {
-        console.log('🔄 Iniciando processo de finalização...');
-        clearInterval(estadoSimulado.tempoInterval);
-        
-        // Preparar dados para envio
-        const respostasArray = this.prepararRespostasParaEnvio();
-        
-        console.log('📊 Dados preparados:', {
-            totalRespostas: respostasArray.length,
-            tempoTotal: estadoSimulado.tempoDecorrido,
-            materia: estadoSimulado.materia
-        });
-        
-        try {
-            // 1. Tentar enviar para API
-            console.log('📤 Enviando para correção na API...');
-            const resultadoAPI = await this.enviarRespostasParaCorrecao(respostasArray);
-            console.log('✅ Resposta da API:', resultadoAPI);
-            
-            // 2. FORMATAR para o formato que resultado.js espera
-            console.log('🔄 Formatando dados para resultado.js...');
-            const resultadoFormatado = this.formatarParaResultadoJS(resultadoAPI, respostasArray, true);
-            console.log('✅ Dados formatados:', resultadoFormatado);
-            
-            // 3. Salvar NO FORMATO CORRETO no localStorage
-            console.log('💾 Salvando no localStorage...');
-            localStorage.setItem('resultado_simulado', JSON.stringify(resultadoFormatado));
-            
-            // 4. Backup adicional no sessionStorage
-            sessionStorage.setItem('resultado_backup', JSON.stringify(resultadoFormatado));
-            
-            // 5. Limpar estado do simulado
-            Utils.limparEstadoLocal();
-            
-            // 6. Redirecionar para resultado
-            console.log('🔗 Redirecionando para resultado.html...');
-            setTimeout(() => {
-                window.location.href = 'resultado.html';
-            }, 500);
-            
-        } catch (error) {
-            console.error('❌ Erro ao finalizar simulado, usando fallback local:', error);
-            
-            // 7. Fallback: calcular localmente
-            const resultadoLocal = this.calcularResultadoLocal(respostasArray);
-            
-            // 8. FORMATAR para o formato que resultado.js espera
-            const resultadoFormatado = this.formatarParaResultadoJS(resultadoLocal, respostasArray, false);
-            
-            // 9. Salvar NO FORMATO CORRETO
-            localStorage.setItem('resultado_simulado', JSON.stringify(resultadoFormatado));
-            sessionStorage.setItem('resultado_backup', JSON.stringify(resultadoFormatado));
-            
-            // 10. Limpar estado e redirecionar
-            Utils.limparEstadoLocal();
-            window.location.href = 'resultado.html';
-        }
-    }
-
-    // ========== NOVA FUNÇÃO: FORMATAR PARA resultado.js ==========
-    static formatarParaResultadoJS(dadosAPI, respostasArray, veioDaAPI = true) {
-        console.log('📝 Formatando dados para resultado.js...');
-        
-        // 1. Criar array de correções no formato correto
-        const correcoes = respostasArray.map(resposta => {
-            const pergunta = estadoSimulado.perguntas[resposta.numero - 1];
-            const respostaCorreta = pergunta?.letra_correta || 'A';
-            const acertou = veioDaAPI ? 
-                resposta.correta : 
-                (resposta.resposta === respostaCorreta);
-            
-            // Determinar nível baseado na questão
-            const niveis = ['Fácil', 'Médio', 'Difícil'];
-            const nivel = niveis[resposta.numero % 3];
-            
-            // Determinar tópico baseado na matéria
-            const topicosPorMateria = {
-                'ELÉTRICA': ['Circuitos', 'Eletromagnetismo', 'Instalações'],
-                'MATEMÁTICA': ['Álgebra', 'Geometria', 'Cálculo'],
-                'PORTUGUÊS': ['Gramática', 'Interpretação', 'Redação']
-            };
-            const topicos = topicosPorMateria[estadoSimulado.materia] || ['Geral'];
-            const topico = topicos[resposta.numero % topicos.length];
-            
-            return {
-                numero: resposta.numero,
-                materia: estadoSimulado.materia || 'Geral',
-                nivel: nivel,
-                topico: topico,
-                pergunta: pergunta?.pergunta || `Questão ${resposta.numero}`,
-                resposta_usuario: resposta.resposta_texto || `Alternativa ${resposta.resposta}`,
-                resposta_correta: pergunta?.opcoes?.[respostaCorreta] || `Alternativa ${respostaCorreta}`,
-                acertou: acertou,
-                explicacao: `Esta é uma explicação detalhada da questão ${resposta.numero} sobre ${estadoSimulado.materia || 'ANAC'}. A resposta correta é a alternativa ${respostaCorreta} porque...`,
-                referencia: 'ANAC - Manual do Candidato 2024'
-            };
-        });
-        
-        // 2. Calcular estatísticas
-        const totalQuestoes = estadoSimulado.perguntas.length || 20;
-        const acertos = veioDaAPI ? 
-            dadosAPI.corretas || dadosAPI.acertos || 0 : 
-            correcoes.filter(c => c.acertou).length;
-        const percentual = Math.round((acertos / totalQuestoes) * 100);
-        
-        // 3. Retornar no formato QUE resultado.js ESPERA
-        const resultadoFormatado = {
-            correcoes: correcoes,
-            estatisticas: {
-                total: totalQuestoes,
-                acertos: acertos,
-                percentual: percentual,
-                aprovado: percentual >= 70,
-                tempo_total: estadoSimulado.tempoDecorrido || 0
-            },
-            metadata: {
-                simulado_id: estadoSimulado.simulado_id,
-                materia: estadoSimulado.materia,
-                data: new Date().toISOString(),
-                origem: veioDaAPI ? 'api' : 'local'
-            }
-        };
-        
-        console.log('✅ Formatação concluída:', {
-            totalCorrecoes: resultadoFormatado.correcoes.length,
-            estatisticas: resultadoFormatado.estatisticas,
-            formatoValido: resultadoFormatado.correcoes && resultadoFormatado.estatisticas
-        });
-        
-        return resultadoFormatado;
-    }
-
-    static prepararRespostasParaEnvio() {
-        const respostasArray = [];
-        
-        for (let i = 0; i < CONFIG.TOTAL_QUESTOES; i++) {
-            if (estadoSimulado.respostas[i] !== undefined) {
-                const pergunta = estadoSimulado.perguntas[i];
-                const minhaLetra = estadoSimulado.respostas[i];
-                const meuTexto = pergunta?.opcoes?.[minhaLetra] || `Alternativa ${minhaLetra}`;
-                const respostaCorreta = pergunta?.letra_correta || 'A';
-                const textoCorreto = pergunta?.opcoes?.[respostaCorreta] || `Alternativa ${respostaCorreta}`;
-                const acertou = minhaLetra === respostaCorreta;
-                
-                respostasArray.push({
-                    numero: i + 1,
-                    pergunta_id: pergunta?.id || i + 1,
-                    resposta: minhaLetra,
-                    resposta_texto: meuTexto,
-                    resposta_letra: minhaLetra,
-                    texto_correto: textoCorreto, // IMPORTANTE para o resultado.js
-                    correta: acertou,
-                    letra_correta: respostaCorreta,
-                    marcada_revisao: estadoSimulado.marcadas.has(i),
-                    materia: estadoSimulado.materia
-                });
-            }
-        }
-        
-        console.log('📋 Respostas preparadas para envio:', respostasArray);
-        return respostasArray;
-    }
-
-    static async enviarRespostasParaCorrecao(respostasArray) {
-        console.log('📤 Enviando para correção...');
-        
-        const resposta = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/corrigir`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                simulado_id: estadoSimulado.simulado_id,
-                respostas: respostasArray,
-                tempo_total: estadoSimulado.tempoDecorrido,
-                materia: estadoSimulado.materia,
-                data_realizacao: new Date().toISOString()
-            })
-        });
-        
-        if (!resposta.ok) {
-            throw new Error(`HTTP ${resposta.status}: ${await resposta.text()}`);
-        }
-        
-        const resultado = await resposta.json();
-        console.log('✅ Resposta da API de correção:', resultado);
-        return resultado;
-    }
-
-    static calcularResultadoLocal(respostasArray) {
-        const corretas = respostasArray.filter(r => r.correta).length;
-        const porcentagem = Math.round((corretas / CONFIG.TOTAL_QUESTOES) * 100);
-        
-        const resultado = {
-            simulado_id: estadoSimulado.simulado_id,
-            total_questoes: CONFIG.TOTAL_QUESTOES,
-            respondidas: respostasArray.length,
-            corretas: corretas,
-            acertos: corretas, // Duplicado para compatibilidade
-            porcentagem: porcentagem,
-            tempo_total: estadoSimulado.tempoDecorrido,
-            materia: estadoSimulado.materia,
-            respostas: respostasArray,
-            data: new Date().toISOString(),
-            modo_offline: true
-        };
-        
-        console.log('📊 Resultado calculado localmente:', resultado);
-        return resultado;
-    }
-
-    static configurarEventListeners() {
-        // Teclado shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Ignorar se estiver em input/texto
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
-            switch(e.key) {
-                case 'ArrowLeft':
-                    this.questaoAnterior();
-                    break;
-                case 'ArrowRight':
-                    this.proximaQuestao();
-                    break;
-                case '1':
-                    this.selecionarResposta('A');
-                    break;
-                case '2':
-                    this.selecionarResposta('B');
-                    break;
-                case 'm':
-                case 'M':
-                    this.marcarParaRevisao();
-                    break;
-                case 'Escape':
-                    if (elementos.modalFinalizar?.style.display === 'flex') {
-                        this.fecharModal();
-                    }
-                    break;
-            }
-        });
-        
-        // Salvar estado antes de fechar a página
-        window.addEventListener('beforeunload', (e) => {
-            if (Object.keys(estadoSimulado.respostas).length > 0 && !estadoSimulado.estadoSalvo) {
-                Utils.salvarEstadoLocal();
-                e.preventDefault();
-                e.returnValue = '';
-            }
-        });
-    }
-
-    static configurarProtecaoNavegacao() {
-        window.addEventListener('beforeunload', (e) => {
-            if (Object.keys(estadoSimulado.respostas).length > 0) {
-                const mensagem = 'Você tem um simulado em andamento. Tem certeza que deseja sair?';
-                e.returnValue = mensagem;
-                return mensagem;
-            }
-        });
-    }
-
-    static abrirModalFinalizar() {
-        const respondidas = Object.keys(estadoSimulado.respostas).length;
-        const marcadas = estadoSimulado.marcadas.size;
-        
-        if (elementos.modalRespondidas) {
-            elementos.modalRespondidas.textContent = respondidas;
-        }
-        
-        if (elementos.modalMarcadas) {
-            elementos.modalMarcadas.textContent = marcadas;
-        }
-        
-        if (elementos.modalTempo) {
-            elementos.modalTempo.textContent = Utils.formatarTempo(estadoSimulado.tempoDecorrido);
-        }
-        
-        if (elementos.modalFinalizar) {
-            elementos.modalFinalizar.style.display = 'flex';
-        }
-    }
-
-    static fecharModal() {
-        if (elementos.modalFinalizar) {
-            elementos.modalFinalizar.style.display = 'none';
-        }
-    }
+function totalQuestoes() {
+  return estado.perguntas.length;
 }
 
-// ========== INICIALIZAÇÃO ==========
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('📄 simulado.js carregado - Versão COMPATÍVEL com resultado.js');
-    
-    // Adicionar estilos para notificações
-    const estilosNotificacoes = `
-        .notificacao {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            z-index: 10000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            animation: slideIn 0.3s ease-out;
-            max-width: 350px;
-        }
-        
-        .notificacao-sucesso { background: linear-gradient(135deg, #10b981, #34d399); }
-        .notificacao-erro { background: linear-gradient(135deg, #dc2626, #ef4444); }
-        .notificacao-aviso { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-        .notificacao-info { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
-        
-        .fade-out {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.5s ease;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .modal-continuar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .modal-continuar .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            max-width: 400px;
-            width: 90%;
-        }
-    `;
-    
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = estilosNotificacoes;
-    document.head.appendChild(styleSheet);
-    
-    // Iniciar o simulado
-    ControladorSimulado.iniciar().catch(error => {
-        console.error('Erro fatal ao iniciar simulado:', error);
-        Utils.exibirNotificacao('Erro ao iniciar simulado. Recarregue a página.', 'erro');
+function validarOpcao(opcaoId) {
+  return ['A', 'B', 'C', 'D'].includes(String(opcaoId || '').toUpperCase());
+}
+
+function atualizarAutoAvancarUI() {
+  const ativo = localStorage.getItem(CONFIG.AUTO_KEY) === 'true';
+  if (el.autoText) el.autoText.textContent = `Auto-Avancar: ${ativo ? 'ON' : 'OFF'}`;
+  if (el.btnAutoAvancar) el.btnAutoAvancar.classList.toggle('active', ativo);
+  if (el.btnAutoToggle) el.btnAutoToggle.classList.toggle('active', ativo);
+}
+
+function atualizarTimer() {
+  if (el.timer) el.timer.textContent = formatarTempo(estado.tempoDecorrido);
+}
+
+function iniciarTimer() {
+  clearInterval(estado.timerId);
+  estado.timerId = setInterval(() => {
+    estado.tempoDecorrido += 1;
+    atualizarTimer();
+    if (estado.tempoDecorrido >= CONFIG.TEMPO_LIMITE) finalizarSimulado();
+  }, 1000);
+}
+
+function atualizarRotuloTotal() {
+  const total = totalQuestoes();
+  const progress = document.querySelector('.progress-display span');
+  if (progress) {
+    progress.innerHTML = `Questao <span id="current-question">${estado.questaoAtual + 1}</span> de ${total}`;
+    el.currentQuestion = document.getElementById('current-question');
+  }
+
+  const respondidasNode = el.modalRespondidas?.closest('.stat-item')?.querySelector('strong');
+  if (respondidasNode) {
+    respondidasNode.innerHTML = `<span id="modal-respondidas">${Object.keys(estado.respostas).length}</span>/${total}`;
+    el.modalRespondidas = document.getElementById('modal-respondidas');
+  }
+}
+
+function atualizarBotoesNavegacao() {
+  const idx = estado.questaoAtual;
+  const total = totalQuestoes();
+  if (el.btnAnterior) el.btnAnterior.disabled = idx === 0;
+  if (el.btnProxima) el.btnProxima.disabled = idx >= total - 1;
+}
+
+function atualizarIndicadoresProgresso() {
+  const botoes = el.progressNumbers?.children;
+  if (!botoes) return;
+
+  for (let i = 0; i < botoes.length; i += 1) {
+    const btn = botoes[i];
+    btn.classList.remove('active', 'answered', 'marked');
+    if (i === estado.questaoAtual) btn.classList.add('active');
+
+    const pergunta = estado.perguntas[i];
+    if (pergunta && estado.respostas[pergunta.id]) btn.classList.add('answered');
+    if (estado.marcadas.has(i)) btn.classList.add('marked');
+  }
+}
+
+function renderizarBotoesProgresso() {
+  if (!el.progressNumbers) return;
+  el.progressNumbers.innerHTML = '';
+
+  for (let i = 0; i < totalQuestoes(); i += 1) {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot';
+    dot.innerHTML = `${i + 1}<div class="status-indicator"></div>`;
+    dot.addEventListener('click', () => carregarQuestao(i));
+    el.progressNumbers.appendChild(dot);
+  }
+}
+
+function renderizarOpcoes(questao) {
+  if (!el.optionsContainer) return;
+  el.optionsContainer.innerHTML = '';
+
+  for (const opcao of questao.opcoes) {
+    const label = document.createElement('label');
+    label.className = 'option';
+
+    const input = document.createElement('input');
+    input.type = 'radio';
+    input.name = `q${questao.id}`;
+    input.value = opcao.id;
+    if (estado.respostas[questao.id] === opcao.id) input.checked = true;
+    input.addEventListener('change', () => selecionarResposta(opcao.id));
+
+    const custom = document.createElement('span');
+    custom.className = 'custom-radio';
+
+    const letter = document.createElement('span');
+    letter.className = 'option-letter';
+    letter.textContent = `${opcao.id}.`;
+
+    const text = document.createElement('span');
+    text.className = 'option-text';
+    text.textContent = opcao.texto;
+
+    label.append(input, custom, letter, text);
+    el.optionsContainer.appendChild(label);
+  }
+}
+
+function carregarQuestao(indice) {
+  if (indice < 0 || indice >= totalQuestoes()) return;
+
+  estado.questaoAtual = indice;
+  const questao = estado.perguntas[indice];
+  if (!questao) return;
+
+  if (el.currentQuestion) el.currentQuestion.textContent = indice + 1;
+  if (el.questionNumber) el.questionNumber.textContent = `Questao ${indice + 1}`;
+  if (el.questionText) el.questionText.textContent = questao.pergunta;
+  if (el.questionTopic) el.questionTopic.textContent = `${questao.modulo || ''} ${questao.materia || ''}`.trim();
+
+  renderizarOpcoes(questao);
+  atualizarBotoesNavegacao();
+  atualizarIndicadoresProgresso();
+  atualizarRotuloTotal();
+}
+
+function selecionarResposta(opcaoId) {
+  const opcao = String(opcaoId || '').toUpperCase();
+  if (!validarOpcao(opcao)) return;
+
+  const questao = estado.perguntas[estado.questaoAtual];
+  if (!questao) return;
+
+  estado.respostas[questao.id] = opcao;
+  atualizarIndicadoresProgresso();
+  atualizarRotuloTotal();
+
+  const auto = localStorage.getItem(CONFIG.AUTO_KEY) === 'true';
+  if (auto && estado.questaoAtual < totalQuestoes() - 1) {
+    setTimeout(() => carregarQuestao(estado.questaoAtual + 1), 300);
+  }
+}
+
+function montarRespostasParaCorrecao() {
+  return estado.perguntas
+    .map((p, index) => {
+      const opcaoId = estado.respostas[p.id];
+      if (!opcaoId) return null;
+      return { numero: index + 1, pergunta_id: p.id, opcao_id: opcaoId };
+    })
+    .filter(Boolean);
+}
+
+async function finalizarSimulado() {
+  clearInterval(estado.timerId);
+
+  try {
+    const respostas = montarRespostasParaCorrecao();
+    const response = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/corrigir`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ simulado_id: estado.simuladoId, respostas, tempo_total: estado.tempoDecorrido })
     });
-});
 
-// ========== FUNÇÕES GLOBAIS PARA HTML ==========
-// Estas funções são chamadas pelos onclick no HTML
-window.marcarParaRevisao = () => ControladorSimulado.marcarParaRevisao();
-window.limparResposta = () => ControladorSimulado.limparResposta();
-window.questaoAnterior = () => ControladorSimulado.questaoAnterior();
-window.proximaQuestao = () => ControladorSimulado.proximaQuestao();
-window.abrirModalFinalizar = () => ControladorSimulado.abrirModalFinalizar();
-window.fecharModal = () => ControladorSimulado.fecharModal();
-window.finalizarSimulado = () => ControladorSimulado.finalizar();
+    if (!response.ok) throw new Error(`Falha na correcao (${response.status})`);
 
-// ========== FUNÇÃO DE DEBUG ==========
-// Use esta função no console para testar a finalização
-window.testarFinalizacao = async function() {
-    console.log('🧪 TESTANDO FINALIZAÇÃO...');
-    
-    // Simula algumas respostas para teste
-    estadoSimulado.respostas = {
-        0: 'A',
-        1: 'B', 
-        2: 'A',
-        3: 'B',
-        4: 'A',
-        5: 'B',
-        6: 'A',
-        7: 'B',
-        8: 'A',
-        9: 'B'
-    };
-    
-    estadoSimulado.materia = 'ELÉTRICA';
-    estadoSimulado.tempoDecorrido = 1200; // 20 minutos
-    
-    const respostasArray = ControladorSimulado.prepararRespostasParaEnvio();
-    const resultadoFormatado = ControladorSimulado.formatarParaResultadoJS(
-        { corretas: 7, acertos: 7, porcentagem: 70 },
-        respostasArray,
-        false
-    );
-    
-    console.log('✅ Formato gerado:', resultadoFormatado);
-    console.log('📊 Validação:', {
-        temCorrecoes: !!resultadoFormatado.correcoes,
-        temEstatisticas: !!resultadoFormatado.estatisticas,
-        correcoesLength: resultadoFormatado.correcoes.length,
-        estatisticas: resultadoFormatado.estatisticas,
-        formatoCorreto: resultadoFormatado.correcoes && resultadoFormatado.estatisticas
-    });
-    
-    // Salva para testar
-    localStorage.setItem('resultado_simulado', JSON.stringify(resultadoFormatado));
-    sessionStorage.setItem('resultado_backup', JSON.stringify(resultadoFormatado));
-    
-    console.log('💾 Dados salvos no formato correto!');
-    console.log('🔗 Pronto para redirecionar para resultado.html');
-    console.log('👉 Digite: window.location.href = "resultado.html"');
-};
+    const resultado = await response.json();
+    localStorage.setItem('resultado_simulado', JSON.stringify(resultado));
+    sessionStorage.setItem('resultado_backup', JSON.stringify(resultado));
+    window.location.href = 'resultado.html';
+  } catch (error) {
+    alert('Nao foi possivel finalizar o simulado. Tente novamente.');
+    console.error(error);
+  }
+}
 
-// Exportar para uso global
-window.ControladorSimulado = ControladorSimulado;
-window.Utils = Utils;
+async function carregarSimulado() {
+  const params = new URLSearchParams(window.location.search);
+  estado.materia = params.get('materia') || localStorage.getItem('materiaCodigo') || 'todas';
+  estado.modulo = params.get('modulo') || localStorage.getItem('moduloSelecionado') || 'todos';
+  estado.quantidade = Number(params.get('quantidade') || localStorage.getItem('quantidadeSelecionada') || 20);
+
+  const query = new URLSearchParams({
+    materia: estado.materia,
+    modulo: estado.modulo,
+    quantidade: String([20, 50, 100].includes(estado.quantidade) ? estado.quantidade : 20)
+  });
+
+  const response = await fetch(`${CONFIG.API_BASE_URL}/api/simulado/iniciar?${query.toString()}`);
+  if (!response.ok) throw new Error(`Erro ao iniciar simulado (${response.status})`);
+
+  const data = await response.json();
+  estado.simuladoId = data.simulado_id;
+  estado.perguntas = data.perguntas || [];
+
+  if (estado.perguntas.length === 0) throw new Error('Sem perguntas para o filtro escolhido');
+}
+
+function marcarParaRevisao() {
+  const idx = estado.questaoAtual;
+  if (estado.marcadas.has(idx)) estado.marcadas.delete(idx);
+  else estado.marcadas.add(idx);
+
+  if (el.modalMarcadas) el.modalMarcadas.textContent = estado.marcadas.size;
+  atualizarIndicadoresProgresso();
+}
+
+function limparResposta() {
+  const questao = estado.perguntas[estado.questaoAtual];
+  if (!questao) return;
+  delete estado.respostas[questao.id];
+  carregarQuestao(estado.questaoAtual);
+}
+
+function questaoAnterior() {
+  carregarQuestao(estado.questaoAtual - 1);
+}
+
+function proximaQuestao() {
+  carregarQuestao(estado.questaoAtual + 1);
+}
+
+function abrirModalFinalizar() {
+  if (!el.modalFinalizar) return;
+  if (el.modalRespondidas) el.modalRespondidas.textContent = Object.keys(estado.respostas).length;
+  if (el.modalTempo) el.modalTempo.textContent = formatarTempo(estado.tempoDecorrido);
+  if (el.modalMarcadas) el.modalMarcadas.textContent = estado.marcadas.size;
+  el.modalFinalizar.style.display = 'flex';
+}
+
+function fecharModal() {
+  if (el.modalFinalizar) el.modalFinalizar.style.display = 'none';
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  const btn = document.getElementById('btn-dark-mode');
+  if (!btn) return;
+  const isDark = document.body.classList.contains('dark-mode');
+  btn.classList.toggle('active', isDark);
+  btn.innerHTML = isDark
+    ? '<i class="fas fa-sun"></i><span>Tema Claro</span>'
+    : '<i class="fas fa-moon"></i><span>Tema Escuro</span>';
+}
+
+function toggleAutoAvancar() {
+  const atual = localStorage.getItem(CONFIG.AUTO_KEY) === 'true';
+  localStorage.setItem(CONFIG.AUTO_KEY, String(!atual));
+  atualizarAutoAvancarUI();
+}
+
+function configurarEventos() {
+  document.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.key === 'ArrowLeft') questaoAnterior();
+    if (e.key === 'ArrowRight') proximaQuestao();
+    if (['1', '2', '3', '4'].includes(e.key)) {
+      const letter = ['A', 'B', 'C', 'D'][Number(e.key) - 1];
+      selecionarResposta(letter);
+    }
+    if (e.key.toLowerCase() === 'm') marcarParaRevisao();
+  });
+}
+
+async function iniciar() {
+  try {
+    await carregarSimulado();
+    atualizarAutoAvancarUI();
+    atualizarTimer();
+    iniciarTimer();
+    renderizarBotoesProgresso();
+    carregarQuestao(0);
+    configurarEventos();
+  } catch (error) {
+    console.error(error);
+    alert('Nao foi possivel carregar o simulado. Verifique o backend e tente novamente.');
+  }
+}
+
+window.toggleDarkMode = toggleDarkMode;
+window.toggleAutoAvancar = toggleAutoAvancar;
+window.marcarParaRevisao = marcarParaRevisao;
+window.limparResposta = limparResposta;
+window.questaoAnterior = questaoAnterior;
+window.proximaQuestao = proximaQuestao;
+window.abrirModalFinalizar = abrirModalFinalizar;
+window.fecharModal = fecharModal;
+window.finalizarSimulado = finalizarSimulado;
+
+document.addEventListener('DOMContentLoaded', iniciar);
