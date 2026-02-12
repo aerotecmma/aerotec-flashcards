@@ -1,5 +1,14 @@
+function resolveApiBaseUrl() {
+  const saved = localStorage.getItem('api_base_url');
+  if (saved) return saved;
+
+  const host = window.location.hostname;
+  const isLocal = !host || host === 'localhost' || host === '127.0.0.1';
+  return isLocal ? 'http://localhost:3001' : window.location.origin;
+}
+
 const CONFIG = {
-  API_BASE_URL: window.location.origin.startsWith('http') ? window.location.origin : 'http://localhost:3001',
+  API_BASE_URL: resolveApiBaseUrl(),
   TEMPO_LIMITE: 60 * 60,
   AUTO_KEY: 'simulado_auto_avancar'
 };

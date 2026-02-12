@@ -9,7 +9,16 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 });
 
-const API_URL = window.location.origin.startsWith('http') ? window.location.origin : 'http://localhost:3001';
+function resolveApiBaseUrl() {
+  const saved = localStorage.getItem('api_base_url');
+  if (saved) return saved;
+
+  const host = window.location.hostname;
+  const isLocal = !host || host === 'localhost' || host === '127.0.0.1';
+  return isLocal ? 'http://localhost:3001' : window.location.origin;
+}
+
+const API_URL = resolveApiBaseUrl();
 const QUANTIDADES_VALIDAS = [20, 50, 100];
 
 function quantidadeSelecionada() {
