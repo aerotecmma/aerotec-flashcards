@@ -5,6 +5,8 @@ const estado = {
   filtroStatus: 'todas'
 };
 
+const MATERIA_STOPWORDS = new Set(['a', 'e', 'da', 'das', 'de', 'do', 'dos']);
+
 const elementos = {
   loading: document.getElementById('loading'),
   infoMateria: document.getElementById('info-materia'),
@@ -46,6 +48,24 @@ function formatarTempo(segundos) {
     : `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
+function formatarNomeMateria(codigoMateria) {
+  const partes = String(codigoMateria || '')
+    .replace(/[_-]+/g, ' ')
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (partes.length === 0) return '';
+
+  return partes
+    .map((parte, index) => {
+      if (index > 0 && MATERIA_STOPWORDS.has(parte)) return parte;
+      return parte.charAt(0).toUpperCase() + parte.slice(1);
+    })
+    .join(' ');
+}
+
 function carregarResultado() {
   const raw = localStorage.getItem('resultado_simulado') || sessionStorage.getItem('resultado_backup');
   if (!raw) throw new Error('Nenhum resultado encontrado.');
@@ -60,7 +80,7 @@ function carregarResultado() {
 
 function atualizarCabecalho() {
   const { correcoes, estatisticas } = estado.resultado;
-  const materias = [...new Set(correcoes.map((c) => c.materia).filter(Boolean))];
+  const materias = [...new Set(correcoes.map((c) => formatarNomeMateria(c.materia)).filter(Boolean))];
   const agora = new Date();
 
   elementos.infoMateria.textContent = materias.length > 1 ? `${materias.length} materias` : (materias[0] || 'Geral');
@@ -152,7 +172,7 @@ function renderizarQuestoes() {
       </div>
       <div class="metadata">
         <div class="meta-item"><i class="fas fa-layer-group"></i><span>${escapeHTML(c.modulo || 'N/A')}</span></div>
-        <div class="meta-item"><i class="fas fa-book"></i><span>${escapeHTML(c.materia || 'N/A')}</span></div>
+        <div class="meta-item"><i class="fas fa-book"></i><span>${escapeHTML(formatarNomeMateria(c.materia) || 'N/A')}</span></div>
         <div class="meta-item"><i class="fas fa-tag"></i><span>${escapeHTML(c.topico || 'N/A')}</span></div>
       </div>
       <button class="btn-toggle" onclick="toggleExplicacao('${expId}')"><i class="fas fa-lightbulb"></i> Ver explicacao</button>
@@ -172,7 +192,7 @@ function configurarFiltros() {
   materias.forEach((m) => {
     const option = document.createElement('option');
     option.value = m;
-    option.textContent = m;
+    option.textContent = formatarNomeMateria(m);
     elementos.filterMateria.appendChild(option);
   });
 

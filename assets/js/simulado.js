@@ -13,6 +13,8 @@ const CONFIG = {
   AUTO_KEY: 'simulado_auto_avancar'
 };
 
+const OPTION_LABELS = ['A', 'B', 'C', 'D'];
+
 const estado = {
   simuladoId: null,
   perguntas: [],
@@ -57,8 +59,15 @@ function totalQuestoes() {
   return estado.perguntas.length;
 }
 
-function validarOpcao(opcaoId) {
-  return ['A', 'B', 'C', 'D'].includes(String(opcaoId || '').toUpperCase());
+function normalizarOpcaoId(opcaoId) {
+  if (opcaoId === null || opcaoId === undefined) return null;
+  return String(opcaoId);
+}
+
+function validarOpcao(questao, opcaoId) {
+  const id = normalizarOpcaoId(opcaoId);
+  if (!id || !questao || !Array.isArray(questao.opcoes)) return false;
+  return questao.opcoes.some((opcao) => normalizarOpcaoId(opcao.id) === id);
 }
 
 function atualizarAutoAvancarUI() {
@@ -135,23 +144,25 @@ function renderizarOpcoes(questao) {
   if (!el.optionsContainer) return;
   el.optionsContainer.innerHTML = '';
 
-  for (const opcao of questao.opcoes) {
+  questao.opcoes.forEach((opcao, index) => {
+    const opcaoId = normalizarOpcaoId(opcao.id);
     const label = document.createElement('label');
     label.className = 'option';
 
     const input = document.createElement('input');
     input.type = 'radio';
     input.name = `q${questao.id}`;
-    input.value = opcao.id;
-    if (estado.respostas[questao.id] === opcao.id) input.checked = true;
-    input.addEventListener('change', () => selecionarResposta(opcao.id));
+    input.value = opcaoId;
+    if (normalizarOpcaoId(estado.respostas[questao.id]) === opcaoId) input.checked = true;
+    input.addEventListener('change', () => selecionarResposta(opcaoId));
 
     const custom = document.createElement('span');
     custom.className = 'custom-radio';
 
     const letter = document.createElement('span');
     letter.className = 'option-letter';
-    letter.textContent = `${opcao.id}.`;
+    const labelText = OPTION_LABELS[index] || String(index + 1);
+    letter.textContent = `${labelText}.`;
 
     const text = document.createElement('span');
     text.className = 'option-text';
@@ -159,7 +170,7 @@ function renderizarOpcoes(questao) {
 
     label.append(input, custom, letter, text);
     el.optionsContainer.appendChild(label);
-  }
+  });
 }
 
 function carregarQuestao(indice) {
@@ -181,11 +192,10 @@ function carregarQuestao(indice) {
 }
 
 function selecionarResposta(opcaoId) {
-  const opcao = String(opcaoId || '').toUpperCase();
-  if (!validarOpcao(opcao)) return;
-
   const questao = estado.perguntas[estado.questaoAtual];
   if (!questao) return;
+  const opcao = normalizarOpcaoId(opcaoId);
+  if (!validarOpcao(questao, opcao)) return;
 
   estado.respostas[questao.id] = opcao;
   atualizarIndicadoresProgresso();
@@ -311,8 +321,10 @@ function configurarEventos() {
     if (e.key === 'ArrowLeft') questaoAnterior();
     if (e.key === 'ArrowRight') proximaQuestao();
     if (['1', '2', '3', '4'].includes(e.key)) {
-      const letter = ['A', 'B', 'C', 'D'][Number(e.key) - 1];
-      selecionarResposta(letter);
+      const questao = estado.perguntas[estado.questaoAtual];
+      const optionIndex = Number(e.key) - 1;
+      const opcao = questao?.opcoes?.[optionIndex];
+      if (opcao) selecionarResposta(opcao.id);
     }
     if (e.key.toLowerCase() === 'm') marcarParaRevisao();
   });

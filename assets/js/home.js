@@ -15,11 +15,23 @@ function resolveApiBaseUrl() {
 
   const host = window.location.hostname;
   const isLocal = !host || host === 'localhost' || host === '127.0.0.1';
-  return isLocal ? 'http://localhost:3001' : window.location.origin;
+  const isGithubPages = host.endsWith('.github.io');
+  if (isLocal) return 'http://localhost:3001';
+  if (isGithubPages) return null;
+  return window.location.origin;
 }
 
 const API_URL = resolveApiBaseUrl();
 const QUANTIDADES_VALIDAS = [20, 50, 100];
+const MATERIA_STOPWORDS = new Set(['a', 'e', 'da', 'das', 'de', 'do', 'dos']);
+const FALLBACK_MATERIAS = [
+  'eletrica',
+  'teoria_e_construcao_de_motores_de_aeronaves',
+  'sistemas_de_admissao_e_de_escapamento',
+  'sistemas_de_combustivel_do_motor_e_medicao_do_combustivel',
+  'revisoes'
+];
+let materiasCarregadasEmFallback = false;
 
 function quantidadeSelecionada() {
   const select = document.getElementById('quantidade-select');
@@ -28,25 +40,56 @@ function quantidadeSelecionada() {
 }
 
 async function carregarMaterias() {
-  const response = await fetch(`${API_URL}/api/materias`);
-  if (!response.ok) throw new Error(`Erro ${response.status} ao buscar materias`);
+  let materiasApi = null;
 
-  const codigos = await response.json();
-  if (!Array.isArray(codigos)) throw new Error('Formato invalido de materias');
+  if (API_URL) {
+    try {
+      const response = await fetch(`${API_URL}/api/materias`);
+      if (response.ok) {
+        const data = await response.json();
+        if (Array.isArray(data)) materiasApi = data;
+      }
+    } catch (error) {
+      console.warn('Falha ao carregar materias da API. Usando fallback estatico.');
+    }
+  }
 
-  const nomes = {
-    eletrica: 'Eletricidade Basica',
-    regulamentos: 'Regulamentos',
-    estruturas: 'Estruturas',
-    motores: 'Motores'
-  };
+  if (!materiasApi || materiasApi.length === 0) {
+    materiasCarregadasEmFallback = true;
+    materiasApi = FALLBACK_MATERIAS;
+  }
 
-  return codigos.map((codigo) => ({
-    codigo,
-    nome: nomes[codigo] || codigo.toUpperCase(),
-    questoes: quantidadeSelecionada(),
-    cor: '#1a56db'
-  }));
+  return materiasApi
+    .map((item) => {
+      const codigo = typeof item === 'string' ? item : item?.codigo;
+      if (!codigo) return null;
+      const nomeDaApi = typeof item === 'object' && item ? item.nome : null;
+      return {
+        codigo,
+        nome: nomeDaApi || formatarNomeMateria(codigo),
+        questoes: quantidadeSelecionada(),
+        cor: '#1a56db'
+      };
+    })
+    .filter(Boolean);
+}
+
+function formatarNomeMateria(codigo) {
+  const partes = String(codigo || '')
+    .replace(/[_-]+/g, ' ')
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (partes.length === 0) return String(codigo || '').toUpperCase();
+
+  return partes
+    .map((parte, index) => {
+      if (index > 0 && MATERIA_STOPWORDS.has(parte)) return parte;
+      return parte.charAt(0).toUpperCase() + parte.slice(1);
+    })
+    .join(' ');
 }
 
 function renderizarMaterias(materias) {
@@ -92,12 +135,17 @@ function renderizarMaterias(materias) {
 }
 
 function iniciarSimulado(codigoMateria, nomeMateria) {
+  if (materiasCarregadasEmFallback && !API_URL) {
+    alert('Cards carregados em modo estatico. Para iniciar simulados no GitHub Pages, configure localStorage api_base_url para sua API.');
+    return;
+  }
+
   const quantidade = quantidadeSelecionada();
   localStorage.setItem('materiaCodigo', codigoMateria);
   localStorage.setItem('materiaNome', nomeMateria);
   localStorage.setItem('quantidadeSelecionada', String(quantidade));
 
-  const modulo = codigoMateria === 'todas' ? 'todos' : 'GMP1';
+  const modulo = 'todos';
   localStorage.setItem('moduloSelecionado', modulo);
 
   const params = new URLSearchParams({
